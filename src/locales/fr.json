@@ -139,6 +139,14 @@
         "contact": "Contact",
         "sixthParagraph": "Pour toute question, information sur les produits présentés sur le Site, ou concernant le Site lui-même, vous pouvez laisser un message à l'adresse email suivante :"
       }
+    },
+    "services": {
+      "price": "Prix",
+      "duration": "Durée",
+      "features": "Fonctionnalités",
+      "interested": "Intéressé par ce service ?",
+      "contactMessage": "N'hésitez pas à me contacter pour discuter de votre projet et obtenir un devis personnalisé.",
+      "contactForm": "Formulaire de contact"
     }
   },
   "project": {

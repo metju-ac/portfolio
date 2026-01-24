@@ -103,6 +103,24 @@
             },
             "iconUrl": "/img/icons/side-menu/github-icon.webp",
             "url": "https://github.com/UnMugViolet"
+          },
+          {
+            "id": 2,
+            "subtitle": {
+              "en": "My LinkedIn",
+              "fr": "Mon LinkedIn"
+            },
+            "iconUrl": "/img/icons/side-menu/linkedin-icon.webp",
+            "url": "https://www.linkedin.com/in/pauljaguin/"
+          },
+          {
+            "id": 3,
+            "subtitle": {
+              "en": "Buy me a coffee",
+              "fr": "Buy me a coffee"
+            },
+            "iconUrl": "/img/icons/side-menu/buy-me-a-coffee-icon.webp",
+            "url": "https://buymeacoffee.com/unmugviolet"
           }
         ]
       }

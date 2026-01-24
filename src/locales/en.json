@@ -143,6 +143,14 @@
         "contact": "Contact",
         "sixthParagraph": "For any questions, information about the products presented on the Site, or regarding the Site itself, you can leave a message at the following email address:"
       }
+    },
+    "services": {
+      "price": "Price",
+      "duration": "Duration",
+      "features": "Features",
+      "interested": "Interested in this service?",
+      "contactMessage": "Feel free to contact me to discuss your project and get a personalized quote.",
+      "contactForm": "Contact Form"
     }
   },
   "project": {

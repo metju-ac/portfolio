@@ -16,6 +16,7 @@
       @toggle-notepad="openWindow('notepad')"
       @toggle-doom="openWindow('doom')"
       @toggle-terminal="openWindow('terminal')"
+      @toggle-services="openWindow('services')"
     />
     <DesktopAppsLayout
       :entities="entities"
@@ -26,6 +27,7 @@
       @toggle-minesweeper="openWindow('minesweeper')"
       @toggle-notepad="openWindow('notepad')"
       @toggle-doom="openWindow('doom')"
+      @toggle-services="openWindow('services')"
     />
     <div v-for="window in windows" :key="window.id">
       <Window
@@ -78,6 +80,7 @@ import Calendar from '@/components/Windows/Calendar/Calendar.vue'
 import Notepad from '@/components/Windows/Notepad.vue'
 import Doom from '@/components/Windows/Doom.vue'
 import Terminal from '@/components/Windows/Terminal.vue'
+import Services from '@/components/Windows/Services.vue'
 
 import DesktopAppsLayout from '@/layouts/DesktopAppsLayout.vue'
 import Window from '@/layouts/Window.vue'
@@ -108,11 +111,9 @@ onUnmounted(() => {
 
 // Keep track of the highest z-index
 const highestZIndex = ref(0)
-provide('highestZIndex', highestZIndex)
 
 // Set activeness of windows
 const activeWindow = ref(null)
-provide('activeWindow', activeWindow)
 
 // Create components from data json
 const components = {
@@ -126,7 +127,8 @@ const components = {
   Calendar: shallowRef(Calendar),
   Notepad: shallowRef(Notepad),
   Doom: shallowRef(Doom),
-  Terminal: shallowRef(Terminal)
+  Terminal: shallowRef(Terminal),
+  Services: shallowRef(Services)
 }
 
 // Create the entities array from the data.json
@@ -246,6 +248,12 @@ const handleOutsideClick = (event) => {
     setActiveWindow(null)
   }
 }
+
+// Provide functions and refs to child components
+provide('highestZIndex', highestZIndex)
+provide('activeWindow', activeWindow)
+provide('openWindow', openWindow)
+provide('minimizeWindow', minimizeWindow)
 
 // Open each window that was open before the page was reloaded
 windowsStore.openWindowIds.forEach((windowId) => {
