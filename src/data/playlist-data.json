@@ -22,7 +22,7 @@
           ],
           "external_urls": {
             "spotify": "https://open.spotify.com/track/1lHiKWnlJtjzA4vHnjAr39",
-            "deezer": "https://www.deezer.com/us/track/2582912462"
+            "deezer": "https://www.deezer.com/us/track/733073"
           }
         },
         "artists": [
@@ -586,17 +586,17 @@
         "duration_ms": 255026
       },
       {
-        "id": "1SQRv42e4PjEYfPhS0Tk9E",
+        "id": "1gnP3cx9uzFAVll8OfBcqz",
         "name": "This Time Tomorrow (2020 Stereo Remaster)",
         "album": {
           "name": "Lola Versus Powerman and the Moneygoround, Pt. 1",
           "images": [
             {
-              "url": "/img/album-covers/1SQRv42e4PjEYfPhS0Tk9E.webp"
+              "url": "/img/album-covers/1gnP3cx9uzFAVll8OfBcqz.webp"
             }
           ],
           "external_urls": {
-            "spotify": "https://open.spotify.com/track/1SQRv42e4PjEYfPhS0Tk9E",
+            "spotify": "https://open.spotify.com/track/1gnP3cx9uzFAVll8OfBcqz",
             "deezer": "https://www.deezer.com/us/track/131313320"
           }
         },
@@ -620,7 +620,7 @@
           ],
           "external_urls": {
             "spotify": "https://open.spotify.com/track/57rAvblBMBmdPBugRF1T77",
-            "deezer": "https://www.deezer.com/us/track/131313320"
+            "deezer": "https://www.deezer.com/us/track/1043338222"
           }
         },
         "artists": [
