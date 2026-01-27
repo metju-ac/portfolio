@@ -20,15 +20,15 @@
         "degree": "DUT TECHNIQUES DE COMMERCIALISATION",
         "institution": "IUT du Havre, site caucriauville",
         "year": "2018 - 2020"
-      },
-      {
-        "degree": "BACCALAURÉAT ÉCONOMIQUE ET SOCIAL",
-        "institution": "Lycée Raymond Queneau",
-        "year": "2015 - 2018",
-        "description": "Section Économique et Social, spécialisation Économie Approfondie"
       }
     ],
     "workExperience": [
+      {
+        "jobTitle": "MISSION DÉVELOPPEUR WEB",
+        "company": "Indépendant, Paris (75)",
+        "year": "Avril 2025",
+        "responsibilities": ["Création du site web fanny-seraudie.fr", "Conception de base de données et du backoffice", "Mise en production avec pipeline Jenkins / Docker sur VPS"]
+      },
       {
         "jobTitle": "ALTERNANT DÉVELOPPEUR WEB",
         "company": "Screenup, Rennes (35)",
@@ -62,12 +62,6 @@
           "Organisation d'un séjour au ski pour 130 participants",
           "Négociation du contrat pour l'année suivante"
         ]
-      },
-      {
-        "jobTitle": "STAGIAIRE EVENEMENTIEL",
-        "company": "Iut site Caucriauville, Le Havre (76)",
-        "year": "Avril 2019",
-        "responsibilities": ["Création d'une plaquette", "Prospection de restaurants partenaires", "Accueil et accompagnement des participants"]
       }
     ]
   },
@@ -92,15 +86,15 @@
         "degree": "DUT SALES TECHNIQUES",
         "institution": "IUT of le Havre",
         "year": "2018 - 2020"
-      },
-      {
-        "degree": "High school diploma - social and economic sciences",
-        "institution": "Raymond Queneau High School",
-        "year": "2015 - 2018",
-        "description": "Economic and Social Section, specializing in advanced economics"
       }
     ],
     "workExperience": [
+      {
+        "jobTitle": "WEB DEVELOPER MISSION",
+        "company": "Freelance, Paris (75)",
+        "year": "April 2025",
+        "responsibilities": ["Creation of the website fanny-seraudie.fr", "Database and backoffice design", "Production deployment with Jenkins / Docker pipeline on VPS"]
+      },
       {
         "jobTitle": "WEB DEVELOPER WORK-STUDY",
         "company": "Screenup, Rennes (35)",
@@ -130,12 +124,6 @@
         "company": "IUT Caucriauville campus, Le Havre (76)",
         "year": "2019 - 2020",
         "responsibilities": ["Sales actions to fund the project", "Organization of a ski trip for 130 participants", "Negotiation of the contract for the following year"]
-      },
-      {
-        "jobTitle": "EVENTS INTERN",
-        "company": "IUT Caucriauville campus, Le Havre (76)",
-        "year": "April 2019",
-        "responsibilities": ["Creation of a brochure", "Prospecting for partner restaurants", "Welcoming and assisting participants"]
       }
     ]
   }
