@@ -142,7 +142,6 @@ portfolio/
 │       ├── Modals/
 │       │   ├── StartMenuModal.vue    # XP Start menu popup
 │       │   ├── LanguageModal.vue     # Language selector popup
-│       │   ├── ClippyModal.vue       # Clippy assistant popup
 │       │   ├── NotificationModals.vue # Generic notification popups
 │       │   └── ShutdownModal.vue     # Shutdown/restart dialog
 │       │
@@ -173,7 +172,6 @@ portfolio/
 │   ├── *.mp4               # Project video
 │   ├── *.pdf               # Downloadable CVs (fr/en)
 │   ├── *.webp              # Logos, profile picture, branding
-│   └── clippy.gif          # Clippy animation
 │
 ├── sass/                   # SCSS source files
 │   ├── main.scss           # Entry point (imports abstracts + components)
