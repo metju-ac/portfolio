@@ -14,7 +14,7 @@ const router = createRouter({
         metaTags: [
           {
             rel: 'canonical',
-            href: 'https://pauljaguin.com'
+            href: ''
           },
           {
             name: 'title',
@@ -72,7 +72,7 @@ const router = createRouter({
           },
           {
             name: 'twitter:image',
-            content: 'https://pauljaguin.com/img/logo-portfolio-black.webp'
+            content: '/img/logo-portfolio-black.webp'
           },
           {
             name: 'twitter:image:alt',
@@ -97,11 +97,11 @@ const router = createRouter({
           },
           {
             property: 'og:url',
-            content: 'https://pauljaguin.com'
+            content: ''
           },
           {
             property: 'og:image',
-            content: 'https://pauljaguin.com/img/logo-portfolio-black.webp'
+            content: '/img/logo-portfolio-black.webp'
           },
           {
             property: 'og:image:alt',
@@ -123,7 +123,7 @@ const router = createRouter({
         metaTags: [
           {
             rel: 'canonical',
-            href: 'https://pauljaguin.com/office'
+            href: '/office'
           },
           {
             name: 'title',
@@ -181,7 +181,7 @@ const router = createRouter({
           },
           {
             name: 'twitter:image',
-            content: 'https://pauljaguin.com/img/logo-portfolio-black.webp'
+            content: '/img/logo-portfolio-black.webp'
           },
           {
             name: 'twitter:image:alt',
@@ -206,11 +206,11 @@ const router = createRouter({
           },
           {
             name: 'og:url',
-            content: 'https://pauljaguin.com/office'
+            content: '/office'
           },
           {
             name: 'og:image',
-            content: 'https://pauljaguin.com/img/logo-portfolio-black.webp'
+            content: '/img/logo-portfolio-black.webp'
           },
           {
             name: 'og:image:alt',

@@ -88,26 +88,10 @@
           {
             "id": 1,
             "subtitle": {
-              "en": "My Github"
-            },
-            "iconUrl": "/img/icons/side-menu/github-icon.webp",
-            "url": "https://github.com/UnMugViolet"
-          },
-          {
-            "id": 2,
-            "subtitle": {
               "en": "My LinkedIn"
             },
             "iconUrl": "/img/icons/side-menu/linkedin-icon.webp",
-            "url": "https://www.linkedin.com/in/pauljaguin/"
-          },
-          {
-            "id": 3,
-            "subtitle": {
-              "en": "Buy me a coffee"
-            },
-            "iconUrl": "/img/icons/side-menu/buy-me-a-coffee-icon.webp",
-            "url": "https://buymeacoffee.com/unmugviolet"
+            "url": "https://www.linkedin.com/in/matej-klima/"
           }
         ]
       }

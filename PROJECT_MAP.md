@@ -6,13 +6,13 @@
 ## 1. Project Overview
 
 **What it is:** A Windows XP desktop simulator serving as a personal portfolio website.
-**Author:** Paul Jaguin (paul@rocketegg.systems)
-**Live URL:** https://pauljaguin.com
+**Author:** Matěj Klíma (matej.klima5@gmail.com)
+**Original author:** Paul Jaguin — [PortfolioXP](https://github.com/UnMugViolet/portfolio)
 **License:** MIT
 
 The application presents a faithful recreation of the Windows XP desktop environment, complete with
 draggable/resizable windows, a taskbar, start menu, and multiple "applications" (projects, CV,
-contact form, music player, Minesweeper, DOOM, terminal, etc.).
+contact form, music player, Minesweeper, terminal, etc.).
 
 ## 2. Technology Stack
 

@@ -18,7 +18,7 @@ const handleLogin = () => {
             <ProfilePicture class="w-16 h-16 stroke-yellow-2" />
           </div>
           <div>
-            <h2 class="text-xl md:text-2xl">Paul</h2>
+            <h2 class="text-xl md:text-2xl">Matěj</h2>
           </div>
         </div>
       </router-link>

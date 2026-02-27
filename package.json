@@ -2,9 +2,8 @@
   "name": "portfolio",
   "version": "1.0.2",
   "private": false,
-  "author": "Paul Jaguin <paul@rocketegg.systems>",
+  "author": "Matěj Klíma <matej.klima5@gmail.com>",
   "license": "MIT",
-  "homepage": "https://pauljaguin.com",
   "scripts": {
     "dev": "vite --host",
     "sass": "sass --watch sass/main.scss:css/main.css",

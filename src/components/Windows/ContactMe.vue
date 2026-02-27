@@ -163,7 +163,7 @@ watch([userEmail, userMessage, emailSubject], ([newUserEmail, newUserMessage, ne
         <input
           type="text"
           class="w-full h-5 border border-input-blue p-1.5 text-xs outline-none placeholder:text-black"
-          placeholder="jaguinpaul@gmail.com"
+          placeholder="matej.klima5@gmail.com"
           readonly="readonly"
         />
       </label>
