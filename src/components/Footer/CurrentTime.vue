@@ -8,18 +8,8 @@ let interval
 
 function getCurrentTime() {
   const now = new Date()
-  if (localeStore.currentLocale === 'fr') {
-    return getFrenchTime(now)
-  } else {
-    return getEnglishTime(now)
-  }
-}
-
-const getFrenchTime = (now) => {
-  const hours = now.getHours()
-  const minutes = now.getMinutes()
-
-  return `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`
+  // Default to English time format; add locale-specific formats here as needed
+  return getEnglishTime(now)
 }
 
 const getEnglishTime = (now) => {

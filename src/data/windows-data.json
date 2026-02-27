@@ -2,12 +2,10 @@
   {
     "id": "myProjects",
     "title": {
-      "en": "My Projects",
-      "fr": "Mes projets"
+      "en": "My Projects"
     },
     "subtitle": {
-      "en": "See all my projects",
-      "fr": "Voir tous mes projets"
+      "en": "See all my projects"
     },
     "imgSrc": "/img/icons/projects/projects-icon-lg.webp",
     "onDesktop": true,
@@ -30,12 +28,10 @@
   {
     "id": "contact",
     "title": {
-      "en": "Contact me",
-      "fr": "Me contacter"
+      "en": "Contact me"
     },
     "subtitle": {
-      "en": "Leave me a message",
-      "fr": "Laissez moi un message"
+      "en": "Leave me a message"
     },
     "imgSrc": "/img/icons/contact/email-icon-lg.webp",
     "onDesktop": true,
@@ -58,12 +54,10 @@
   {
     "id": "myCV",
     "title": {
-      "en": "My CV",
-      "fr": "Mon CV"
+      "en": "My CV"
     },
     "subtitle": {
-      "en": "See the curriculum vitae",
-      "fr": "Voir le curriculum vitae"
+      "en": "See the curriculum vitae"
     },
     "imgSrc": "/img/icons/cv/cv-icon-lg.webp",
     "onDesktop": true,
@@ -86,8 +80,7 @@
   {
     "id": "music",
     "title": {
-      "en": "My Musics",
-      "fr": "Mes Musiques"
+      "en": "My Musics"
     },
     "imgSrc": "/img/icons/music/playmusic-icon-lg.webp",
     "onDesktop": true,
@@ -110,8 +103,7 @@
   {
     "id": "documents",
     "title": {
-      "en": "My Documents",
-      "fr": "Mes documents"
+      "en": "My Documents"
     },
     "imgSrc": "/img/icons/documents/folder-docs-icon-sm.webp",
     "onDesktop": false,
@@ -134,8 +126,7 @@
   {
     "id": "pictures",
     "title": {
-      "en": "My Pictures",
-      "fr": "Mes Images"
+      "en": "My Pictures"
     },
     "imgSrc": "/img/icons/pictures/folder-images-icon-sm.webp",
     "onDesktop": false,
@@ -158,8 +149,7 @@
   {
     "id": "calendar",
     "title": {
-      "en": "Calendar",
-      "fr": "Calendrier"
+      "en": "Calendar"
     },
     "imgSrc": "/img/icons/calendar/calendar-icon-lg.webp",
     "onDesktop": false,
@@ -182,8 +172,7 @@
   {
     "id": "notepad",
     "title": {
-      "en": "Notepad",
-      "fr": "Bloc-notes"
+      "en": "Notepad"
     },
     "imgSrc": "/img/icons/notepad/notepad-icon-lg.webp",
     "onDesktop": true,
@@ -206,12 +195,10 @@
   {
     "id": "terminal",
     "title": {
-      "en": "Terminal",
-      "fr": "Terminal"
+      "en": "Terminal"
     },
     "subtitle": {
-      "en": "Run commands using the terminal",
-      "fr": "Lancer des commandes avec le terminal"
+      "en": "Run commands using the terminal"
     },
     "imgSrc": "/img/icons/cmd-icon-lg.webp",
     "onDesktop": false,
@@ -234,12 +221,10 @@
   {
     "id": "services",
     "title": {
-      "en": "Services",
-      "fr": "Prestations"
+      "en": "Services"
     },
     "subtitle": {
-      "en": "Check out my services",
-      "fr": "Découvrez mes services"
+      "en": "Check out my services"
     },
     "imgSrc": "/img/icons/services-icon-lg.webp",
     "onDesktop": true,

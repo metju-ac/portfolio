@@ -4,14 +4,13 @@ import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
 const localeNames = {
-  en: 'English',
-  fr: 'Français'
+  en: 'English'
 }
 
 const props = defineProps({
   currentLocale: {
     type: String,
-    default: 'fr'
+    default: 'en'
   }
 })
 
@@ -20,13 +19,12 @@ const getFlagSrc = (locale) => {
   return `/img/icons/langs/flag-${locale}.webp`
 }
 
-// Compute the opposite locale
-const oppositeLocale = computed(() => {
-  return props.currentLocale === 'en' ? 'fr' : 'en'
+// Compute the available locales (excluding the current one)
+const availableLocales = computed(() => {
+  return Object.keys(localeNames).filter((l) => l !== props.currentLocale)
 })
 
-const handleLanguageSwitch = () => {
-  const newLocale = props.currentLocale === 'en' ? 'fr' : 'en'
+const handleLanguageSwitch = (newLocale) => {
   localStorage.setItem('currentLocale', newLocale)
   locale.value = newLocale
   location.reload()
@@ -41,9 +39,9 @@ const handleLanguageSwitch = () => {
     </div>
     <div class="bg-light-yellow h-12 mt-3 pr-1">
       <div class="h-full w-full flex items-center px-2 pt-3">
-        <div @click="handleLanguageSwitch" class="flex items-center cursor-pointer">
-          <img :src="getFlagSrc(oppositeLocale)" :alt="$t('common.icon') + ' volume'" class="w-5 h-4 mr-1 cursor-pointer" />
-          <label class="text-black text-xs font-trebuchet-pixel pr-4 cursor-pointer" for="language">{{ localeNames[oppositeLocale] }}</label>
+        <div v-for="loc in availableLocales" :key="loc" @click="handleLanguageSwitch(loc)" class="flex items-center cursor-pointer">
+          <img :src="getFlagSrc(loc)" :alt="$t('common.icon') + ' volume'" class="w-5 h-4 mr-1 cursor-pointer" />
+          <label class="text-black text-xs font-trebuchet-pixel pr-4 cursor-pointer" for="language">{{ localeNames[loc] }}</label>
         </div>
       </div>
     </div>

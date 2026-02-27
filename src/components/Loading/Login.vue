@@ -82,10 +82,9 @@ import ContentCenter from '@/layouts/ContentCenter.vue'
 
 const { locale } = useI18n()
 const dropdownOpen = ref(false)
-const locales = ['en', 'fr']
+const locales = ['en']
 const localeNames = {
-  en: 'English',
-  fr: 'Français'
+  en: 'English'
 }
 
 // Initialize currentLocale from localStorage if it exists, otherwise use the default locale

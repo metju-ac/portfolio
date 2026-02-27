@@ -16,19 +16,19 @@ contact form, music player, terminal, etc.).
 
 ## 2. Technology Stack
 
-| Layer            | Technology                                   |
-| ---------------- | -------------------------------------------- |
-| Language         | JavaScript (ES modules, no TypeScript)       |
-| UI Framework     | Vue 3 (Composition API, `<script setup>`)    |
-| Build System     | Vite 7.x                                     |
-| State Management | Pinia 3.x                                    |
-| Routing          | Vue Router 4.x (history mode)                |
-| CSS              | Tailwind CSS 3.x + custom SCSS (Sass)        |
-| i18n             | vue-i18n (English + French)                  |
-| Analytics        | Matomo (vue-matomo, production only)         |
-| Email            | EmailJS (@emailjs/browser, client-side only) |
-| Special          | ical.js (calendar)                           |
-| Meta/SEO         | @vueuse/head                                 |
+| Layer            | Technology                                                           |
+| ---------------- | -------------------------------------------------------------------- |
+| Language         | JavaScript (ES modules, no TypeScript)                               |
+| UI Framework     | Vue 3 (Composition API, `<script setup>`)                            |
+| Build System     | Vite 7.x                                                             |
+| State Management | Pinia 3.x                                                            |
+| Routing          | Vue Router 4.x (history mode)                                        |
+| CSS              | Tailwind CSS 3.x + custom SCSS (Sass)                                |
+| i18n             | vue-i18n (English only, i18n infrastructure kept for future locales) |
+| Analytics        | Matomo (vue-matomo, production only)                                 |
+| Email            | EmailJS (@emailjs/browser, client-side only)                         |
+| Special          | ical.js (calendar)                                                   |
+| Meta/SEO         | @vueuse/head                                                         |
 
 **Important:** `axios` is declared in package.json but **never imported or used** anywhere.
 
@@ -43,8 +43,7 @@ This is a **100% client-side Single Page Application (SPA)**. There is:
 - No WebSockets or real-time features
 - No authentication (the "login" is purely cosmetic)
 
-The production build produces **static files only** (HTML, JS, CSS, assets). The Docker/Nginx
-setup exists solely to serve these static files with caching and security headers.
+The production build produces **static files only** (HTML, JS, CSS, assets).
 
 ## 4. Directory Structure
 
@@ -77,7 +76,7 @@ portfolio/
 │   ├── stores/             # Pinia state management
 │   │   ├── windowsStore.js # Open window IDs, localStorage persistence
 │   │   ├── volumeStore.js  # Audio volume, HTML5 Audio management
-│   │   ├── localeStore.js  # Current locale (fr/en), syncs with vue-i18n
+│   │   ├── localeStore.js  # Current locale (en), syncs with vue-i18n
 │   │   ├── goBackStore.js  # Active project/document/service for back navigation
 │   │   └── connectionStore.js # Login state: restart -> loggedIn -> disconnected
 │   │
@@ -86,7 +85,7 @@ portfolio/
 │   │   ├── projects-data.json      # 7 portfolio projects (2 categories)
 │   │   ├── services-data.json      # Freelance service catalog with pricing
 │   │   ├── playlist-data.json      # Music tracks metadata (currently empty, see docs/ADDING_MUSIC.md)
-│   │   ├── cv-data.json            # Education (4) + work experience (6), bilingual
+│   │   ├── cv-data.json            # Education (4) + work experience (6)
 │   │   ├── terminal-data.json      # Fake terminal command outputs
 │   │   ├── pictures-data.json      # 8 photo carousel entries
 │   │   ├── left-menu-data.json     # XP-style left sidebar menus
@@ -94,8 +93,7 @@ portfolio/
 │   │   └── header-menu-data.json   # Window menu bar items (File, Edit, View...)
 │   │
 │   ├── locales/            # Internationalization
-│   │   ├── en.json         # English translations
-│   │   └── fr.json         # French translations
+│   │   └── en.json         # English translations
 │   │
 │   ├── layouts/            # Reusable layout wrappers
 │   │   ├── Window.vue      # Window chrome (dragging, resizing, title bar, tools)
@@ -160,8 +158,7 @@ portfolio/
 │   ├── sitemap.xml
 │   ├── .htaccess
 │   ├── musics/             # MP3 files for music player (currently empty, see docs/ADDING_MUSIC.md)
-│   ├── calendar/           # ICS files (calendar-fr.ics, calendar-en.ics)
-│   ├── game/               # (removed - was DOOM game)
+│   ├── calendar/           # ICS files (calendar-en.ics)
 │   ├── img/
 │   │   ├── icons/          # 100+ WebP/SVG icons organized by window type
 │   │   ├── album-covers/   # WebP album cover images (currently empty)
@@ -170,7 +167,7 @@ portfolio/
 │   ├── *.cur               # 3 custom cursor files
 │   ├── *.mp3               # Startup/shutdown sounds
 │   ├── *.mp4               # Project video
-│   ├── *.pdf               # Downloadable CVs (fr/en)
+│   ├── *.pdf               # Downloadable CV (English)
 │   ├── *.webp              # Logos, profile picture, branding
 │
 ├── sass/                   # SCSS source files
@@ -219,7 +216,7 @@ and renders the appropriate content component.
 | --------------- | ------------------ | ---------------------------------------------- | ------------ |
 | windowsStore    | windowsStore.js    | Tracks open window IDs                         | localStorage |
 | volumeStore     | volumeStore.js     | Audio volume, Audio element management         | localStorage |
-| localeStore     | localeStore.js     | Current locale (fr/en), syncs with vue-i18n    | localStorage |
+| localeStore     | localeStore.js     | Current locale (en), syncs with vue-i18n       | localStorage |
 | goBackStore     | goBackStore.js     | Active project/doc/service for back navigation | (none)       |
 | connectionStore | connectionStore.js | Login state machine                            | (none)       |
 
@@ -230,7 +227,6 @@ and renders the appropriate content component.
 | EmailJS | @emailjs/browser | Send contact form emails | Runtime (client) |
 | Matomo  | vue-matomo       | Analytics tracking       | Production only  |
 | Figma   | iframe embeds    | Project design mockups   | Runtime (client) |
-| js-dos  | CDN script       | DOOM game emulation      | Runtime (client) |
 
 **All external calls are client-side.** No server-side dependencies exist.
 

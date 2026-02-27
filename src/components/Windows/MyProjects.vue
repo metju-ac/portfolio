@@ -92,17 +92,17 @@ const selectedComponent = computed(() => {
 })
 
 const getLocalizedCategoryName = (category) => {
-  return category.name[localeStore.currentLocale] || category.name['fr']
+  return category.name[localeStore.currentLocale] || category.name['en']
 }
 
 // Computed property to get the localized title
 const localizedTitle = computed(() => {
-  return goBackStore.currentActiveProject?.title[localeStore.currentLocale] || goBackStore.currentActiveProject?.title['fr']
+  return goBackStore.currentActiveProject?.title[localeStore.currentLocale] || goBackStore.currentActiveProject?.title['en']
 })
 
 // Computed property to get the localized date
 const localizedDate = computed(() => {
-  return goBackStore.currentActiveProject?.date[localeStore.currentLocale] || goBackStore.currentActiveProject?.date['fr']
+  return goBackStore.currentActiveProject?.date[localeStore.currentLocale] || goBackStore.currentActiveProject?.date['en']
 })
 
 // Watch for changes in currentActiveProject
