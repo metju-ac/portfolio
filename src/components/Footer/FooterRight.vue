@@ -3,7 +3,6 @@ import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useVolumeStore } from '@/stores/volumeStore'
 import { useI18n } from 'vue-i18n'
 import CurrentTime from './CurrentTime.vue'
-import NotificationModal from '@/components/Modals/NotificationModal.vue'
 import MusicVolumeModal from '@/components/Modals/MusicVolumeModal.vue'
 import LanguageModal from '@/components/Modals/LanguageModal.vue'
 
@@ -101,7 +100,6 @@ const flagSrc = computed(() => {
     <img class="w-4 h-4 mt-px cursor-pointer" :src="volumeIconSrc" alt="Gestion du volume" title="Gestion du volume" @click.stop="toggleMusicModal" />
     <MusicVolumeModal v-if="isVolumeSettingsDisplayed" ref="musicModalRef" />
     <LanguageModal v-if="isLanguageSettingsDisplayed" :currentLocale="currentLocale" />
-    <NotificationModal class="md:block z-fmax" />
     <CurrentTime />
   </div>
 </template>

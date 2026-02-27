@@ -48,12 +48,6 @@
     "disconnect": "Log Off",
     "shutdown": "Turn Off Computer"
   },
-  "modale": {
-    "fullscreenTitle": "Fullscreen mode is now available!",
-    "fullscreenFirstText": "For a more immersive experience,",
-    "fullscreenSecondText": "Click on the screen icon below",
-    "control": "Control"
-  },
   "buttons": {
     "start": "start",
     "send": "Send",
