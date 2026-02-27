@@ -1,14 +1,14 @@
 # Project Map: PortfolioXP
 
 > This document is a comprehensive reference for AI agents working on this codebase.
-> Last updated: 2026-02-27 (updated after cleanup)
+> Last updated: 2026-02-27 (updated after Phase 3 changes)
 
 ## 1. Project Overview
 
 **What it is:** A Windows XP desktop simulator serving as a personal portfolio website.
-**Author:** Matěj Klíma (matej.klima5@gmail.com)
-**Original author:** Paul Jaguin — [PortfolioXP](https://github.com/UnMugViolet/portfolio)
-**License:** MIT
+**Author:** Matej Klima (matej.klima5@gmail.com)
+**Original author:** Paul Jaguin -- [PortfolioXP](https://github.com/UnMugViolet/portfolio)
+**License:** MIT (dual copyright: Paul Jaguin 2024 original, Matej Klima 2026 fork)
 
 The application presents a faithful recreation of the Windows XP desktop environment, complete with
 draggable/resizable windows, a taskbar, start menu, and multiple "applications" (projects, CV,
@@ -30,7 +30,7 @@ contact form, music player, Minesweeper, terminal, etc.).
 | Special          | ical.js (calendar)                                                   |
 | Meta/SEO         | @vueuse/head                                                         |
 
-**Important:** `axios` is declared in package.json but **never imported or used** anywhere.
+**Note:** `axios` is declared in package.json but **never imported or used** anywhere.
 
 ## 3. Architecture Type
 
@@ -57,8 +57,13 @@ portfolio/
 ├── .eslintrc.cjs           # ESLint config
 ├── .prettierrc.json        # Prettier config
 ├── .env.example            # Environment variable template
-├── LICENSE                 # MIT
+├── LICENSE                 # MIT (dual copyright)
 ├── README.md               # Project readme
+├── PROJECT_MAP.md          # This file
+│
+├── docs/                   # GUIDES & DOCUMENTATION
+│   ├── ADDING_MUSIC.md     # How to add music tracks
+│   └── AGENT_GUIDELINES.md # Workflow rules for AI agents
 │
 ├── src/                    # APPLICATION SOURCE CODE
 │   ├── main.js             # Vue app bootstrap (plugins, Matomo, i18n, router)
@@ -77,18 +82,17 @@ portfolio/
 │   │   ├── windowsStore.js # Open window IDs, localStorage persistence
 │   │   ├── volumeStore.js  # Audio volume, HTML5 Audio management
 │   │   ├── localeStore.js  # Current locale (en), syncs with vue-i18n
-│   │   ├── goBackStore.js  # Active project/document/service for back navigation
+│   │   ├── goBackStore.js  # Active project/document for back navigation
 │   │   └── connectionStore.js # Login state: restart -> loggedIn -> disconnected
 │   │
 │   ├── data/               # Static JSON data (drives the entire UI)
-│   │   ├── windows-data.json       # 12 window definitions (id, title, size, component)
+│   │   ├── windows-data.json       # 10 windows + 1 external link (see Section 6)
 │   │   ├── projects-data.json      # 7 portfolio projects (2 categories)
-│   │   ├── services-data.json      # Freelance service catalog with pricing
-│   │   ├── playlist-data.json      # Music tracks metadata (currently empty, see docs/ADDING_MUSIC.md)
+│   │   ├── playlist-data.json      # Music tracks metadata (currently empty)
 │   │   ├── cv-data.json            # Education (4) + work experience (6)
 │   │   ├── terminal-data.json      # Fake terminal command outputs
 │   │   ├── pictures-data.json      # 8 photo carousel entries
-│   │   ├── left-menu-data.json     # XP-style left sidebar menus
+│   │   ├── left-menu-data.json     # XP-style left sidebar menus (LinkedIn + GitHub links)
 │   │   ├── header-tools-data.json  # Window toolbar button configs
 │   │   └── header-menu-data.json   # Window menu bar items (File, Edit, View...)
 │   │
@@ -97,79 +101,117 @@ portfolio/
 │   │
 │   ├── layouts/            # Reusable layout wrappers
 │   │   ├── Window.vue      # Window chrome (dragging, resizing, title bar, tools)
-│   │   ├── DesktopAppsLayout.vue  # Grid of desktop icons
+│   │   ├── DesktopAppsLayout.vue  # Grid of desktop icons (handles external links)
 │   │   └── ContentCenter.vue      # Centered content wrapper
 │   │
 │   └── components/         # UI components
+│       ├── ProfilePicture.vue      # Profile photo display
+│       │
 │       ├── Header/
-│       │   ├── HeaderDesktop.vue     # Desktop taskbar (clock, volume, language, start)
-│       │   ├── BarMenu.vue           # Window menu bar (File, Edit, View...)
-│       │   └── SideMenu.vue          # XP-style left sidebar in windows
+│       │   ├── Header.vue           # Start menu items + desktop taskbar (handles external links)
+│       │   └── RightFeatureLayout.vue # Right-side header feature layout
 │       │
 │       ├── Footer/
-│       │   ├── FooterLeft.vue        # Start button + quick launch
-│       │   ├── FooterCenter.vue      # Open window tabs in taskbar
-│       │   └── FooterRight.vue       # System tray (clock, volume, locale)
+│       │   ├── Footer.vue           # Main footer/taskbar container
+│       │   ├── FooterRight.vue      # System tray (clock, volume, fullscreen toggle)
+│       │   ├── CurrentTime.vue      # Clock display
+│       │   └── PelletApp.vue        # Open window tabs in taskbar
 │       │
 │       ├── Loading/
-│       │   ├── Login.vue             # XP login form (cosmetic only)
-│       │   ├── LoadingScreen.vue     # XP boot loading bar
-│       │   └── StartWindows.vue      # XP startup black screen
+│       │   ├── Login.vue            # XP login form (cosmetic only)
+│       │   ├── LoginForm.vue        # Login form fields
+│       │   ├── LoadingBar.vue       # Animated loading bar
+│       │   ├── Step1Loading.vue     # Black screen (300ms)
+│       │   ├── Step2Loading.vue     # Loading bar (800ms)
+│       │   └── Step3Loading.vue     # Blue screen (400ms)
 │       │
-│       ├── Windows/                  # One component per "application window"
-│       │   ├── MyProjects.vue        # Project portfolio browser
-│       │   ├── ContactMe.vue         # Contact form (EmailJS)
-│       │   ├── MyCV.vue              # Resume/CV display
-│       │   ├── Music.vue             # Spotify-like music player
-│       │   ├── Documents.vue         # File browser (About, Legal)
-│       │   ├── Pictures.vue          # Photo carousel
-│       │   ├── Calendar.vue          # Monthly calendar with ICS parsing
-│       │   ├── Minesweeper.vue       # Full Minesweeper game
-│       │   ├── Notepad.vue           # Simple text editor
-│       │   ├── Terminal.vue          # Fake Windows terminal
-│       │   ├── Services.vue          # Freelance services catalog
+│       ├── Windows/                 # One component per "application window"
+│       │   ├── MyProjects.vue       # Project portfolio browser
+│       │   ├── ContactMe.vue        # Contact form (EmailJS)
+│       │   ├── Notepad.vue          # Simple text editor
+│       │   ├── Pictures.vue         # Photo carousel
+│       │   ├── Minesweeper.vue      # Full Minesweeper game
+│       │   ├── Terminal.vue         # Fake Windows terminal
+│       │   ├── WindowHeaderDropdown.vue  # Header dropdown menu
+│       │   ├── WindowHeaderSearch.vue    # Header search bar
+│       │   ├── WindowHeaderTools.vue     # Header toolbar buttons
+│       │   ├── WindowLeftMenu.vue        # Left sidebar menu
 │       │   │
-│       │   └── Contents/             # Sub-content for project detail views
-│       │       ├── HomeserverContent.vue
+│       │   ├── Calendar/
+│       │   │   ├── Calendar.vue     # Monthly calendar with ICS parsing
+│       │   │   └── icsParser.js     # ICS file parser
+│       │   │
+│       │   ├── Documents/
+│       │   │   ├── Documents.vue    # File browser (About, Legal)
+│       │   │   ├── About.vue        # About page (bio + attribution)
+│       │   │   └── Legal.vue        # Legal page
+│       │   │
+│       │   ├── Music/
+│       │   │   ├── Music.vue        # Spotify-like music player
+│       │   │   └── Player.vue       # Audio player controls
+│       │   │
+│       │   ├── MyCV/
+│       │   │   ├── MyCV.vue         # Resume/CV display
+│       │   │   ├── ProfileHeader.vue    # CV profile header
+│       │   │   ├── EducationItem.vue    # Education entry
+│       │   │   └── WorkExperienceItem.vue # Work experience entry
+│       │   │
+│       │   └── MyProjects/          # Project detail sub-views
+│       │       ├── AidellaContent.vue
 │       │       ├── ClenchContent.vue
-│       │       ├── LogmaContent.vue
-│       │       ├── PangaiaContent.vue
-│       │       ├── FannyContent.vue
 │       │       ├── Emc2Content.vue
-│       │       └── AidellaContent.vue
+│       │       ├── FannyContent.vue
+│       │       ├── HomeserverContent.vue
+│       │       ├── LogmaContent.vue
+│       │       └── PangaiaContent.vue
 │       │
 │       ├── Modals/
-│       │   ├── StartMenuModal.vue    # XP Start menu popup
-│       │   ├── LanguageModal.vue     # Language selector popup
-│       │   ├── NotificationModals.vue # Generic notification popups
-│       │   └── ShutdownModal.vue     # Shutdown/restart dialog
+│       │   ├── LanguageModal.vue    # Language selector popup
+│       │   └── MusicVolumeModal.vue # Volume control popup
 │       │
 │       ├── Buttons/
-│       │   └── DefaultButton.vue     # Reusable XP-style button
-│       │
-│       ├── ProfilePicture.vue        # Profile photo display
+│       │   ├── Button.vue           # Reusable XP-style button
+│       │   ├── StartButton.vue      # Start menu button
+│       │   ├── HeaderLeftButton.vue  # Left header button
+│       │   ├── HeaderRightButton.vue # Right header button
+│       │   ├── HeaderDisconnect.vue  # Disconnect/logoff button
+│       │   ├── HeaderShutdown.vue    # Shutdown button
+│       │   ├── WindowClose.vue      # Window close button
+│       │   ├── WindowMaximize.vue   # Window maximize button
+│       │   ├── WindowMinimize.vue   # Window minimize button
+│       │   └── WindowDropdown.vue   # Window dropdown button
 │       │
 │       └── icons/
-│           ├── WindowsIcon.vue       # Inline SVG Windows logo
-│           └── ShutdownIcon.vue      # Inline SVG shutdown icon
+│           ├── WindowsIcon.vue      # Inline SVG Windows logo
+│           └── ShutdownIcon.vue     # Inline SVG shutdown icon
 │
 ├── public/                 # STATIC ASSETS (served as-is)
 │   ├── favicon.ico
 │   ├── robots.txt
 │   ├── sitemap.xml
 │   ├── .htaccess
-│   ├── musics/             # MP3 files for music player (currently empty, see docs/ADDING_MUSIC.md)
+│   ├── fonts/              # Windows XP-era TTF fonts (tahoma, trebuchet, verdana, etc.)
+│   ├── sounds/             # startup/shutdown MP3s
+│   ├── videos/             # Project video (montage-serveur.mp4)
+│   ├── pdf/                # Downloadable CV (English)
 │   ├── calendar/           # ICS files (calendar-en.ics)
 │   ├── img/
 │   │   ├── icons/          # 100+ WebP/SVG icons organized by window type
-│   │   ├── album-covers/   # WebP album cover images (currently empty)
-│   │   └── projects/       # Project screenshots (aidella, pangaia)
-│   ├── *.ttf               # 9 Windows XP-era font files
-│   ├── *.cur               # 3 custom cursor files
-│   ├── *.mp3               # Startup/shutdown sounds
-│   ├── *.mp4               # Project video
-│   ├── *.pdf               # Downloadable CV (English)
-│   ├── *.webp              # Logos, profile picture, branding
+│   │   │   ├── github-icon-lg.webp  # GitHub desktop/external link icon
+│   │   │   ├── side-menu/           # Left sidebar icons (github, linkedin, etc.)
+│   │   │   ├── calendar/
+│   │   │   ├── contact/
+│   │   │   ├── cv/
+│   │   │   ├── documents/
+│   │   │   ├── langs/
+│   │   │   ├── minesweeper/
+│   │   │   ├── music/
+│   │   │   ├── notepad/
+│   │   │   ├── pictures/
+│   │   │   ├── projects/
+│   │   │   └── windows-header-tools/
+│   │   ├── projects/       # Project screenshots (aidella, pangaia)
+│   │   └── *.webp          # Logos, profile picture, branding
 │
 ├── sass/                   # SCSS source files
 │   ├── main.scss           # Entry point (imports abstracts + components)
@@ -196,31 +238,42 @@ Vue Router uses **history mode** (requires SPA fallback on the server).
 the `windowsStore`. Each window gets the `Window.vue` layout wrapper (drag, resize, title bar)
 and renders the appropriate content component.
 
-### 11 Windows
+### 10 Windows + 1 External Link
 
-| ID  | Component   | Description                                                     |
-| --- | ----------- | --------------------------------------------------------------- |
-| 1   | MyProjects  | Portfolio with 7 project detail sub-views                       |
-| 2   | ContactMe   | Email form via EmailJS                                          |
-| 3   | MyCV        | Resume with education/experience, PDF download                  |
-| 4   | Music       | Spotify-like player (currently empty, see docs/ADDING_MUSIC.md) |
-| 5   | Documents   | File browser (About, Legal pages)                               |
-| 6   | Pictures    | Photo carousel (8 travel photos)                                |
-| 7   | Calendar    | Monthly calendar parsing local ICS files                        |
-| 8   | Minesweeper | Full Minesweeper game                                           |
-| 9   | Notepad     | Simple text editor                                              |
-| 10  | Terminal    | Fake terminal with hardcoded responses                          |
-| 11  | Services    | Freelance service catalog with pricing                          |
+| ID          | Component   | Type     | Description                                    |
+| ----------- | ----------- | -------- | ---------------------------------------------- |
+| myProjects  | MyProjects  | window   | Portfolio with 7 project detail sub-views      |
+| contact     | ContactMe   | window   | Email form via EmailJS                         |
+| myCV        | MyCV        | window   | Resume with education/experience, PDF download |
+| music       | Music       | window   | Spotify-like player (currently empty playlist) |
+| documents   | Documents   | window   | File browser (About, Legal pages)              |
+| pictures    | Pictures    | window   | Photo carousel (8 travel photos)               |
+| calendar    | Calendar    | window   | Monthly calendar parsing local ICS files       |
+| minesweeper | Minesweeper | window   | Full Minesweeper game                          |
+| notepad     | Notepad     | window   | Simple text editor                             |
+| terminal    | Terminal    | window   | Fake terminal with hardcoded responses         |
+| github      | --          | external | Opens https://github.com/metju-ac in new tab   |
+
+### External Links Pattern
+
+Entries in `windows-data.json` with `"isExternalLink": true` and a `"url"` field are treated
+as external links rather than windows. They appear on the desktop and start menu but open a
+new browser tab instead of a window. The logic is in:
+
+- `DesktopAppsLayout.vue` -- `removeFilterAndToggle()` checks `entity.isExternalLink`
+- `Header.vue` -- `toggleWindow()` checks `entity.isExternalLink`
+
+External links do NOT require: component imports, event bindings in `Office.vue`, or store entries.
 
 ## 7. State Management (Pinia Stores)
 
-| Store           | File               | Purpose                                        | Persistence  |
-| --------------- | ------------------ | ---------------------------------------------- | ------------ |
-| windowsStore    | windowsStore.js    | Tracks open window IDs                         | localStorage |
-| volumeStore     | volumeStore.js     | Audio volume, Audio element management         | localStorage |
-| localeStore     | localeStore.js     | Current locale (en), syncs with vue-i18n       | localStorage |
-| goBackStore     | goBackStore.js     | Active project/doc/service for back navigation | (none)       |
-| connectionStore | connectionStore.js | Login state machine                            | (none)       |
+| Store           | File               | Purpose                                     | Persistence  |
+| --------------- | ------------------ | ------------------------------------------- | ------------ |
+| windowsStore    | windowsStore.js    | Tracks open window IDs                      | localStorage |
+| volumeStore     | volumeStore.js     | Audio volume, Audio element management      | localStorage |
+| localeStore     | localeStore.js     | Current locale (en), syncs with vue-i18n    | localStorage |
+| goBackStore     | goBackStore.js     | Active project/document for back navigation | (none)       |
+| connectionStore | connectionStore.js | Login state machine                         | (none)       |
 
 ## 8. External Service Dependencies
 
@@ -240,7 +293,7 @@ All use Vite's `import.meta.env` (build-time injection via `VITE_*` prefix):
 | ------------------------------- | ---------------------------------- | ----------------------- |
 | VITE_APP_PORTFOLIO_DOMAIN_NAME  | PangaiaContent, ClenchContent      | Figma embed origin      |
 | VITE_APP_ADMIN_NAME             | ContactMe                          | EmailJS recipient name  |
-| VITE_APP_ADMIN_EMAIL_ADDRESS    | ContactMe, Services                | Contact email, mailto   |
+| VITE_APP_ADMIN_EMAIL_ADDRESS    | ContactMe                          | Contact email, mailto   |
 | VITE_APP_PUBLIC_API_EMAILJS_KEY | ContactMe                          | EmailJS public API key  |
 | VITE_APP_EMAILJS_SERVICE_ID     | ContactMe                          | EmailJS service ID      |
 | VITE_APP_EMAILJS_TEMPLATE_ID    | ContactMe                          | EmailJS template ID     |
@@ -268,14 +321,15 @@ Netlify, Vercel, etc.). SPA fallback for `/office` route is needed (e.g., copy i
 
 | Task                     | Files to modify                                                                    |
 | ------------------------ | ---------------------------------------------------------------------------------- |
-| Add a new window/app     | `windows-data.json`, new component in `Windows/`, `Office.vue`                     |
-| Add a new project        | `projects-data.json`, new component in `Contents/`                                 |
+| Add a new window/app     | `windows-data.json`, new component in `Windows/`, `Office.vue`, `en.json`          |
+| Add an external link     | `windows-data.json` (with `isExternalLink: true`, `url`). No component needed.     |
+| Add a new project        | `projects-data.json`, new component in `MyProjects/`                               |
 | Change styling/theme     | `tailwind.config.js`, `sass/`, component styles                                    |
 | Modify routes            | `src/router/index.js`                                                              |
 | Update translations      | `src/locales/en.json`                                                              |
 | Modify CV data           | `src/data/cv-data.json`                                                            |
-| Change services/pricing  | `src/data/services-data.json`                                                      |
 | Update music playlist    | `src/data/playlist-data.json`, add MP3/cover to public/ (see docs/ADDING_MUSIC.md) |
 | Modify terminal commands | `src/data/terminal-data.json`                                                      |
 | Change environment vars  | `.env.example`                                                                     |
 | Modify SEO/meta tags     | `MetaUpdater.vue`, `index.html`                                                    |
+| Modify left sidebar      | `src/data/left-menu-data.json`                                                     |
