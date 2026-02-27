@@ -31,7 +31,11 @@ const removeFilterAndToggle = (entity) => {
   localEntities.value.forEach((e) => {
     e.isActive = false
   })
-  emit('toggle-' + entity.id) // Emit on double click or single tap.
+  if (entity.isExternalLink && entity.url) {
+    window.open(entity.url, '_blank', 'noopener,noreferrer')
+  } else {
+    emit('toggle-' + entity.id) // Emit on double click or single tap.
+  }
 }
 
 // Detect if the user is on a mobile device

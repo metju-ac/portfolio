@@ -241,5 +241,20 @@
     "minHeight": 160,
     "component": "Terminal",
     "leftMenuType": ""
+  },
+  {
+    "id": "github",
+    "title": {
+      "en": "My GitHub"
+    },
+    "subtitle": {
+      "en": "Visit my GitHub profile"
+    },
+    "imgSrc": "/img/icons/github-icon-lg.webp",
+    "onDesktop": true,
+    "isExternalLink": true,
+    "url": "https://github.com/metju-ac",
+    "headerPosition": "left",
+    "iconSrc": "/img/icons/github-icon-lg.webp"
   }
 ]

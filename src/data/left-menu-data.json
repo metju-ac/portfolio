@@ -92,6 +92,14 @@
             },
             "iconUrl": "/img/icons/side-menu/linkedin-icon.webp",
             "url": "https://www.linkedin.com/in/matej-klima/"
+          },
+          {
+            "id": 2,
+            "subtitle": {
+              "en": "My GitHub"
+            },
+            "iconUrl": "/img/icons/side-menu/github-icon.webp",
+            "url": "https://github.com/metju-ac"
           }
         ]
       }

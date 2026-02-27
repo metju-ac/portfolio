@@ -88,9 +88,15 @@ const turnOffHeader = () => {
 }
 
 const toggleWindow = (buttonName) => {
-  // Close the header and open the window
+  // Close the header
   turnOffHeader()
-  emit('toggle-' + buttonName)
+  // Check if the entity is an external link
+  const entity = localEntities.value.find((e) => e.id === buttonName)
+  if (entity && entity.isExternalLink && entity.url) {
+    window.open(entity.url, '_blank', 'noopener,noreferrer')
+  } else {
+    emit('toggle-' + buttonName)
+  }
 }
 
 const shutdown = () => {
