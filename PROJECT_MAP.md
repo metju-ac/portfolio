@@ -1,7 +1,7 @@
 # Project Map: PortfolioXP
 
 > This document is a comprehensive reference for AI agents working on this codebase.
-> Last updated: 2026-02-27
+> Last updated: 2026-02-27 (updated after cleanup)
 
 ## 1. Project Overview
 
@@ -57,11 +57,6 @@ portfolio/
 ├── postcss.config.js       # PostCSS (tailwindcss + autoprefixer)
 ├── .eslintrc.cjs           # ESLint config
 ├── .prettierrc.json        # Prettier config
-├── Dockerfile              # Multi-stage build (Node builder -> Nginx)
-├── .dockerignore           # Docker build exclusions
-├── nginx.conf              # Nginx config (port 35000, gzip, caching, security)
-├── Jenkinsfile             # CI/CD pipeline (SonarQube -> Docker -> Deploy)
-├── sonar-project.properties # SonarQube analysis config
 ├── .env.example            # Environment variable template
 ├── LICENSE                 # MIT
 ├── README.md               # Project readme
@@ -271,20 +266,11 @@ All use Vite's `import.meta.env` (build-time injection via `VITE_*` prefix):
 | lint    | `eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix` | Lint and auto-fix         |
 | format  | `prettier --write src/`                        | Format source             |
 
-## 11. Current Deployment Architecture
+## 11. Deployment Architecture
 
-```
-GitHub (main) -> Jenkins -> SonarQube -> Docker Build -> Docker Hub -> SSH Deploy -> Infomaniak Server
-```
-
-1. Jenkins checks out `main` from GitHub
-2. SonarQube static analysis + quality gate
-3. Docker multi-stage build: Node.js builds -> Nginx serves static files
-4. Image pushed to Docker Hub as `unmugviolet/portfolio-xp:latest`
-5. SSH to Infomaniak server, `docker compose down/pull/up` at `~/websites/portfolioXP`
-6. Nginx serves on port 35000 (likely behind a reverse proxy for TLS)
-
-**The Docker container runs only Nginx serving static files. No Node.js runtime in production.**
+Docker/Jenkins/Nginx deployment has been removed. The project is now a pure static SPA build.
+Run `npm run build` to produce `dist/` which can be deployed to any static hosting (GitHub Pages,
+Netlify, Vercel, etc.). SPA fallback for `/office` route is needed (e.g., copy index.html to 404.html).
 
 ## 12. Key Files for Common Changes
 
@@ -294,11 +280,10 @@ GitHub (main) -> Jenkins -> SonarQube -> Docker Build -> Docker Hub -> SSH Deplo
 | Add a new project        | `projects-data.json`, new component in `Contents/`             |
 | Change styling/theme     | `tailwind.config.js`, `sass/`, component styles                |
 | Modify routes            | `src/router/index.js`                                          |
-| Update translations      | `src/locales/en.json`, `src/locales/fr.json`                   |
+| Update translations      | `src/locales/en.json`                                          |
 | Modify CV data           | `src/data/cv-data.json`                                        |
 | Change services/pricing  | `src/data/services-data.json`                                  |
 | Update music playlist    | `src/data/playlist-data.json`, add MP3/cover to public/        |
 | Modify terminal commands | `src/data/terminal-data.json`                                  |
-| Update deployment        | `Dockerfile`, `nginx.conf`, `Jenkinsfile`                      |
-| Change environment vars  | `.env.example`, `Dockerfile` ARGs, `Jenkinsfile`               |
+| Change environment vars  | `.env.example`                                                 |
 | Modify SEO/meta tags     | `MetaUpdater.vue`, `index.html`                                |
