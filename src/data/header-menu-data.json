@@ -4,10 +4,6 @@
       "en": ["File", "Edit", "View", "Tools"],
       "fr": ["Fichier", "Édition", "Affichage", "Outils"]
     },
-    "minesweeper": {
-      "en": ["Game", "Help"],
-      "fr": ["Jeu", "Aide"]
-    },
     "notepad": {
       "en": ["File", "Edit", "View", "Help"],
       "fr": ["Fichier", "Édition", "Affichage", "Aide"]

@@ -180,30 +180,6 @@
     "leftMenuType": ""
   },
   {
-    "id": "minesweeper",
-    "title": {
-      "en": "Minesweeper",
-      "fr": "Démineur"
-    },
-    "imgSrc": "/img/icons/minesweeper/minesweeper-icon-lg.webp",
-    "onDesktop": true,
-    "resizable": false,
-    "windowsHeaderLogo": false,
-    "isSearchVisible": true,
-    "headerPosition": "right",
-    "headerToolsId": "",
-    "menuHeaderItemsId": "minesweeper",
-    "iconSrc": "/img/icons/minesweeper/minesweeper-icon-sm.webp",
-    "initPositionX": 160,
-    "initPositionY": 270,
-    "initWidth": 205,
-    "initHeight": 305,
-    "minWidth": 205,
-    "minHeight": 305,
-    "component": "Minesweeper",
-    "leftMenuType": ""
-  },
-  {
     "id": "notepad",
     "title": {
       "en": "Notepad",
@@ -283,7 +259,7 @@
     "component": "Terminal",
     "leftMenuType": ""
   },
-    {
+  {
     "id": "services",
     "title": {
       "en": "Services",

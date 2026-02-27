@@ -12,7 +12,6 @@
       @toggle-pictures="openWindow('pictures')"
       @toggle-music="openWindow('music')"
       @toggle-calendar="openWindow('calendar')"
-      @toggle-minesweeper="openWindow('minesweeper')"
       @toggle-notepad="openWindow('notepad')"
       @toggle-doom="openWindow('doom')"
       @toggle-terminal="openWindow('terminal')"
@@ -24,7 +23,6 @@
       @toggle-contact="openWindow('contact')"
       @toggle-myCV="openWindow('myCV')"
       @toggle-music="openWindow('music')"
-      @toggle-minesweeper="openWindow('minesweeper')"
       @toggle-notepad="openWindow('notepad')"
       @toggle-doom="openWindow('doom')"
       @toggle-services="openWindow('services')"
@@ -70,7 +68,6 @@ import MetaUpdater from '../MetaUpdater.vue'
 import Header from '@/components/Header/Header.vue'
 import Footer from '@/components/Footer/Footer.vue'
 
-import Minesweeper from '@/components/Windows/Minesweeper.vue'
 import MyCV from '@/components/Windows/MyCV/MyCV.vue'
 import Music from '@/components/Windows/Music/Music.vue'
 import ContactMe from '@/components/Windows/ContactMe.vue'
@@ -123,7 +120,6 @@ const components = {
   ContactMe: shallowRef(ContactMe),
   MyCV: shallowRef(MyCV),
   Music: shallowRef(Music),
-  Minesweeper: shallowRef(Minesweeper),
   Documents: shallowRef(Documents),
   Pictures: shallowRef(Pictures),
   Calendar: shallowRef(Calendar),

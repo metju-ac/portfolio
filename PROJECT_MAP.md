@@ -12,7 +12,7 @@
 
 The application presents a faithful recreation of the Windows XP desktop environment, complete with
 draggable/resizable windows, a taskbar, start menu, and multiple "applications" (projects, CV,
-contact form, music player, Minesweeper, DOOM, terminal, etc.).
+contact form, music player, terminal, etc.).
 
 ## 2. Technology Stack
 
@@ -126,7 +126,6 @@ portfolio/
 │       │   ├── Documents.vue         # File browser (About, Legal)
 │       │   ├── Pictures.vue          # Photo carousel
 │       │   ├── Calendar.vue          # Monthly calendar with ICS parsing
-│       │   ├── Minesweeper.vue       # Full Minesweeper game
 │       │   ├── Notepad.vue           # Simple text editor
 │       │   ├── Doom.vue              # DOOM via js-dos emulator
 │       │   ├── Terminal.vue          # Fake Windows terminal
@@ -202,22 +201,21 @@ Vue Router uses **history mode** (requires SPA fallback on the server).
 the `windowsStore`. Each window gets the `Window.vue` layout wrapper (drag, resize, title bar)
 and renders the appropriate content component.
 
-### 12 Windows
+### 11 Windows
 
-| ID  | Component   | Description                                                     |
-| --- | ----------- | --------------------------------------------------------------- |
-| 1   | MyProjects  | Portfolio with 7 project detail sub-views                       |
-| 2   | ContactMe   | Email form via EmailJS                                          |
-| 3   | MyCV        | Resume with education/experience, PDF download                  |
-| 4   | Music       | Spotify-like player (currently empty, see docs/ADDING_MUSIC.md) |
-| 5   | Documents   | File browser (About, Legal pages)                               |
-| 6   | Pictures    | Photo carousel (8 travel photos)                                |
-| 7   | Calendar    | Monthly calendar parsing local ICS files                        |
-| 8   | Minesweeper | Full Minesweeper game                                           |
-| 9   | Notepad     | Simple text editor                                              |
-| 10  | Doom        | DOOM via js-dos WebAssembly emulator                            |
-| 11  | Terminal    | Fake terminal with hardcoded responses                          |
-| 12  | Services    | Freelance service catalog with pricing                          |
+| ID  | Component  | Description                                                     |
+| --- | ---------- | --------------------------------------------------------------- |
+| 1   | MyProjects | Portfolio with 7 project detail sub-views                       |
+| 2   | ContactMe  | Email form via EmailJS                                          |
+| 3   | MyCV       | Resume with education/experience, PDF download                  |
+| 4   | Music      | Spotify-like player (currently empty, see docs/ADDING_MUSIC.md) |
+| 5   | Documents  | File browser (About, Legal pages)                               |
+| 6   | Pictures   | Photo carousel (8 travel photos)                                |
+| 7   | Calendar   | Monthly calendar parsing local ICS files                        |
+| 8   | Notepad    | Simple text editor                                              |
+| 9   | Doom       | DOOM via js-dos WebAssembly emulator                            |
+| 11  | Terminal   | Fake terminal with hardcoded responses                          |
+| 12  | Services   | Freelance service catalog with pricing                          |
 
 ## 7. State Management (Pinia Stores)
 
