@@ -15,8 +15,6 @@ const goBack = () => {
     goBackStore.currentActiveProject = null
   } else if (props.id === 'documents') {
     goBackStore.currentActiveDocument = null
-  } else if (props.id === 'services') {
-    goBackStore.currentActiveService = null
   }
 }
 
@@ -25,8 +23,6 @@ const isGoBackAvailable = computed(() => {
     return !!goBackStore.currentActiveProject
   } else if (props.id === 'documents') {
     return !!goBackStore.currentActiveDocument
-  } else if (props.id === 'services') {
-    return !!goBackStore.currentActiveService
   }
   return false
 })
