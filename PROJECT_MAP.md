@@ -85,7 +85,7 @@ portfolio/
 │   │   ├── windows-data.json       # 12 window definitions (id, title, size, component)
 │   │   ├── projects-data.json      # 7 portfolio projects (2 categories)
 │   │   ├── services-data.json      # Freelance service catalog with pricing
-│   │   ├── playlist-data.json      # 27 music tracks metadata
+│   │   ├── playlist-data.json      # Music tracks metadata (currently empty, see docs/ADDING_MUSIC.md)
 │   │   ├── cv-data.json            # Education (4) + work experience (6), bilingual
 │   │   ├── terminal-data.json      # Fake terminal command outputs
 │   │   ├── pictures-data.json      # 8 photo carousel entries
@@ -162,12 +162,12 @@ portfolio/
 │   ├── robots.txt
 │   ├── sitemap.xml
 │   ├── .htaccess
-│   ├── musics/             # 27 MP3 files for music player
+│   ├── musics/             # MP3 files for music player (currently empty, see docs/ADDING_MUSIC.md)
 │   ├── calendar/           # ICS files (calendar-fr.ics, calendar-en.ics)
 │   ├── game/               # DOOM-@evilution.zip for js-dos
 │   ├── img/
 │   │   ├── icons/          # 100+ WebP/SVG icons organized by window type
-│   │   ├── album-covers/   # 27 WebP album cover images
+│   │   ├── album-covers/   # WebP album cover images (currently empty)
 │   │   └── projects/       # Project screenshots (aidella, pangaia)
 │   ├── *.ttf               # 9 Windows XP-era font files
 │   ├── *.cur               # 3 custom cursor files
@@ -204,20 +204,20 @@ and renders the appropriate content component.
 
 ### 12 Windows
 
-| ID  | Component   | Description                                    |
-| --- | ----------- | ---------------------------------------------- |
-| 1   | MyProjects  | Portfolio with 7 project detail sub-views      |
-| 2   | ContactMe   | Email form via EmailJS                         |
-| 3   | MyCV        | Resume with education/experience, PDF download |
-| 4   | Music       | Spotify-like player with 27 local MP3s         |
-| 5   | Documents   | File browser (About, Legal pages)              |
-| 6   | Pictures    | Photo carousel (8 travel photos)               |
-| 7   | Calendar    | Monthly calendar parsing local ICS files       |
-| 8   | Minesweeper | Full Minesweeper game                          |
-| 9   | Notepad     | Simple text editor                             |
-| 10  | Doom        | DOOM via js-dos WebAssembly emulator           |
-| 11  | Terminal    | Fake terminal with hardcoded responses         |
-| 12  | Services    | Freelance service catalog with pricing         |
+| ID  | Component   | Description                                                     |
+| --- | ----------- | --------------------------------------------------------------- |
+| 1   | MyProjects  | Portfolio with 7 project detail sub-views                       |
+| 2   | ContactMe   | Email form via EmailJS                                          |
+| 3   | MyCV        | Resume with education/experience, PDF download                  |
+| 4   | Music       | Spotify-like player (currently empty, see docs/ADDING_MUSIC.md) |
+| 5   | Documents   | File browser (About, Legal pages)                               |
+| 6   | Pictures    | Photo carousel (8 travel photos)                                |
+| 7   | Calendar    | Monthly calendar parsing local ICS files                        |
+| 8   | Minesweeper | Full Minesweeper game                                           |
+| 9   | Notepad     | Simple text editor                                              |
+| 10  | Doom        | DOOM via js-dos WebAssembly emulator                            |
+| 11  | Terminal    | Fake terminal with hardcoded responses                          |
+| 12  | Services    | Freelance service catalog with pricing                          |
 
 ## 7. State Management (Pinia Stores)
 
@@ -274,16 +274,16 @@ Netlify, Vercel, etc.). SPA fallback for `/office` route is needed (e.g., copy i
 
 ## 12. Key Files for Common Changes
 
-| Task                     | Files to modify                                                |
-| ------------------------ | -------------------------------------------------------------- |
-| Add a new window/app     | `windows-data.json`, new component in `Windows/`, `Office.vue` |
-| Add a new project        | `projects-data.json`, new component in `Contents/`             |
-| Change styling/theme     | `tailwind.config.js`, `sass/`, component styles                |
-| Modify routes            | `src/router/index.js`                                          |
-| Update translations      | `src/locales/en.json`                                          |
-| Modify CV data           | `src/data/cv-data.json`                                        |
-| Change services/pricing  | `src/data/services-data.json`                                  |
-| Update music playlist    | `src/data/playlist-data.json`, add MP3/cover to public/        |
-| Modify terminal commands | `src/data/terminal-data.json`                                  |
-| Change environment vars  | `.env.example`                                                 |
-| Modify SEO/meta tags     | `MetaUpdater.vue`, `index.html`                                |
+| Task                     | Files to modify                                                                    |
+| ------------------------ | ---------------------------------------------------------------------------------- |
+| Add a new window/app     | `windows-data.json`, new component in `Windows/`, `Office.vue`                     |
+| Add a new project        | `projects-data.json`, new component in `Contents/`                                 |
+| Change styling/theme     | `tailwind.config.js`, `sass/`, component styles                                    |
+| Modify routes            | `src/router/index.js`                                                              |
+| Update translations      | `src/locales/en.json`                                                              |
+| Modify CV data           | `src/data/cv-data.json`                                                            |
+| Change services/pricing  | `src/data/services-data.json`                                                      |
+| Update music playlist    | `src/data/playlist-data.json`, add MP3/cover to public/ (see docs/ADDING_MUSIC.md) |
+| Modify terminal commands | `src/data/terminal-data.json`                                                      |
+| Change environment vars  | `.env.example`                                                                     |
+| Modify SEO/meta tags     | `MetaUpdater.vue`, `index.html`                                                    |
