@@ -8,6 +8,10 @@
         "Tools"
       ]
     },
+    "minesweeper": {
+      "en": ["Game", "Help"],
+      "fr": ["Jeu", "Aide"]
+    },
     "notepad": {
       "en": [
         "File",

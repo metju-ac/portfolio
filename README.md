@@ -29,7 +29,8 @@ I've been waiting for the Spotify team to review my application for extension re
 ## ✨ Features
 
 - Loading Screen & Login
-- Internationalisation 🇬🇧 En / 🇫🇷 Fr
+- Internationalisation 🇬🇧 En
+- Play Minesweeper
 - Reach me by email
 - See my projects
 - Notepad
