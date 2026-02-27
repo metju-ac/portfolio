@@ -30,7 +30,6 @@ I've been waiting for the Spotify team to review my application for extension re
 
 - Loading Screen & Login
 - Internationalisation 🇬🇧 En / 🇫🇷 Fr
-- Play DOOM
 - Reach me by email
 - See my projects
 - Notepad

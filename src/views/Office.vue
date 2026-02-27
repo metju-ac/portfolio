@@ -13,7 +13,6 @@
       @toggle-music="openWindow('music')"
       @toggle-calendar="openWindow('calendar')"
       @toggle-notepad="openWindow('notepad')"
-      @toggle-doom="openWindow('doom')"
       @toggle-terminal="openWindow('terminal')"
       @toggle-services="openWindow('services')"
     />
@@ -24,7 +23,6 @@
       @toggle-myCV="openWindow('myCV')"
       @toggle-music="openWindow('music')"
       @toggle-notepad="openWindow('notepad')"
-      @toggle-doom="openWindow('doom')"
       @toggle-services="openWindow('services')"
     />
     <div v-for="window in windows" :key="window.id">
@@ -76,7 +74,6 @@ import Documents from '@/components/Windows/Documents/Documents.vue'
 import Pictures from '@/components/Windows/Pictures.vue'
 import Calendar from '@/components/Windows/Calendar/Calendar.vue'
 import Notepad from '@/components/Windows/Notepad.vue'
-import Doom from '@/components/Windows/Doom.vue'
 import Terminal from '@/components/Windows/Terminal.vue'
 import Services from '@/components/Windows/Services.vue'
 
@@ -124,7 +121,6 @@ const components = {
   Pictures: shallowRef(Pictures),
   Calendar: shallowRef(Calendar),
   Notepad: shallowRef(Notepad),
-  Doom: shallowRef(Doom),
   Terminal: shallowRef(Terminal),
   Services: shallowRef(Services)
 }

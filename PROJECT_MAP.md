@@ -27,7 +27,7 @@ contact form, music player, terminal, etc.).
 | i18n             | vue-i18n (English + French)                  |
 | Analytics        | Matomo (vue-matomo, production only)         |
 | Email            | EmailJS (@emailjs/browser, client-side only) |
-| Special          | js-dos (DOOM emulator), ical.js (calendar)   |
+| Special          | ical.js (calendar)                           |
 | Meta/SEO         | @vueuse/head                                 |
 
 **Important:** `axios` is declared in package.json but **never imported or used** anywhere.
@@ -50,7 +50,7 @@ setup exists solely to serve these static files with caching and security header
 
 ```
 portfolio/
-├── index.html              # SPA entry point (loads js-dos CDN, custom fonts)
+├── index.html              # SPA entry point (custom fonts)
 ├── package.json            # Dependencies and scripts
 ├── vite.config.js          # Vite config (Vue, JSX, DevTools, i18n plugins)
 ├── tailwind.config.js      # Tailwind theme (XP colors, fonts, cursors, gradients)
@@ -127,7 +127,6 @@ portfolio/
 │       │   ├── Pictures.vue          # Photo carousel
 │       │   ├── Calendar.vue          # Monthly calendar with ICS parsing
 │       │   ├── Notepad.vue           # Simple text editor
-│       │   ├── Doom.vue              # DOOM via js-dos emulator
 │       │   ├── Terminal.vue          # Fake Windows terminal
 │       │   ├── Services.vue          # Freelance services catalog
 │       │   │
@@ -163,7 +162,7 @@ portfolio/
 │   ├── .htaccess
 │   ├── musics/             # MP3 files for music player (currently empty, see docs/ADDING_MUSIC.md)
 │   ├── calendar/           # ICS files (calendar-fr.ics, calendar-en.ics)
-│   ├── game/               # DOOM-@evilution.zip for js-dos
+│   ├── game/               # (removed - was DOOM game)
 │   ├── img/
 │   │   ├── icons/          # 100+ WebP/SVG icons organized by window type
 │   │   ├── album-covers/   # WebP album cover images (currently empty)
@@ -201,7 +200,7 @@ Vue Router uses **history mode** (requires SPA fallback on the server).
 the `windowsStore`. Each window gets the `Window.vue` layout wrapper (drag, resize, title bar)
 and renders the appropriate content component.
 
-### 11 Windows
+### 10 Windows
 
 | ID  | Component  | Description                                                     |
 | --- | ---------- | --------------------------------------------------------------- |
@@ -213,9 +212,8 @@ and renders the appropriate content component.
 | 6   | Pictures   | Photo carousel (8 travel photos)                                |
 | 7   | Calendar   | Monthly calendar parsing local ICS files                        |
 | 8   | Notepad    | Simple text editor                                              |
-| 9   | Doom       | DOOM via js-dos WebAssembly emulator                            |
-| 11  | Terminal   | Fake terminal with hardcoded responses                          |
-| 12  | Services   | Freelance service catalog with pricing                          |
+| 9   | Terminal   | Fake terminal with hardcoded responses                          |
+| 10  | Services   | Freelance service catalog with pricing                          |
 
 ## 7. State Management (Pinia Stores)
 
