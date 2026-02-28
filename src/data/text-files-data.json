@@ -1,0 +1,10 @@
+{
+  "beerRecords": {
+    "title": "beer_records.txt",
+    "content": "=== Beer Records ===\n\nPlaceholder content - to be filled in later.\n\n"
+  },
+  "rivers": {
+    "title": "rivers.txt",
+    "content": "=== Rivers ===\n\nPlaceholder content - to be filled in later.\n\n"
+  }
+}

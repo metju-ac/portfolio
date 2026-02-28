@@ -15,6 +15,8 @@
       @toggle-minesweeper="openWindow('minesweeper')"
       @toggle-notepad="openWindow('notepad')"
       @toggle-terminal="openWindow('terminal')"
+      @toggle-beerRecords="openWindow('beerRecords')"
+      @toggle-rivers="openWindow('rivers')"
     />
     <DesktopAppsLayout
       :entities="entities"
@@ -24,6 +26,8 @@
       @toggle-music="openWindow('music')"
       @toggle-minesweeper="openWindow('minesweeper')"
       @toggle-notepad="openWindow('notepad')"
+      @toggle-beerRecords="openWindow('beerRecords')"
+      @toggle-rivers="openWindow('rivers')"
     />
     <div v-for="window in windows" :key="window.id">
       <Window
@@ -48,7 +52,7 @@
         :isSearchVisible="window.isSearchVisible"
         :style="{ zIndex: findWindowZIndex(window.id) }"
       >
-        <component :is="window.component" v-bind="window.leftMenuType ? { leftMenuType: window.leftMenuType } : {}" />
+        <component :is="window.component" v-bind="getComponentProps(window)" />
       </Window>
     </div>
     <Footer :entities="windows" @toggle-header="toggleHeader" @toggle-window="handleWindowClick" />
@@ -75,6 +79,7 @@ import Pictures from '@/components/Windows/Pictures.vue'
 import Calendar from '@/components/Windows/Calendar/Calendar.vue'
 import Notepad from '@/components/Windows/Notepad.vue'
 import Terminal from '@/components/Windows/Terminal.vue'
+import TextFileViewer from '@/components/Windows/TextFileViewer.vue'
 
 import DesktopAppsLayout from '@/layouts/DesktopAppsLayout.vue'
 import Window from '@/layouts/Window.vue'
@@ -120,7 +125,8 @@ const components = {
   Pictures: shallowRef(Pictures),
   Calendar: shallowRef(Calendar),
   Notepad: shallowRef(Notepad),
-  Terminal: shallowRef(Terminal)
+  Terminal: shallowRef(Terminal),
+  TextFileViewer: shallowRef(TextFileViewer)
 }
 
 // Create the entities array from the data.json
@@ -133,6 +139,14 @@ const entities = ref(
 
 const toggleHeader = () => {
   showHeader.value = !showHeader.value
+}
+
+// Build props to pass to window content components
+const getComponentProps = (window) => {
+  const props = {}
+  if (window.leftMenuType) props.leftMenuType = window.leftMenuType
+  if (window.textFileId) props.textFileId = window.textFileId
+  return props
 }
 
 const setActiveWindow = (windowId) => {
@@ -159,6 +173,7 @@ const openWindow = (windowId) => {
         minWidth: entity.minWidth,
         minHeight: entity.minHeight,
         leftMenuType: entity.leftMenuType,
+        textFileId: entity.textFileId,
         headerToolsId: entity.headerToolsId,
         menuHeaderItemsId: entity.menuHeaderItemsId,
         resizable: entity.resizable,
