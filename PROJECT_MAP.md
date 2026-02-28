@@ -86,7 +86,8 @@ portfolio/
 │   │   └── connectionStore.js # Login state: restart -> loggedIn -> disconnected
 │   │
 │   ├── data/               # Static JSON data (drives the entire UI)
-│   │   ├── windows-data.json       # 10 windows + 1 external link (see Section 6)
+│   │   ├── windows-data.json       # 12 windows + 1 external link (see Section 6)
+│   │   ├── text-files-data.json    # Content for TextFileViewer windows (beer_records, rivers)
 │   │   ├── projects-data.json      # 7 portfolio projects (2 categories)
 │   │   ├── playlist-data.json      # Music tracks metadata (currently empty)
 │   │   ├── cv-data.json            # Education (4) + work experience (6)
@@ -129,6 +130,7 @@ portfolio/
 │       │   ├── MyProjects.vue       # Project portfolio browser
 │       │   ├── ContactMe.vue        # Contact form (EmailJS)
 │       │   ├── Notepad.vue          # Simple text editor
+│       │   ├── TextFileViewer.vue   # Read-only text file viewer (data-driven)
 │       │   ├── Pictures.vue         # Photo carousel
 │       │   ├── Minesweeper.vue      # Full Minesweeper game
 │       │   ├── Terminal.vue         # Fake Windows terminal
@@ -238,21 +240,23 @@ Vue Router uses **history mode** (requires SPA fallback on the server).
 the `windowsStore`. Each window gets the `Window.vue` layout wrapper (drag, resize, title bar)
 and renders the appropriate content component.
 
-### 10 Windows + 1 External Link
+### 12 Windows + 1 External Link
 
-| ID          | Component   | Type     | Description                                    |
-| ----------- | ----------- | -------- | ---------------------------------------------- |
-| myProjects  | MyProjects  | window   | Portfolio with 7 project detail sub-views      |
-| contact     | ContactMe   | window   | Email form via EmailJS                         |
-| myCV        | MyCV        | window   | Resume with education/experience, PDF download |
-| music       | Music       | window   | Spotify-like player (currently empty playlist) |
-| documents   | Documents   | window   | File browser (About, Legal pages)              |
-| pictures    | Pictures    | window   | Photo carousel (8 travel photos)               |
-| calendar    | Calendar    | window   | Monthly calendar parsing local ICS files       |
-| minesweeper | Minesweeper | window   | Full Minesweeper game                          |
-| notepad     | Notepad     | window   | Simple text editor                             |
-| terminal    | Terminal    | window   | Fake terminal with hardcoded responses         |
-| github      | --          | external | Opens https://github.com/metju-ac in new tab   |
+| ID          | Component      | Type     | Description                                    |
+| ----------- | -------------- | -------- | ---------------------------------------------- |
+| myProjects  | MyProjects     | window   | Portfolio with 7 project detail sub-views      |
+| contact     | ContactMe      | window   | Email form via EmailJS                         |
+| myCV        | MyCV           | window   | Resume with education/experience, PDF download |
+| music       | Music          | window   | Spotify-like player (currently empty playlist) |
+| documents   | Documents      | window   | File browser (About, Legal pages)              |
+| pictures    | Pictures       | window   | Photo carousel (8 travel photos)               |
+| calendar    | Calendar       | window   | Monthly calendar parsing local ICS files       |
+| minesweeper | Minesweeper    | window   | Full Minesweeper game                          |
+| notepad     | Notepad        | window   | Simple text editor                             |
+| terminal    | Terminal       | window   | Fake terminal with hardcoded responses         |
+| beerRecords | TextFileViewer | window   | Read-only text file (beer_records.txt)         |
+| rivers      | TextFileViewer | window   | Read-only text file (rivers.txt)               |
+| github      | --             | external | Opens https://github.com/metju-ac in new tab   |
 
 ### External Links Pattern
 
@@ -264,6 +268,20 @@ new browser tab instead of a window. The logic is in:
 - `Header.vue` -- `toggleWindow()` checks `entity.isExternalLink`
 
 External links do NOT require: component imports, event bindings in `Office.vue`, or store entries.
+
+### Text File Viewer Pattern
+
+Multiple desktop `.txt` files share a single `TextFileViewer.vue` component. Each file has its
+own entry in `windows-data.json` with `"component": "TextFileViewer"` and a `"textFileId"` field
+that references a key in `src/data/text-files-data.json`.
+
+To add a new text file:
+
+1. Add an entry to `text-files-data.json` with a key, title, and content
+2. Add a window entry to `windows-data.json` with `"component": "TextFileViewer"` and `"textFileId": "<key>"`
+3. Add toggle event bindings in `Office.vue` on `<Header>` and `<DesktopAppsLayout>`
+
+No new component file is needed.
 
 ## 7. State Management (Pinia Stores)
 
@@ -323,6 +341,7 @@ Netlify, Vercel, etc.). SPA fallback for `/office` route is needed (e.g., copy i
 | ------------------------ | ---------------------------------------------------------------------------------- |
 | Add a new window/app     | `windows-data.json`, new component in `Windows/`, `Office.vue`, `en.json`          |
 | Add an external link     | `windows-data.json` (with `isExternalLink: true`, `url`). No component needed.     |
+| Add a new text file      | `text-files-data.json` + `windows-data.json` + toggle events in `Office.vue`       |
 | Add a new project        | `projects-data.json`, new component in `MyProjects/`                               |
 | Change styling/theme     | `tailwind.config.js`, `sass/`, component styles                                    |
 | Modify routes            | `src/router/index.js`                                                              |

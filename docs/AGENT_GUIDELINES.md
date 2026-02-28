@@ -35,6 +35,16 @@ External links (like GitHub, LinkedIn) are NOT windows — they are entries in `
 
 Check existing external link entries in `windows-data.json` for the pattern.
 
+## Adding Text Files (Desktop .txt files)
+
+Text files use a shared `TextFileViewer.vue` component. To add a new `.txt` file to the desktop:
+
+1. **`src/data/text-files-data.json`** — add a new key with `title` and `content` fields
+2. **`src/data/windows-data.json`** — add a window entry with `"component": "TextFileViewer"` and `"textFileId": "<key>"` matching the key from step 1
+3. **`src/views/Office.vue`** — add `@toggle-{id}="openWindow('{id}')"` on both `<Header>` and `<DesktopAppsLayout>`
+
+No new component file is needed. Check existing text file entries for the pattern.
+
 ## Verification Checklist
 
 Before committing any change:
