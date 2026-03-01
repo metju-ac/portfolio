@@ -1,7 +1,7 @@
 # Project Map: PortfolioXP
 
 > This document is a comprehensive reference for AI agents working on this codebase.
-> Last updated: 2026-03-01 (added configurable desktop icon positions)
+> Last updated: 2026-03-01 (added draggable desktop icons)
 
 ## 1. Project Overview
 
@@ -103,7 +103,7 @@ portfolio/
 │   │
 │   ├── layouts/            # Reusable layout wrappers
 │   │   ├── Window.vue      # Window chrome (dragging, resizing, title bar, tools)
-│   │   ├── DesktopAppsLayout.vue  # Absolutely-positioned desktop icons (configurable via desktopPosition)
+│   │   ├── DesktopAppsLayout.vue  # Draggable, absolutely-positioned desktop icons (configurable via desktopPosition)
 │   │   └── ContentCenter.vue      # Centered content wrapper
 │   │
 │   └── components/         # UI components
@@ -303,6 +303,10 @@ Each entity with `"onDesktop": true` can specify `"desktopPosition": { "top": <p
 - If `desktopPosition` is omitted, defaults to `{ top: 20, left: 20 }`
 - Each icon has a fixed width of 80px (set via CSS)
 - To reposition an icon, change its `top`/`left` values in `windows-data.json`
+- **Icons are draggable at runtime** — users can drag icons to reposition them
+- Drag positions are stored in a reactive `iconPositions` map (NOT persisted — reloading restores config positions)
+- A 5px drag threshold prevents accidental drags when clicking/double-clicking
+- Icons are clamped to desktop bounds (accounting for 32px taskbar height)
 
 ## 7. State Management (Pinia Stores)
 
