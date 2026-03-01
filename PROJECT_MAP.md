@@ -1,7 +1,7 @@
 # Project Map: PortfolioXP
 
 > This document is a comprehensive reference for AI agents working on this codebase.
-> Last updated: 2026-03-01 (added draggable desktop icons)
+> Last updated: 2026-03-01 (grid-snap desktop icon positioning)
 
 ## 1. Project Overview
 
@@ -295,18 +295,17 @@ of ISO 2-letter country codes (e.g., `"cz"`, `"de"`, `"at"`).
 
 ### Desktop Icon Positioning
 
-Desktop icons are absolutely positioned using `desktopPosition` in `windows-data.json`.
-Each entity with `"onDesktop": true` can specify `"desktopPosition": { "top": <px>, "left": <px> }`.
+Desktop icons are placed on a virtual grid. Each icon's default grid cell is configured via
+`desktopGridPos: { col, row }` (1-indexed) in `windows-data.json`.
 
-- `DesktopAppsLayout.vue` reads `entity.desktopPosition.top` and `entity.desktopPosition.left`
-- Values are in pixels (absolute position within the desktop area)
-- If `desktopPosition` is omitted, defaults to `{ top: 20, left: 20 }`
+- `DesktopAppsLayout.vue` converts `{ col, row }` to pixels using: `left = 20 + (col-1)*100`, `top = 20 + (row-1)*100`
+- Grid cell size is 100×100px; origin is offset 20px from the top-left corner of the desktop
+- If `desktopGridPos` is omitted, defaults to `{ col: 1, row: 1 }`
 - Each icon has a fixed width of 80px (set via CSS)
-- To reposition an icon, change its `top`/`left` values in `windows-data.json`
 - **Icons are draggable at runtime** — users can drag icons to reposition them
-- Drag positions are stored in a reactive `iconPositions` map (NOT persisted — reloading restores config positions)
+- While dragging, movement is smooth (live pixel tracking); on mouse release the icon **snaps to the nearest grid cell**
+- Runtime positions are stored in a reactive `iconGridPos` map (NOT persisted — reloading restores config positions)
 - A 5px drag threshold prevents accidental drags when clicking/double-clicking
-- Icons are clamped to desktop bounds (accounting for 32px taskbar height)
 
 ## 7. State Management (Pinia Stores)
 
