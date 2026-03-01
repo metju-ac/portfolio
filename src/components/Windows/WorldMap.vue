@@ -60,6 +60,7 @@ const handleMouseOut = () => {
   height: 100%;
   background: #fff;
   padding: 8px;
+  padding-top: 32px;
   box-sizing: border-box;
 }
 
