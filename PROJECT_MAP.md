@@ -1,7 +1,7 @@
 # Project Map: PortfolioXP
 
 > This document is a comprehensive reference for AI agents working on this codebase.
-> Last updated: 2026-03-01 (removed Calendar window)
+> Last updated: 2026-03-01 (added configurable desktop icon positions)
 
 ## 1. Project Overview
 
@@ -103,7 +103,7 @@ portfolio/
 │   │
 │   ├── layouts/            # Reusable layout wrappers
 │   │   ├── Window.vue      # Window chrome (dragging, resizing, title bar, tools)
-│   │   ├── DesktopAppsLayout.vue  # Grid of desktop icons (handles external links)
+│   │   ├── DesktopAppsLayout.vue  # Absolutely-positioned desktop icons (configurable via desktopPosition)
 │   │   └── ContentCenter.vue      # Centered content wrapper
 │   │
 │   └── components/         # UI components
@@ -292,6 +292,17 @@ of ISO 2-letter country codes (e.g., `"cz"`, `"de"`, `"at"`).
 - The `locationAttributes` prop function applies per-country styling
 - To add/remove visited countries, just edit `visited-countries-data.json`
 - Full list of valid country IDs: run `node -e "import('@svg-maps/world').then(m => m.default.locations.forEach(l => console.log(l.id, l.name)))"`
+
+### Desktop Icon Positioning
+
+Desktop icons are absolutely positioned using `desktopPosition` in `windows-data.json`.
+Each entity with `"onDesktop": true` can specify `"desktopPosition": { "top": <px>, "left": <px> }`.
+
+- `DesktopAppsLayout.vue` reads `entity.desktopPosition.top` and `entity.desktopPosition.left`
+- Values are in pixels (absolute position within the desktop area)
+- If `desktopPosition` is omitted, defaults to `{ top: 20, left: 20 }`
+- Each icon has a fixed width of 80px (set via CSS)
+- To reposition an icon, change its `top`/`left` values in `windows-data.json`
 
 ## 7. State Management (Pinia Stores)
 

@@ -55,7 +55,7 @@ const getLocalizedTitle = (entity) => {
 
 // If click occurs somewhere else, remove the active state
 window.addEventListener('click', (e) => {
-  if (!e.target.closest('.grid')) {
+  if (!e.target.closest('.desktop-icon')) {
     localEntities.value.forEach((entity) => {
       entity.isActive = false
     })
@@ -64,36 +64,45 @@ window.addEventListener('click', (e) => {
 </script>
 
 <template>
-  <section class="absolute top-0 left-0">
-    <div class="grid grid-cols-2 gap-5 pt-6 pl-6">
-      <button
-        v-for="entity in desktopEntities"
-        :key="entity.id"
-        class="flex flex-col gap-2 items-center w-full cursor-pointer"
-        @click="isMobile ? removeFilterAndToggle(entity) : toggleEffect(entity)"
-        @dblclick="!isMobile && removeFilterAndToggle(entity)"
-        :class="{ active: entity.isActive }"
+  <section class="absolute top-0 left-0 w-full h-full">
+    <button
+      v-for="entity in desktopEntities"
+      :key="entity.id"
+      class="desktop-icon flex flex-col gap-2 items-center cursor-pointer"
+      :style="{
+        position: 'absolute',
+        top: (entity.desktopPosition?.top ?? 20) + 'px',
+        left: (entity.desktopPosition?.left ?? 20) + 'px'
+      }"
+      @click="isMobile ? removeFilterAndToggle(entity) : toggleEffect(entity)"
+      @dblclick="!isMobile && removeFilterAndToggle(entity)"
+      :class="{ active: entity.isActive }"
+    >
+      <img
+        class="w-11 h-11"
+        :style="{
+          ...entity.imageStyle,
+          filter: entity.isActive ? 'opacity(0.5)' : 'opacity(1)'
+        }"
+        :src="entity.imgSrc"
+        :alt="getLocalizedTitle(entity)"
+      />
+      <p
+        class="text-white text-xs font-normal py-px px-1 text-center"
+        :style="{
+          ...entity.textStyle,
+          backgroundColor: entity.isActive ? '#0B61FF' : 'transparent',
+          textShadow: entity.isActive ? 'none' : '0px 1px 1px rgba(1, 1, 1, 1), 0px 0px 4px #000'
+        }"
       >
-        <img
-          class="w-11 h-11"
-          :style="{
-            ...entity.imageStyle,
-            filter: entity.isActive ? 'opacity(0.5)' : 'opacity(1)'
-          }"
-          :src="entity.imgSrc"
-          :alt="getLocalizedTitle(entity)"
-        />
-        <p
-          class="text-white text-xs font-normal py-px px-1"
-          :style="{
-            ...entity.textStyle,
-            backgroundColor: entity.isActive ? '#0B61FF' : 'transparent',
-            textShadow: entity.isActive ? 'none' : '0px 1px 1px rgba(1, 1, 1, 1), 0px 0px 4px #000'
-          }"
-        >
-          {{ getLocalizedTitle(entity) }}
-        </p>
-      </button>
-    </div>
+        {{ getLocalizedTitle(entity) }}
+      </p>
+    </button>
   </section>
 </template>
+
+<style scoped>
+.desktop-icon {
+  width: 80px;
+}
+</style>
