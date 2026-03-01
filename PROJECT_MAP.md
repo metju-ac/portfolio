@@ -1,7 +1,7 @@
 # Project Map: PortfolioXP
 
 > This document is a comprehensive reference for AI agents working on this codebase.
-> Last updated: 2026-02-27 (updated after Phase 3 changes)
+> Last updated: 2026-03-01 (added World Map window)
 
 ## 1. Project Overview
 
@@ -27,7 +27,7 @@ contact form, music player, Minesweeper, terminal, etc.).
 | i18n             | vue-i18n (English only, i18n infrastructure kept for future locales) |
 | Analytics        | Matomo (vue-matomo, production only)                                 |
 | Email            | EmailJS (@emailjs/browser, client-side only)                         |
-| Special          | ical.js (calendar)                                                   |
+| Special          | ical.js (calendar), vue-svg-map + @svg-maps/world (world map)        |
 | Meta/SEO         | @vueuse/head                                                         |
 
 **Note:** `axios` is declared in package.json but **never imported or used** anywhere.
@@ -86,7 +86,8 @@ portfolio/
 │   │   └── connectionStore.js # Login state: restart -> loggedIn -> disconnected
 │   │
 │   ├── data/               # Static JSON data (drives the entire UI)
-│   │   ├── windows-data.json       # 12 windows + 1 external link (see Section 6)
+│   │   ├── windows-data.json       # 13 windows + 1 external link (see Section 6)
+│   │   ├── visited-countries-data.json  # Country IDs for World Map (ISO 2-letter codes)
 │   │   ├── text-files-data.json    # Content for TextFileViewer windows (beer_records, rivers)
 │   │   ├── projects-data.json      # 7 portfolio projects (2 categories)
 │   │   ├── playlist-data.json      # Music tracks metadata (currently empty)
@@ -131,6 +132,7 @@ portfolio/
 │       │   ├── ContactMe.vue        # Contact form (EmailJS)
 │       │   ├── Notepad.vue          # Simple text editor
 │       │   ├── TextFileViewer.vue   # Read-only text file viewer (data-driven)
+│       │   ├── WorldMap.vue        # Interactive world map showing visited countries
 │       │   ├── Pictures.vue         # Photo carousel
 │       │   ├── Minesweeper.vue      # Full Minesweeper game
 │       │   ├── Terminal.vue         # Fake Windows terminal
@@ -200,6 +202,8 @@ portfolio/
 │   ├── img/
 │   │   ├── icons/          # 100+ WebP/SVG icons organized by window type
 │   │   │   ├── github-icon-lg.webp  # GitHub desktop/external link icon
+│   │   │   ├── world-map-icon-lg.webp  # World Map window icon (48px globe)
+│   │   │   ├── world-map-icon-sm.webp  # World Map window icon (16px globe)
 │   │   │   ├── side-menu/           # Left sidebar icons (github, linkedin, etc.)
 │   │   │   ├── calendar/
 │   │   │   ├── contact/
@@ -240,7 +244,7 @@ Vue Router uses **history mode** (requires SPA fallback on the server).
 the `windowsStore`. Each window gets the `Window.vue` layout wrapper (drag, resize, title bar)
 and renders the appropriate content component.
 
-### 12 Windows + 1 External Link
+### 13 Windows + 1 External Link
 
 | ID          | Component      | Type     | Description                                    |
 | ----------- | -------------- | -------- | ---------------------------------------------- |
@@ -256,6 +260,7 @@ and renders the appropriate content component.
 | terminal    | Terminal       | window   | Fake terminal with hardcoded responses         |
 | beerRecords | TextFileViewer | window   | Read-only text file (beer_records.txt)         |
 | rivers      | TextFileViewer | window   | Read-only text file (rivers.txt)               |
+| worldMap    | WorldMap       | window   | Interactive SVG world map of visited countries |
 | github      | --             | external | Opens https://github.com/metju-ac in new tab   |
 
 ### External Links Pattern
@@ -282,6 +287,18 @@ To add a new text file:
 3. Add toggle event bindings in `Office.vue` on `<Header>` and `<DesktopAppsLayout>`
 
 No new component file is needed.
+
+### World Map Pattern
+
+The `WorldMap.vue` component uses `vue-svg-map` with `@svg-maps/world` to render an interactive
+SVG world map. Visited countries are listed in `src/data/visited-countries-data.json` as an array
+of ISO 2-letter country codes (e.g., `"cz"`, `"de"`, `"at"`).
+
+- Visited countries are highlighted in blue (#3a7bd5), others in grey (#d4d4d4)
+- Hovering over any country shows a tooltip with the country name
+- The `locationAttributes` prop function applies per-country styling
+- To add/remove visited countries, just edit `visited-countries-data.json`
+- Full list of valid country IDs: run `node -e "import('@svg-maps/world').then(m => m.default.locations.forEach(l => console.log(l.id, l.name)))"`
 
 ## 7. State Management (Pinia Stores)
 

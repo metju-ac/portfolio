@@ -45,6 +45,12 @@ Text files use a shared `TextFileViewer.vue` component. To add a new `.txt` file
 
 No new component file is needed. Check existing text file entries for the pattern.
 
+## World Map (Visited Countries)
+
+The `WorldMap.vue` component uses `vue-svg-map` + `@svg-maps/world`. Visited country IDs live in `src/data/visited-countries-data.json`. To update the list of visited countries, just edit that JSON array — no code changes needed.
+
+Valid country IDs can be listed with: `node -e "import('@svg-maps/world').then(m => m.default.locations.forEach(l => console.log(l.id, l.name)))"`
+
 ## Verification Checklist
 
 Before committing any change:
