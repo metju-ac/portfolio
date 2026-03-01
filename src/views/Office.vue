@@ -11,7 +11,6 @@
       @toggle-documents="openWindow('documents')"
       @toggle-pictures="openWindow('pictures')"
       @toggle-music="openWindow('music')"
-      @toggle-calendar="openWindow('calendar')"
       @toggle-minesweeper="openWindow('minesweeper')"
       @toggle-notepad="openWindow('notepad')"
       @toggle-terminal="openWindow('terminal')"
@@ -78,7 +77,6 @@ import ContactMe from '@/components/Windows/ContactMe.vue'
 import MyProjects from '@/components/Windows/MyProjects.vue'
 import Documents from '@/components/Windows/Documents/Documents.vue'
 import Pictures from '@/components/Windows/Pictures.vue'
-import Calendar from '@/components/Windows/Calendar/Calendar.vue'
 import Notepad from '@/components/Windows/Notepad.vue'
 import Terminal from '@/components/Windows/Terminal.vue'
 import TextFileViewer from '@/components/Windows/TextFileViewer.vue'
@@ -126,7 +124,6 @@ const components = {
   Minesweeper: shallowRef(Minesweeper),
   Documents: shallowRef(Documents),
   Pictures: shallowRef(Pictures),
-  Calendar: shallowRef(Calendar),
   Notepad: shallowRef(Notepad),
   Terminal: shallowRef(Terminal),
   TextFileViewer: shallowRef(TextFileViewer),

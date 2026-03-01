@@ -22,7 +22,6 @@ All the icons, wallpaper and sounds belong to Windows corporation. The original 
 - Notepad
 - My CV
 - My Images
-- My Calendar
 - Listen to my playlist
 - Manage the volume in the website
 

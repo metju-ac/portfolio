@@ -147,29 +147,6 @@
     "leftMenuType": "pictures"
   },
   {
-    "id": "calendar",
-    "title": {
-      "en": "Calendar"
-    },
-    "imgSrc": "/img/icons/calendar/calendar-icon-lg.webp",
-    "onDesktop": false,
-    "resizable": true,
-    "windowsHeaderLogo": true,
-    "isSearchVisible": true,
-    "headerPosition": "right",
-    "headerToolsId": "",
-    "menuHeaderItemsId": "default",
-    "iconSrc": "/img/icons/calendar/calendar-icon-sm.webp",
-    "initPositionX": 80,
-    "initPositionY": 440,
-    "initWidth": 660,
-    "initHeight": 500,
-    "minWidth": 200,
-    "minHeight": 160,
-    "component": "Calendar",
-    "leftMenuType": ""
-  },
-  {
     "id": "minesweeper",
     "title": {
       "en": "Minesweeper",

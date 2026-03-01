@@ -1,7 +1,7 @@
 # Project Map: PortfolioXP
 
 > This document is a comprehensive reference for AI agents working on this codebase.
-> Last updated: 2026-03-01 (added World Map window)
+> Last updated: 2026-03-01 (removed Calendar window)
 
 ## 1. Project Overview
 
@@ -27,7 +27,7 @@ contact form, music player, Minesweeper, terminal, etc.).
 | i18n             | vue-i18n (English only, i18n infrastructure kept for future locales) |
 | Analytics        | Matomo (vue-matomo, production only)                                 |
 | Email            | EmailJS (@emailjs/browser, client-side only)                         |
-| Special          | ical.js (calendar), vue-svg-map + @svg-maps/world (world map)        |
+| Special          | vue-svg-map + @svg-maps/world (world map)                            |
 | Meta/SEO         | @vueuse/head                                                         |
 
 **Note:** `axios` is declared in package.json but **never imported or used** anywhere.
@@ -86,7 +86,7 @@ portfolio/
 │   │   └── connectionStore.js # Login state: restart -> loggedIn -> disconnected
 │   │
 │   ├── data/               # Static JSON data (drives the entire UI)
-│   │   ├── windows-data.json       # 13 windows + 1 external link (see Section 6)
+│   │   ├── windows-data.json       # 12 windows + 1 external link (see Section 6)
 │   │   ├── visited-countries-data.json  # Country IDs for World Map (ISO 2-letter codes)
 │   │   ├── text-files-data.json    # Content for TextFileViewer windows (beer_records, rivers)
 │   │   ├── projects-data.json      # 7 portfolio projects (2 categories)
@@ -141,10 +141,6 @@ portfolio/
 │       │   ├── WindowHeaderTools.vue     # Header toolbar buttons
 │       │   ├── WindowLeftMenu.vue        # Left sidebar menu
 │       │   │
-│       │   ├── Calendar/
-│       │   │   ├── Calendar.vue     # Monthly calendar with ICS parsing
-│       │   │   └── icsParser.js     # ICS file parser
-│       │   │
 │       │   ├── Documents/
 │       │   │   ├── Documents.vue    # File browser (About, Legal)
 │       │   │   ├── About.vue        # About page (bio + attribution)
@@ -198,14 +194,12 @@ portfolio/
 │   ├── sounds/             # startup/shutdown MP3s
 │   ├── videos/             # Project video (montage-serveur.mp4)
 │   ├── pdf/                # Downloadable CV (English)
-│   ├── calendar/           # ICS files (calendar-en.ics)
 │   ├── img/
 │   │   ├── icons/          # 100+ WebP/SVG icons organized by window type
 │   │   │   ├── github-icon-lg.webp  # GitHub desktop/external link icon
 │   │   │   ├── world-map-icon-lg.webp  # World Map window icon (48px globe)
 │   │   │   ├── world-map-icon-sm.webp  # World Map window icon (16px globe)
 │   │   │   ├── side-menu/           # Left sidebar icons (github, linkedin, etc.)
-│   │   │   ├── calendar/
 │   │   │   ├── contact/
 │   │   │   ├── cv/
 │   │   │   ├── documents/
@@ -244,7 +238,7 @@ Vue Router uses **history mode** (requires SPA fallback on the server).
 the `windowsStore`. Each window gets the `Window.vue` layout wrapper (drag, resize, title bar)
 and renders the appropriate content component.
 
-### 13 Windows + 1 External Link
+### 12 Windows + 1 External Link
 
 | ID          | Component      | Type     | Description                                    |
 | ----------- | -------------- | -------- | ---------------------------------------------- |
@@ -254,7 +248,6 @@ and renders the appropriate content component.
 | music       | Music          | window   | Spotify-like player (currently empty playlist) |
 | documents   | Documents      | window   | File browser (About, Legal pages)              |
 | pictures    | Pictures       | window   | Photo carousel (8 travel photos)               |
-| calendar    | Calendar       | window   | Monthly calendar parsing local ICS files       |
 | minesweeper | Minesweeper    | window   | Full Minesweeper game                          |
 | notepad     | Notepad        | window   | Simple text editor                             |
 | terminal    | Terminal       | window   | Fake terminal with hardcoded responses         |
