@@ -291,6 +291,32 @@
     "leftMenuType": ""
   },
   {
+    "id": "worldMap",
+    "title": {
+      "en": "World Map"
+    },
+    "subtitle": {
+      "en": "Countries I've visited"
+    },
+    "imgSrc": "/img/icons/world-map-icon-lg.webp",
+    "onDesktop": true,
+    "resizable": true,
+    "windowsHeaderLogo": false,
+    "isSearchVisible": false,
+    "headerPosition": "right",
+    "headerToolsId": "",
+    "menuHeaderItemsId": "none",
+    "iconSrc": "/img/icons/world-map-icon-sm.webp",
+    "initPositionX": 150,
+    "initPositionY": 120,
+    "initWidth": 750,
+    "initHeight": 500,
+    "minWidth": 400,
+    "minHeight": 300,
+    "component": "WorldMap",
+    "leftMenuType": ""
+  },
+  {
     "id": "github",
     "title": {
       "en": "My GitHub"
