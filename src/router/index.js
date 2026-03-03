@@ -10,28 +10,27 @@ const router = createRouter({
       name: 'home',
       component: Loader,
       meta: {
-        title: 'Portfolio | Web Developer',
+        title: 'Matěj Klíma | Hovado',
         metaTags: [
           {
             rel: 'canonical',
-            href: ''
+            href: 'https://matejklima.com/'
           },
           {
             name: 'title',
-            content: 'Portfolio | Web Developer'
+            content: 'Matěj Klíma | Hovado'
           },
           {
             name: 'description',
-            content:
-              'Discover the portfolio of a passionate full stack web developer. Creating websites and web/mobile applications with JS, PHP, SQL and their frameworks, as well as DevOps.'
+            content: 'Personal portfolio and website of Matěj Klíma — developer, alcoholic, and creative.'
           },
           {
             name: 'keywords',
-            content: 'portfolio, web developer, full stack, websites, web applications, mobile applications, JS, PHP, SQL, ORM, frameworks, DevOps'
+            content: 'Matěj Klíma, portfolio, web developer, full stack, mobile applications, Flutter, Go, Alcohol'
           },
           {
             name: 'author',
-            content: 'Portfolio'
+            content: 'Matěj Klíma'
           },
           {
             name: 'robots',
@@ -51,24 +50,23 @@ const router = createRouter({
           },
           {
             name: 'apple-mobile-web-app-title',
-            content: 'Portfolio | Web Developer'
+            content: 'Matěj Klíma | Hovado'
           },
           {
             name: 'application-name',
-            content: 'Portfolio | Web Developer'
+            content: 'Matěj Klíma | Hovado'
           },
           {
             name: 'twitter:card',
-            content: 'summary'
+            content: 'summary_large_image'
           },
           {
             name: 'twitter:title',
-            content: 'Portfolio | Web Developer'
+            content: 'Matěj Klíma | Hovado'
           },
           {
             name: 'twitter:description',
-            content:
-              'Discover the portfolio of a passionate full stack web developer. Creating websites and web/mobile applications with JS, PHP, SQL and their frameworks, as well as DevOps.'
+            content: 'Personal portfolio and website of Matěj Klíma — developer, alcoholic, and creative.'
           },
           {
             name: 'twitter:image',
@@ -76,7 +74,7 @@ const router = createRouter({
           },
           {
             name: 'twitter:image:alt',
-            content: 'Logo Portfolio'
+            content: 'Matěj Klíma'
           },
           {
             property: 'og:type',
@@ -84,20 +82,19 @@ const router = createRouter({
           },
           {
             property: 'og:title',
-            content: 'Portfolio | Web Developer'
+            content: 'Matěj Klíma | Hovado'
           },
           {
             property: 'og:description',
-            content:
-              'Discover the portfolio of a passionate full stack web developer. Creating websites and web/mobile applications with JS, PHP, SQL and their frameworks, as well as DevOps.'
+            content: 'Personal portfolio and website of Matěj Klíma — developer, alcoholic, and creative.'
           },
           {
             property: 'og:site_name',
-            content: 'Portfolio | Web Developer'
+            content: 'Matěj Klíma | Hovado'
           },
           {
             property: 'og:url',
-            content: ''
+            content: 'https://matejklima.com/'
           },
           {
             property: 'og:image',
@@ -105,7 +102,7 @@ const router = createRouter({
           },
           {
             property: 'og:image:alt',
-            content: 'Logo Portfolio'
+            content: 'Matěj Klíma'
           },
           {
             property: 'og:locale',
@@ -119,28 +116,27 @@ const router = createRouter({
       name: 'Office',
       component: Office,
       meta: {
-        title: 'Desktop | Web Developer',
+        title: 'Desktop | Matěj Klíma',
         metaTags: [
           {
             rel: 'canonical',
-            href: '/office'
+            href: 'https://matejklima.com/office'
           },
           {
             name: 'title',
-            content: 'Desktop | Web Developer'
+            content: 'Desktop | Matěj Klíma'
           },
           {
             name: 'description',
-            content:
-              'Discover the desktop of a passionate full stack web developer. Creating websites and web/mobile applications with JS, PHP, SQL and their frameworks, as well as DevOps.'
+            content: 'Personal portfolio and website of Matěj Klíma — developer, alcoholic, and creative.'
           },
           {
             name: 'keywords',
-            content: 'desktop, web developer, full stack, websites, web applications, mobile applications, JS, PHP, SQL, ORM, frameworks, DevOps'
+            content: 'Matěj Klíma, portfolio, web developer, full stack, mobile applications, Flutter, Go, Alcohol'
           },
           {
             name: 'author',
-            content: 'Portfolio'
+            content: 'Matěj Klíma'
           },
           {
             name: 'robots',
@@ -160,24 +156,23 @@ const router = createRouter({
           },
           {
             name: 'apple-mobile-web-app-title',
-            content: 'Desktop | Web Developer'
+            content: 'Desktop | Matěj Klíma'
           },
           {
             name: 'application-name',
-            content: 'Desktop | Web Developer'
+            content: 'Matěj Klíma | Hovado'
           },
           {
             name: 'twitter:card',
-            content: 'summary'
+            content: 'summary_large_image'
           },
           {
             name: 'twitter:title',
-            content: 'Desktop | Web Developer'
+            content: 'Desktop | Matěj Klíma'
           },
           {
             name: 'twitter:description',
-            content:
-              'Discover the desktop of a passionate full stack web developer. Creating websites and web/mobile applications with JS, PHP, SQL and their frameworks, as well as DevOps.'
+            content: 'Personal portfolio and website of Matěj Klíma — developer, alcoholic, and creative.'
           },
           {
             name: 'twitter:image',
@@ -185,39 +180,38 @@ const router = createRouter({
           },
           {
             name: 'twitter:image:alt',
-            content: 'Logo Portfolio'
+            content: 'Matěj Klíma'
           },
           {
-            name: 'og:type',
+            property: 'og:type',
             content: 'website'
           },
           {
-            name: 'og:title',
-            content: 'Desktop | Web Developer'
+            property: 'og:title',
+            content: 'Desktop | Matěj Klíma'
           },
           {
-            name: 'og:description',
-            content:
-              'Discover the desktop of a passionate full stack web developer. Creating websites and web/mobile applications with JS, PHP, SQL and their frameworks, as well as DevOps.'
+            property: 'og:description',
+            content: 'Personal portfolio and website of Matěj Klíma — developer, alcoholic, and creative.'
           },
           {
-            name: 'og:site_name',
-            content: 'Desktop | Web Developer'
+            property: 'og:site_name',
+            content: 'Matěj Klíma | Hovado'
           },
           {
-            name: 'og:url',
-            content: '/office'
+            property: 'og:url',
+            content: 'https://matejklima.com/office'
           },
           {
-            name: 'og:image',
+            property: 'og:image',
             content: '/img/logo-portfolio-black.webp'
           },
           {
-            name: 'og:image:alt',
-            content: 'Logo Portfolio'
+            property: 'og:image:alt',
+            content: 'Matěj Klíma'
           },
           {
-            name: 'og:locale',
+            property: 'og:locale',
             content: 'en_US'
           }
         ]
