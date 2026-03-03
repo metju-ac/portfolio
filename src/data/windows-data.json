@@ -96,30 +96,6 @@
     "leftMenuType": "documents"
   },
   {
-    "id": "pictures",
-    "title": {
-      "en": "My Pictures",
-      "cs": "Moje obrázky"
-    },
-    "imgSrc": "/img/icons/pictures/folder-images-icon-sm.webp",
-    "onDesktop": false,
-    "resizable": true,
-    "windowsHeaderLogo": true,
-    "isSearchVisible": true,
-    "headerPosition": "right",
-    "headerToolsId": "pictures",
-    "menuHeaderItemsId": "images",
-    "iconSrc": "/img/icons/pictures/folder-images-icon-sm.webp",
-    "initPositionX": 50,
-    "initPositionY": 200,
-    "initWidth": 680,
-    "initHeight": 560,
-    "minWidth": 200,
-    "minHeight": 160,
-    "component": "Pictures",
-    "leftMenuType": "pictures"
-  },
-  {
     "id": "minesweeper",
     "title": {
       "en": "Minesweeper",

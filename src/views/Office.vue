@@ -7,7 +7,6 @@
       @toggle-header="toggleHeader"
       @toggle-myProjects="openWindow('myProjects')"
       @toggle-documents="openWindow('documents')"
-      @toggle-pictures="openWindow('pictures')"
       @toggle-music="openWindow('music')"
       @toggle-minesweeper="openWindow('minesweeper')"
       @toggle-notepad="openWindow('notepad')"
@@ -72,7 +71,6 @@ import Minesweeper from '@/components/Windows/Minesweeper.vue'
 import Music from '@/components/Windows/Music/Music.vue'
 import MyProjects from '@/components/Windows/MyProjects.vue'
 import Documents from '@/components/Windows/Documents/Documents.vue'
-import Pictures from '@/components/Windows/Pictures.vue'
 import Notepad from '@/components/Windows/Notepad.vue'
 import Terminal from '@/components/Windows/Terminal.vue'
 import TextFileViewer from '@/components/Windows/TextFileViewer.vue'
@@ -118,7 +116,6 @@ const components = {
   Music: shallowRef(Music),
   Minesweeper: shallowRef(Minesweeper),
   Documents: shallowRef(Documents),
-  Pictures: shallowRef(Pictures),
   Notepad: shallowRef(Notepad),
   Terminal: shallowRef(Terminal),
   TextFileViewer: shallowRef(TextFileViewer),

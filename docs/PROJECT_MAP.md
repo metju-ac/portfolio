@@ -1,7 +1,7 @@
 # Project Map: PortfolioXP
 
 > This document is a comprehensive reference for AI agents working on this codebase.
-> Last updated: 2026-03-03 (removed MyCV window; fixed YouTube player in USA travel folder; fixed image aspect ratio in TravelPhotos)
+> Last updated: 2026-03-03 (removed MyCV window; removed My Pictures window; fixed YouTube player in USA travel folder; fixed image aspect ratio in TravelPhotos)
 
 ## 1. Project Overview
 
@@ -16,19 +16,19 @@ contact form, music player, Minesweeper, terminal, etc.).
 
 ## 2. Technology Stack
 
-| Layer            | Technology                                                           |
-| ---------------- | -------------------------------------------------------------------- |
-| Language         | JavaScript (ES modules, no TypeScript)                               |
-| UI Framework     | Vue 3 (Composition API, `<script setup>`)                            |
-| Build System     | Vite 7.x                                                             |
-| State Management | Pinia 3.x                                                            |
-| Routing          | Vue Router 4.x (history mode)                                        |
-| CSS              | Tailwind CSS 3.x + custom SCSS (Sass)                                |
-| i18n             | vue-i18n (English only, i18n infrastructure kept for future locales) |
-| Analytics        | Matomo (vue-matomo, production only)                                 |
-| Email            | EmailJS (@emailjs/browser, client-side only)                         |
-| Special          | vue-svg-map + @svg-maps/world (world map)                            |
-| Meta/SEO         | @vueuse/head                                                         |
+| Layer            | Technology                                                                   |
+| ---------------- | ---------------------------------------------------------------------------- |
+| Language         | JavaScript (ES modules, no TypeScript)                                       |
+| UI Framework     | Vue 3 (Composition API, `<script setup>`)                                    |
+| Build System     | Vite 7.x                                                                     |
+| State Management | Pinia 3.x                                                                    |
+| Routing          | Vue Router 4.x (history mode)                                                |
+| CSS              | Tailwind CSS 3.x + custom SCSS (Sass)                                        |
+| i18n             | vue-i18n (English + Czech, with language switcher on lockscreen and desktop) |
+| Analytics        | Matomo (vue-matomo, production only)                                         |
+| Email            | EmailJS (@emailjs/browser, client-side only)                                 |
+| Special          | vue-svg-map + @svg-maps/world (world map)                                    |
+| Meta/SEO         | @vueuse/head                                                                 |
 
 **Note:** `axios` is declared in package.json but **never imported or used** anywhere.
 
@@ -87,20 +87,20 @@ portfolio/
 │   │   └── connectionStore.js # Login state: restart -> loggedIn -> disconnected
 │   │
 │   ├── data/               # Static JSON data (drives the entire UI)
-│   │   ├── windows-data.json       # 12 windows + 2 external links (see Section 6)
+│   │   ├── windows-data.json       # 11 windows + 2 external links (see Section 6)
 │   │   ├── visited-countries-data.json  # Country IDs for World Map (ISO 2-letter codes)
 │   │   ├── text-files-data.json    # Content for TextFileViewer windows (beer_records, rivers)
 │   │   ├── projects-data.json      # 7 portfolio projects (2 categories)
 │   │   ├── playlist-data.json      # Music tracks metadata (currently empty)
 │   │   ├── terminal-data.json      # Fake terminal command outputs
-│   │   ├── pictures-data.json      # 8 photo carousel entries
 │   │   ├── travel-photos-data.json # Folder/trip structure for TravelPhotos window
 │   │   ├── left-menu-data.json     # XP-style left sidebar menus (LinkedIn + GitHub links)
 │   │   ├── header-tools-data.json  # Window toolbar button configs
 │   │   └── header-menu-data.json   # Window menu bar items (File, Edit, View...)
 │   │
 │   ├── locales/            # Internationalization
-│   │   └── en.json         # English translations
+│   │   ├── en.json         # English translations
+│   │   └── cs.json         # Czech translations
 │   │
 │   ├── layouts/            # Reusable layout wrappers
 │   │   ├── Window.vue      # Window chrome (dragging, resizing, title bar, tools)
@@ -134,7 +134,6 @@ portfolio/
 │       │   ├── Notepad.vue          # Simple text editor
 │       │   ├── TextFileViewer.vue   # Read-only text file viewer (data-driven)
 │       │   ├── WorldMap.vue        # Interactive world map showing visited countries
-│       │   ├── Pictures.vue         # Photo carousel
 │       │   ├── TravelPhotos.vue     # Cloudinary-backed travel photo/video browser (two-level folder tree)
 │       │   ├── Minesweeper.vue      # Full Minesweeper game
 │       │   ├── Terminal.vue         # Fake Windows terminal
@@ -232,7 +231,7 @@ Vue Router uses **history mode** (requires SPA fallback on the server).
 the `windowsStore`. Each window gets the `Window.vue` layout wrapper (drag, resize, title bar)
 and renders the appropriate content component.
 
-### 12 Windows + 1 External Link + 1 External mailto Link
+### 11 Windows + 1 External Link + 1 External mailto Link
 
 | ID           | Component      | Type          | Description                                    |
 | ------------ | -------------- | ------------- | ---------------------------------------------- |
@@ -240,7 +239,6 @@ and renders the appropriate content component.
 | contact      | --             | external link | Opens mailto:matej.klima5@gmail.com            |
 | music        | Music          | window        | Spotify-like player (currently empty playlist) |
 | documents    | Documents      | window        | File browser (About, Legal pages)              |
-| pictures     | Pictures       | window        | Photo carousel (8 travel photos)               |
 | minesweeper  | Minesweeper    | window        | Full Minesweeper game                          |
 | notepad      | Notepad        | window        | Simple text editor                             |
 | terminal     | Terminal       | window        | Fake terminal with hardcoded responses         |
@@ -307,7 +305,7 @@ Desktop icons are placed on a virtual grid. Each icon's default grid cell is con
 | --------------- | ------------------ | ------------------------------------------- | ------------ |
 | windowsStore    | windowsStore.js    | Tracks open window IDs                      | localStorage |
 | volumeStore     | volumeStore.js     | Audio volume, Audio element management      | localStorage |
-| localeStore     | localeStore.js     | Current locale (en), syncs with vue-i18n    | localStorage |
+| localeStore     | localeStore.js     | Current locale (en/cs), syncs with vue-i18n | localStorage |
 | goBackStore     | goBackStore.js     | Active project/document for back navigation | (none)       |
 | connectionStore | connectionStore.js | Login state machine                         | (none)       |
 
@@ -364,7 +362,7 @@ Netlify, Vercel, etc.). SPA fallback for `/office` route is needed (e.g., copy i
 | Add a new project        | `projects-data.json`, new component in `MyProjects/`                               |
 | Change styling/theme     | `tailwind.config.js`, `sass/`, component styles                                    |
 | Modify routes            | `src/router/index.js`                                                              |
-| Update translations      | `src/locales/en.json`                                                              |
+| Update translations      | `src/locales/en.json`, `src/locales/cs.json`                                       |
 | Update music playlist    | `src/data/playlist-data.json`, add MP3/cover to public/ (see docs/ADDING_MUSIC.md) |
 | Modify terminal commands | `src/data/terminal-data.json`                                                      |
 | Change environment vars  | `.env.example`                                                                     |

@@ -95,12 +95,6 @@
       "spotifyDisclaimer": "This playlist and its use has been made using the Spotify API",
       "albumCover": "Album cover"
     },
-    "pictures": {
-      "previous": "Previous picture",
-      "next": "Next picture",
-      "rotateLeft": "Rotate left",
-      "rotateRight": "Rotate right"
-    },
     "travelPhotos": {
       "error": "Could not load media. Make sure the Cloudinary cloud name is configured and resource lists are set to public.",
       "empty": "No photos found for this folder."

@@ -95,12 +95,6 @@
       "spotifyDisclaimer": "Tento playlist a jeho použití bylo vytvořeno pomocí Spotify API",
       "albumCover": "Obal alba"
     },
-    "pictures": {
-      "previous": "Předchozí obrázek",
-      "next": "Další obrázek",
-      "rotateLeft": "Otočit doleva",
-      "rotateRight": "Otočit doprava"
-    },
     "travelPhotos": {
       "error": "Nepodařilo se načíst média. Ujistěte se, že je nakonfigurován Cloudinary cloud name a seznamy zdrojů jsou nastaveny jako veřejné.",
       "empty": "Pro tuto složku nebyly nalezeny žádné fotografie."
