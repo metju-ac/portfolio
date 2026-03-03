@@ -1,0 +1,172 @@
+{
+  "common": {
+    "name": "Jméno",
+    "tiny": "Malý",
+    "errorVideo": "Váš prohlížeč nepodporuje videa.",
+    "context": "Kontext",
+    "objectives": "Cíle",
+    "icon": "Ikona",
+    "back": "Zpět",
+    "search": "Hledat",
+    "files": "Soubory",
+    "folder": "Složka",
+    "next": "Další",
+    "projects": "Projekty",
+    "go": "Přejít",
+    "address": "Adresa",
+    "design": "Design",
+    "tasksDone": "Splněné úkoly na projektu",
+    "techInfo": "Technické informace",
+    "componentsDot": "Komponenty :",
+    "components": "Komponenty",
+    "models": "Modely",
+    "model": "Model",
+    "links": "Odkazy",
+    "link": "Odkaz",
+    "hddDots": "HDD :",
+    "disks": "Disky",
+    "quantity": "Množství",
+    "viewModel": "Zobrazit model",
+    "CDM": "CDM",
+    "PDM": "PDM",
+    "years": "let",
+    "webdev": "Webový vývojář",
+    "textDocument": "Textový dokument",
+    "list": "Seznam",
+    "modifications": "Úpravy",
+    "loading": "Načítání...",
+    "language": "Jazyk",
+    "french": "Francouzština",
+    "english": "Angličtina"
+  },
+  "message": {
+    "welcome": "Vítejte na mém počítači.",
+    "toBegin": "Pro zahájení klikněte na mé uživatelské jméno.",
+    "explainer": "Po přihlášení můžete procházet složky na mém počítači. Přejděte na plochu a klikněte na složku s projekty, abyste viděli všechny moje projekty."
+  },
+  "header": {
+    "disconnect": "Odhlásit se",
+    "shutdown": "Vypnout počítač"
+  },
+  "buttons": {
+    "start": "start",
+    "send": "Odeslat",
+    "downloadCV": "Stáhnout životopis",
+    "linkWebSite": "Navštívit web",
+    "linkRepository": "Navštívit repozitář"
+  },
+  "windows": {
+    "contact": {
+      "name": "@:common.name",
+      "description": "Pokud si chcete popovídat o projektu nebo si jen tak promluvit, zanechte mi zprávu a ozvu se vám co nejdříve!",
+      "email": "E-mail",
+      "msgPlaceholder": "Zpráva...",
+      "success": "Zpráva byla úspěšně odeslána",
+      "error": {
+        "email": " není platná e-mailová adresa",
+        "empty": "Před odesláním zprávy prosím vyplňte všechna pole",
+        "unknown": "Zprávu se nepodařilo odeslat. Můžete mě kontaktovat přímo na e-mailové adrese: "
+      },
+      "send": "Odeslat",
+      "cut": "Vyjmout",
+      "copy": "Kopírovat",
+      "paste": "Vložit",
+      "undo": "Zpět",
+      "check": "Kontrola",
+      "spelling": "Pravopis",
+      "attach": "Příloha",
+      "priority": "Priorita",
+      "sign": "Podpis",
+      "to": "Komu :",
+      "from": "Od :",
+      "subject": "Předmět :"
+    },
+    "cv": {
+      "altPicture": "prezentace životopisu",
+      "education": "Vzdělání",
+      "proExperience": "Profesní zkušenosti"
+    },
+    "music": {
+      "title": "Název",
+      "album": "Album",
+      "addedThe": "Přidáno",
+      "duration": "Délka",
+      "link": "Odkazy",
+      "artist": "Interpret",
+      "description": "Playlist vytvořený speciálně pro mé portfolio, obsahuje mé oblíbené skladby.",
+      "visitOnSpotify": "Poslechnout na Spotify",
+      "accessFirstSentence": "Pro přístup k této funkci",
+      "accessSecondSentence": "je nutné se přihlásit ke Spotify",
+      "connectToSpotify": "Připojit ke Spotify",
+      "spotifyDisclaimer": "Tento playlist a jeho použití bylo vytvořeno pomocí Spotify API",
+      "albumCover": "Obal alba"
+    },
+    "pictures": {
+      "previous": "Předchozí obrázek",
+      "next": "Další obrázek",
+      "rotateLeft": "Otočit doleva",
+      "rotateRight": "Otočit doprava"
+    },
+    "travelPhotos": {
+      "error": "Nepodařilo se načíst média. Ujistěte se, že je nakonfigurován Cloudinary cloud name a seznamy zdrojů jsou nastaveny jako veřejné.",
+      "empty": "Pro tuto složku nebyly nalezeny žádné fotografie."
+    },
+    "documents": {
+      "about": {
+        "title": "O mně",
+        "contextFirstParagraph": "Ahoj, jsem Matěj Klíma — student softwarového inženýrství na Fakultě informatiky Masarykovy univerzity v Brně.",
+        "contextSecondParagraph": "Moje hlavní zájmy v IT jsou backendový vývoj, GitOps a AI. Nedávno jsem se také začal podílet na výuce na fakultě.",
+        "contextThirdParagraph": "Mimo IT hraji na saxofon a rád jezdím na kánoi. Pomáhám v místním kanoistickém oddíle při práci s dětmi.",
+        "contextFourthParagraph": "Toto portfolio je postaveno jako simulátor desktopu Windows XP — zábavný a interaktivní způsob, jak se představit jinak než typickou stránkou s životopisem.",
+        "contextFifthParagraph": "",
+        "contextSixthParagraph": "",
+        "contextSeventhParagraph": "",
+        "secondTitle": "Poděkování",
+        "helpFirst": "Tento projekt je fork PortfolioXP od Paula Jaguina (github.com/UnMugViolet/portfolio), postavený na Vue.js, Vue Router, Pinia a SCSS.",
+        "helpSecond": "Design Windows XP, ikony, tapety a zvuky patří společnosti Microsoft. Původní webovou implementaci vytvořil Paul Jaguin.",
+        "helpThird": "Prostředky Windows XP byly získány díky Internet Archive.",
+        "helpFourth": "Docker image Dockurr Windows XP byl užitečnou referencí pro původního autora.",
+        "helpFifth": ""
+      },
+      "legal": {
+        "title": "Autorství a právní informace",
+        "firstParagraph": "Toto portfolio je fork PortfolioXP, původně vytvořeného Paulem Jaguinem (https://github.com/UnMugViolet/portfolio). Původní projekt je licencován pod MIT licencí. Následující právní upozornění jsou převzata z původního projektu.",
+        "edit": "Původní editace webu",
+        "secondParagraph": "Původní web, dostupný na adrese https://pauljaguin.com (původní « Web »), editoval:",
+        "thirdParagraph": "Paul Jaguin, bytem 202 Boulevard de Charonne, 75020 PARIS, francouzské národnosti (Francie), narozený 23. 9. 1999.",
+        "hosting": "Hosting",
+        "fourthParagraph": "Původní web je hostován společností Infomaniak Network SA, kterou lze kontaktovat na adrese: https://www.infomaniak.com/en/help",
+        "dirPublication": "Původní ředitel publikace",
+        "fifthParagraph": "Ředitelem publikace původního webu je: Paul Jaguin.",
+        "contact": "Kontakt",
+        "sixthParagraph": "S dotazy ohledně tohoto forku se můžete obrátit na současného správce na:"
+      }
+    }
+  },
+  "project": {
+    "trainMeMaybe": {
+      "contextFirstParagraph": "Train me maybe je hlídací služba pro RegioJet, populárního českého dopravce vlaků a autobusů. Monitoruje vybrané trasy a upozorní vás, jakmile se uvolní místa ve vámi zvolené tarifní třídě.",
+      "contextSecondParagraph": "Kromě jednoduchých notifikací může nástroj automaticky zakoupit jízdenky ve chvíli, kdy je detekována dostupnost — ušetříte si neustálé obnovování stránky s rezervacemi v době špičky.",
+      "contextThirdParagraph": "Služba je nasazena a veřejně dostupná na vyhul.me, připravená pro každého, kdo chce bezstarostný způsob, jak získat těžko dostupná místa ve vlaku.",
+      "goalFirst": "Monitorovat trasy RegioJet pro dostupnost míst v reálném čase",
+      "goalSecond": "Posílat okamžitá upozornění při uvolnění míst",
+      "goalThird": "Automaticky zakoupit jízdenky při detekci dostupnosti",
+      "goalFourth": "Poskytnout jednoduché self-hosted nasazení pro kohokoliv"
+    },
+    "remembeer": {
+      "contextFirstParagraph": "Remembeer je mobilní aplikace určená pro sledování spotřeby alkoholických nápojů v čase. Ať už jde o poklidný večer nebo víkendovou oslavu, Remembeer vám pomůže vést záznamy o tom, co a kdy pijete.",
+      "contextSecondParagraph": "Aplikace obsahuje sociální funkce, které vám umožní soutěžit s přáteli, porovnávat statistiky pití a sdílet nezapomenutelné momenty z divokých večerů — proměňte obyčejný výlet do hospody v přátelskou soutěž.",
+      "contextThirdParagraph": "Tento projekt je momentálně ve vývoji, nové funkce a vylepšení jsou aktivně vyvíjeny.",
+      "goalFirst": "Sledovat spotřebu alkoholických nápojů s intuitivním mobilním rozhraním",
+      "goalSecond": "Soutěžit s přáteli prostřednictvím žebříčků a výzev",
+      "goalThird": "Sdílet vzpomínky a fotografie ze společenských událostí",
+      "goalFourth": "Poskytovat zajímavé statistiky o pitných návycích v čase"
+    }
+  },
+  "alt": {
+    "logoStart": "Logo portfolio XP černé start",
+    "logoLoading": "Logo portfolio XP černé načítání",
+    "logoLogin": "Logo portfolio XP bílé přihlášení",
+    "currLang": "Aktuální jazyk"
+  }
+}

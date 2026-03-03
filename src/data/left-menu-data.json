@@ -4,7 +4,8 @@
       {
         "id": 1,
         "title": {
-          "en": "System Tasks"
+          "en": "System Tasks",
+          "cs": "Systémové úlohy"
         },
         "bgColor": "bg-window-menu-card",
         "iconSrc": "/img/icons/side-menu/top-icon-card-window.webp",
@@ -13,21 +14,24 @@
           {
             "id": 1,
             "subtitle": {
-              "en": "View system information"
+              "en": "View system information",
+              "cs": "Zobrazit informace o systému"
             },
             "iconUrl": "/img/icons/side-menu/info-system-icon.webp"
           },
           {
             "id": 2,
             "subtitle": {
-              "en": "Add or remove programs"
+              "en": "Add or remove programs",
+              "cs": "Přidat nebo odebrat programy"
             },
             "iconUrl": "/img/icons/side-menu/programs-icon.webp"
           },
           {
             "id": 3,
             "subtitle": {
-              "en": "Change a settings"
+              "en": "Change a settings",
+              "cs": "Změnit nastavení"
             },
             "iconUrl": "/img/icons/side-menu/settings-icon.webp"
           }
@@ -36,7 +40,8 @@
       {
         "id": 2,
         "title": {
-          "en": "Other"
+          "en": "Other",
+          "cs": "Ostatní"
         },
         "bgColor": "bg-window-menu-card",
         "iconSrc": "/img/icons/side-menu/top-icon-card-window.webp",
@@ -45,7 +50,8 @@
           {
             "id": 1,
             "subtitle": {
-              "en": "My network places"
+              "en": "My network places",
+              "cs": "Místa v síti"
             },
             "iconUrl": "/img/icons/side-menu/networking-icon.webp",
             "url": ""
@@ -53,7 +59,8 @@
           {
             "id": 2,
             "subtitle": {
-              "en": "My documents"
+              "en": "My documents",
+              "cs": "Moje dokumenty"
             },
             "iconUrl": "/img/icons/side-menu/documents-icon.webp",
             "url": ""
@@ -61,7 +68,8 @@
           {
             "id": 3,
             "subtitle": {
-              "en": "Shared documents"
+              "en": "Shared documents",
+              "cs": "Sdílené dokumenty"
             },
             "iconUrl": "/img/icons/side-menu/shared-documents-icon.webp",
             "url": ""
@@ -69,7 +77,8 @@
           {
             "id": 4,
             "subtitle": {
-              "en": "Control panel"
+              "en": "Control panel",
+              "cs": "Ovládací panely"
             },
             "iconUrl": "/img/icons/side-menu/settings-icon.webp",
             "url": ""
@@ -79,7 +88,8 @@
       {
         "id": 3,
         "title": {
-          "en": "Details"
+          "en": "Details",
+          "cs": "Podrobnosti"
         },
         "bgColor": "bg-window-menu-card",
         "iconSrc": "/img/icons/side-menu/top-icon-card-window.webp",
@@ -88,7 +98,8 @@
           {
             "id": 1,
             "subtitle": {
-              "en": "My LinkedIn"
+              "en": "My LinkedIn",
+              "cs": "Můj LinkedIn"
             },
             "iconUrl": "/img/icons/side-menu/linkedin-icon.webp",
             "url": "https://www.linkedin.com/in/matej-klima/"
@@ -96,7 +107,8 @@
           {
             "id": 2,
             "subtitle": {
-              "en": "My GitHub"
+              "en": "My GitHub",
+              "cs": "Můj GitHub"
             },
             "iconUrl": "/img/icons/side-menu/github-icon.webp",
             "url": "https://github.com/metju-ac"
@@ -108,7 +120,8 @@
       {
         "id": 1,
         "title": {
-          "en": "Pictures Tasks"
+          "en": "Pictures Tasks",
+          "cs": "Úlohy obrázků"
         },
         "iconHeader": "/img/icons/side-menu/image.webp",
         "bgImage": "/img/icons/pictures/bg-picture-menu.webp",
@@ -119,28 +132,32 @@
           {
             "id": 1,
             "subtitle": {
-              "en": "View as a slide show"
+              "en": "View as a slide show",
+              "cs": "Zobrazit jako prezentaci"
             },
             "iconUrl": "/img/icons/side-menu/screen-icon.webp"
           },
           {
             "id": 2,
             "subtitle": {
-              "en": "Order prints online"
+              "en": "Order prints online",
+              "cs": "Objednat tisky online"
             },
             "iconUrl": "/img/icons/side-menu/picture-online-icon.webp"
           },
           {
             "id": 3,
             "subtitle": {
-              "en": "Print pictures"
+              "en": "Print pictures",
+              "cs": "Tisknout obrázky"
             },
             "iconUrl": "/img/icons/side-menu/print-picture-icon.webp"
           },
           {
             "id": 4,
             "subtitle": {
-              "en": "Shop for pictures online"
+              "en": "Shop for pictures online",
+              "cs": "Nakupovat obrázky online"
             },
             "iconUrl": "/img/icons/side-menu/picture-online-icon.webp"
           }
@@ -149,7 +166,8 @@
       {
         "id": 2,
         "title": {
-          "en": "File and folder tasks"
+          "en": "File and folder tasks",
+          "cs": "Úlohy souborů a složek"
         },
         "bgColor": "bg-window-menu-card",
         "iconSrc": "/img/icons/side-menu/top-icon-card-window.webp",
@@ -158,21 +176,24 @@
           {
             "id": 1,
             "subtitle": {
-              "en": "Make a new folder"
+              "en": "Make a new folder",
+              "cs": "Vytvořit novou složku"
             },
             "iconUrl": "/img/icons/side-menu/new-folder-icon.webp"
           },
           {
             "id": 2,
             "subtitle": {
-              "en": "Publish this folder to the web"
+              "en": "Publish this folder to the web",
+              "cs": "Publikovat složku na web"
             },
             "iconUrl": "/img/icons/side-menu/publish-web-icon.webp"
           },
           {
             "id": 3,
             "subtitle": {
-              "en": "Share this folder"
+              "en": "Share this folder",
+              "cs": "Sdílet tuto složku"
             },
             "iconUrl": "/img/icons/side-menu/share-folder-icon.webp"
           }
@@ -181,7 +202,8 @@
       {
         "id": 3,
         "title": {
-          "en": "Other places"
+          "en": "Other places",
+          "cs": "Další místa"
         },
         "bgColor": "bg-window-menu-card",
         "iconSrc": "/img/icons/side-menu/top-icon-card-window.webp",
@@ -190,28 +212,32 @@
           {
             "id": 1,
             "subtitle": {
-              "en": "Shared pictures"
+              "en": "Shared pictures",
+              "cs": "Sdílené obrázky"
             },
             "iconUrl": "/img/icons/side-menu/folder-image-icon.webp"
           },
           {
             "id": 2,
             "subtitle": {
-              "en": "My pictures"
+              "en": "My pictures",
+              "cs": "Moje obrázky"
             },
             "iconUrl": "/img/icons/side-menu/folder-image-icon.webp"
           },
           {
             "id": 3,
             "subtitle": {
-              "en": "My computer"
+              "en": "My computer",
+              "cs": "Tento počítač"
             },
             "iconUrl": "/img/icons/side-menu/computer-icon.webp"
           },
           {
             "id": 4,
             "subtitle": {
-              "en": "My network places"
+              "en": "My network places",
+              "cs": "Místa v síti"
             },
             "iconUrl": "/img/icons/side-menu/networking-icon.webp"
           }
@@ -220,7 +246,8 @@
       {
         "id": 4,
         "title": {
-          "en": "Details"
+          "en": "Details",
+          "cs": "Podrobnosti"
         },
         "bgColor": "bg-window-menu-card",
         "iconSrc": "/img/icons/side-menu/top-icon-card-window.webp",
@@ -232,7 +259,8 @@
       {
         "id": 1,
         "title": {
-          "en": "File and folder tasks"
+          "en": "File and folder tasks",
+          "cs": "Úlohy souborů a složek"
         },
         "bgColor": "bg-window-menu-card",
         "iconSrc": "/img/icons/side-menu/top-icon-card-window.webp",
@@ -241,21 +269,24 @@
           {
             "id": 1,
             "subtitle": {
-              "en": "Make a new folder"
+              "en": "Make a new folder",
+              "cs": "Vytvořit novou složku"
             },
             "iconUrl": "/img/icons/side-menu/new-folder-icon.webp"
           },
           {
             "id": 2,
             "subtitle": {
-              "en": "Publish this folder to the web"
+              "en": "Publish this folder to the web",
+              "cs": "Publikovat složku na web"
             },
             "iconUrl": "/img/icons/side-menu/publish-web-icon.webp"
           },
           {
             "id": 3,
             "subtitle": {
-              "en": "Share this folder"
+              "en": "Share this folder",
+              "cs": "Sdílet tuto složku"
             },
             "iconUrl": "/img/icons/side-menu/share-folder-icon.webp"
           }
@@ -264,7 +295,8 @@
       {
         "id": 2,
         "title": {
-          "en": "Other places"
+          "en": "Other places",
+          "cs": "Další místa"
         },
         "bgColor": "bg-window-menu-card",
         "iconSrc": "/img/icons/side-menu/top-icon-card-window.webp",
@@ -273,28 +305,32 @@
           {
             "id": 1,
             "subtitle": {
-              "en": "Desktop"
+              "en": "Desktop",
+              "cs": "Plocha"
             },
             "iconUrl": "/img/icons/side-menu/board-icon.webp"
           },
           {
             "id": 2,
             "subtitle": {
-              "en": "Shared documents"
+              "en": "Shared documents",
+              "cs": "Sdílené dokumenty"
             },
             "iconUrl": "/img/icons/side-menu/shared-documents-icon.webp"
           },
           {
             "id": 3,
             "subtitle": {
-              "en": "My computer"
+              "en": "My computer",
+              "cs": "Tento počítač"
             },
             "iconUrl": "/img/icons/side-menu/computer-icon.webp"
           },
           {
             "id": 4,
             "subtitle": {
-              "en": "My network places"
+              "en": "My network places",
+              "cs": "Místa v síti"
             },
             "iconUrl": "/img/icons/side-menu/networking-icon.webp"
           }
@@ -303,7 +339,8 @@
       {
         "id": 3,
         "title": {
-          "en": "Details"
+          "en": "Details",
+          "cs": "Podrobnosti"
         },
         "bgColor": "bg-window-menu-card",
         "iconSrc": "/img/icons/side-menu/top-icon-card-window.webp",

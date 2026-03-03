@@ -4,7 +4,8 @@ import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
 const localeNames = {
-  en: 'English'
+  en: 'English',
+  cs: 'Čeština'
 }
 
 const props = defineProps({

@@ -2,10 +2,12 @@
   {
     "id": "myProjects",
     "title": {
-      "en": "My Projects"
+      "en": "My Projects",
+      "cs": "Moje projekty"
     },
     "subtitle": {
-      "en": "See all my projects"
+      "en": "See all my projects",
+      "cs": "Zobrazit všechny moje projekty"
     },
     "imgSrc": "/img/icons/projects/projects-icon-lg.webp",
     "onDesktop": true,
@@ -29,10 +31,12 @@
   {
     "id": "contact",
     "title": {
-      "en": "Contact me"
+      "en": "Contact me",
+      "cs": "Kontaktujte mě"
     },
     "subtitle": {
-      "en": "Leave me a message"
+      "en": "Leave me a message",
+      "cs": "Zanechte mi zprávu"
     },
     "imgSrc": "/img/icons/contact/email-icon-lg.webp",
     "onDesktop": true,
@@ -56,10 +60,12 @@
   {
     "id": "myCV",
     "title": {
-      "en": "My CV"
+      "en": "My CV",
+      "cs": "Můj životopis"
     },
     "subtitle": {
-      "en": "See the curriculum vitae"
+      "en": "See the curriculum vitae",
+      "cs": "Zobrazit životopis"
     },
     "imgSrc": "/img/icons/cv/cv-icon-lg.webp",
     "onDesktop": true,
@@ -83,7 +89,8 @@
   {
     "id": "music",
     "title": {
-      "en": "My Musics"
+      "en": "My Musics",
+      "cs": "Moje hudba"
     },
     "imgSrc": "/img/icons/music/playmusic-icon-lg.webp",
     "onDesktop": true,
@@ -107,7 +114,8 @@
   {
     "id": "documents",
     "title": {
-      "en": "My Documents"
+      "en": "My Documents",
+      "cs": "Moje dokumenty"
     },
     "imgSrc": "/img/icons/documents/folder-docs-icon-sm.webp",
     "onDesktop": false,
@@ -130,7 +138,8 @@
   {
     "id": "pictures",
     "title": {
-      "en": "My Pictures"
+      "en": "My Pictures",
+      "cs": "Moje obrázky"
     },
     "imgSrc": "/img/icons/pictures/folder-images-icon-sm.webp",
     "onDesktop": false,
@@ -154,7 +163,7 @@
     "id": "minesweeper",
     "title": {
       "en": "Minesweeper",
-      "fr": "Démineur"
+      "cs": "Hledání min"
     },
     "imgSrc": "/img/icons/minesweeper/minesweeper-icon-lg.webp",
     "onDesktop": true,
@@ -178,7 +187,8 @@
   {
     "id": "notepad",
     "title": {
-      "en": "Notepad"
+      "en": "Notepad",
+      "cs": "Poznámkový blok"
     },
     "imgSrc": "/img/icons/notepad/notepad-icon-lg.webp",
     "onDesktop": true,
@@ -202,10 +212,12 @@
   {
     "id": "terminal",
     "title": {
-      "en": "Terminal"
+      "en": "Terminal",
+      "cs": "Terminál"
     },
     "subtitle": {
-      "en": "Run commands using the terminal"
+      "en": "Run commands using the terminal",
+      "cs": "Spouštět příkazy v terminálu"
     },
     "imgSrc": "/img/icons/cmd-icon-lg.webp",
     "onDesktop": false,
@@ -228,7 +240,8 @@
   {
     "id": "beerRecords",
     "title": {
-      "en": "beer_records.txt"
+      "en": "beer_records.txt",
+      "cs": "beer_records.txt"
     },
     "imgSrc": "/img/icons/documents/txt-icon.webp",
     "onDesktop": true,
@@ -253,7 +266,8 @@
   {
     "id": "rivers",
     "title": {
-      "en": "rivers.txt"
+      "en": "rivers.txt",
+      "cs": "rivers.txt"
     },
     "imgSrc": "/img/icons/documents/txt-icon.webp",
     "onDesktop": true,
@@ -278,10 +292,12 @@
   {
     "id": "worldMap",
     "title": {
-      "en": "Countries Visited"
+      "en": "Countries Visited",
+      "cs": "Navštívené země"
     },
     "subtitle": {
-      "en": "Countries I've visited"
+      "en": "Countries I've visited",
+      "cs": "Země, které jsem navštívil"
     },
     "imgSrc": "/img/icons/world-map-icon-lg.webp",
     "onDesktop": true,
@@ -305,10 +321,12 @@
   {
     "id": "github",
     "title": {
-      "en": "My GitHub"
+      "en": "My GitHub",
+      "cs": "Můj GitHub"
     },
     "subtitle": {
-      "en": "Visit my GitHub profile"
+      "en": "Visit my GitHub profile",
+      "cs": "Navštívit můj GitHub profil"
     },
     "imgSrc": "/img/icons/github-icon-lg.webp",
     "onDesktop": true,
@@ -321,10 +339,12 @@
   {
     "id": "travelPhotos",
     "title": {
-      "en": "Travel Photos"
+      "en": "Travel Photos",
+      "cs": "Fotky z cest"
     },
     "subtitle": {
-      "en": "Browse photos from my travels"
+      "en": "Browse photos from my travels",
+      "cs": "Procházet fotky z mých cest"
     },
     "imgSrc": "/img/icons/pictures/folder-images-icon-lg.webp",
     "onDesktop": true,

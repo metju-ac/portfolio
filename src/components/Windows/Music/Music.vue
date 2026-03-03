@@ -81,7 +81,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { formatDistanceToNow, format } from 'date-fns'
-import { enUS } from 'date-fns/locale'
+import { enUS, cs } from 'date-fns/locale'
 import { useLocaleStore } from '@/stores/localeStore'
 import Player from '@/components/Windows/Music/Player.vue'
 import playlistData from '@/data/playlist-data.json'
@@ -99,7 +99,8 @@ onMounted(async () => {
 
 // Map the localeStore.currentLocale to the correct locale object for date-fns
 const localeMap = {
-  en: enUS
+  en: enUS,
+  cs: cs
 }
 
 async function InitPlaylist() {

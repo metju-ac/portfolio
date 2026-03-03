@@ -2,17 +2,20 @@
   "categories": [
     {
       "name": {
-        "en": "Applications"
+        "en": "Applications",
+        "cs": "Aplikace"
       },
       "projects": [
         {
           "name": "Train me maybe",
           "icon": "projects/folder-trainmemaybe-icon.webp",
           "title": {
-            "en": "Train me maybe - RegioJet Watchdog"
+            "en": "Train me maybe - RegioJet Watchdog",
+            "cs": "Train me maybe - RegioJet Watchdog"
           },
           "date": {
-            "en": "2024 - Current"
+            "en": "2024 - Current",
+            "cs": "2024 - současnost"
           },
           "componentName": "TrainMeMaybeContent",
           "isFocus": false,
@@ -22,10 +25,12 @@
           "name": "Remembeer",
           "icon": "projects/folder-remembeer-icon.webp",
           "title": {
-            "en": "Remembeer - Drink Tracking App"
+            "en": "Remembeer - Drink Tracking App",
+            "cs": "Remembeer - Aplikace pro sledování pití"
           },
           "date": {
-            "en": "2025 - Work in progress"
+            "en": "2025 - Work in progress",
+            "cs": "2025 - Ve vývoji"
           },
           "componentName": "RemembeerContent",
           "isFocus": false,

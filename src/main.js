@@ -7,6 +7,7 @@ import { createPinia } from 'pinia'
 import { createHead } from '@vueuse/head'
 import { createI18n } from 'vue-i18n'
 import en from './locales/en.json'
+import cs from './locales/cs.json'
 
 import App from './App.vue'
 import router from './router'
@@ -19,7 +20,8 @@ const i18n = createI18n({
   locale: localStorage.getItem('currentLocale') || 'en',
   fallbackLocale: 'en',
   messages: {
-    en
+    en,
+    cs
   }
 })
 

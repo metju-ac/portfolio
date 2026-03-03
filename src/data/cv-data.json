@@ -27,61 +27,99 @@
         "jobTitle": "WEB DEVELOPER MISSION",
         "company": "Freelance, Paris (75)",
         "year": "April 2025",
-        "responsibilities": [
-          "Creation of the website fanny-seraudie.fr",
-          "Database and backoffice design",
-          "Production deployment with Jenkins / Docker pipeline on VPS"
-        ]
+        "responsibilities": ["Creation of the website fanny-seraudie.fr", "Database and backoffice design", "Production deployment with Jenkins / Docker pipeline on VPS"]
       },
       {
         "jobTitle": "WEB DEVELOPER WORK-STUDY",
         "company": "Screenup, Rennes (35)",
         "year": "October - June 2024",
-        "responsibilities": [
-          "Website design and creation",
-          "Production deployment",
-          "Operational server development"
-        ]
+        "responsibilities": ["Website design and creation", "Production deployment", "Operational server development"]
       },
       {
         "jobTitle": "WEB DEVELOPER INTERN",
         "company": "Pangaia, Rennes (35)",
         "year": "April - June 2023",
-        "responsibilities": [
-          "Created an application using Vue.js / Docker / Laravel",
-          "Designed the mockup",
-          "Teamwork using Git"
-        ]
+        "responsibilities": ["Created an application using Vue.js / Docker / Laravel", "Designed the mockup", "Teamwork using Git"]
       },
       {
         "jobTitle": "DATA ENTRY OPERATOR",
         "company": "Tessi, Rennes (35)",
         "year": "December - June 2021 - 2022",
-        "responsibilities": [
-          "Bank data entry for public finance purposes",
-          "Bank account opening",
-          "Participation in the quality process"
-        ]
+        "responsibilities": ["Bank data entry for public finance purposes", "Bank account opening", "Participation in the quality process"]
       },
       {
         "jobTitle": "SALES INTERN",
         "company": "ACLP, Le Havre (76)",
         "year": "April - June 2020",
-        "responsibilities": [
-          "Business development",
-          "Email campaign",
-          "Website creation on Prestashop"
-        ]
+        "responsibilities": ["Business development", "Email campaign", "Website creation on Prestashop"]
       },
       {
         "jobTitle": "TUTORED PROJECT - SKI",
         "company": "IUT Caucriauville campus, Le Havre (76)",
         "year": "2019 - 2020",
-        "responsibilities": [
-          "Sales actions to fund the project",
-          "Organization of a ski trip for 130 participants",
-          "Negotiation of the contract for the following year"
-        ]
+        "responsibilities": ["Sales actions to fund the project", "Organization of a ski trip for 130 participants", "Negotiation of the contract for the following year"]
+      }
+    ]
+  },
+  "cs": {
+    "education": [
+      {
+        "degree": "COMMON CORE",
+        "institution": "42 Paris",
+        "year": "2024 - 2025"
+      },
+      {
+        "degree": "BAKALÁŘ WEBOVÝ VÝVOJ",
+        "institution": "MyDigitalSchool Rennes",
+        "year": "2022 - 2024"
+      },
+      {
+        "degree": "BAKALÁŘ EKONOMIE, MANAGEMENT A MARKETING",
+        "institution": "Varšavská univerzita, Fakulta managementu",
+        "year": "2020 - 2021"
+      },
+      {
+        "degree": "DUT OBCHODNÍ TECHNIKY",
+        "institution": "IUT Le Havre",
+        "year": "2018 - 2020"
+      }
+    ],
+    "workExperience": [
+      {
+        "jobTitle": "WEBOVÝ VÝVOJÁŘ NA ZAKÁZKU",
+        "company": "Freelance, Paříž (75)",
+        "year": "Duben 2025",
+        "responsibilities": ["Tvorba webu fanny-seraudie.fr", "Návrh databáze a backoffice", "Nasazení do produkce s Jenkins / Docker pipeline na VPS"]
+      },
+      {
+        "jobTitle": "WEBOVÝ VÝVOJÁŘ - DUÁLNÍ STUDIUM",
+        "company": "Screenup, Rennes (35)",
+        "year": "Říjen - Červen 2024",
+        "responsibilities": ["Návrh a tvorba webových stránek", "Nasazení do produkce", "Vývoj provozního serveru"]
+      },
+      {
+        "jobTitle": "WEBOVÝ VÝVOJÁŘ - STÁŽ",
+        "company": "Pangaia, Rennes (35)",
+        "year": "Duben - Červen 2023",
+        "responsibilities": ["Tvorba aplikace pomocí Vue.js / Docker / Laravel", "Návrh mockupu", "Týmová práce s Git"]
+      },
+      {
+        "jobTitle": "OPERÁTOR ZADÁVÁNÍ DAT",
+        "company": "Tessi, Rennes (35)",
+        "year": "Prosinec - Červen 2021 - 2022",
+        "responsibilities": ["Zadávání bankovních dat pro účely veřejných financí", "Otevírání bankovních účtů", "Účast na procesu kvality"]
+      },
+      {
+        "jobTitle": "OBCHODNÍ STÁŽ",
+        "company": "ACLP, Le Havre (76)",
+        "year": "Duben - Červen 2020",
+        "responsibilities": ["Rozvoj obchodu", "E-mailová kampaň", "Tvorba webu na Prestashop"]
+      },
+      {
+        "jobTitle": "TUTOROVANÝ PROJEKT - LYŽOVÁNÍ",
+        "company": "IUT Caucriauville campus, Le Havre (76)",
+        "year": "2019 - 2020",
+        "responsibilities": ["Prodejní akce na financování projektu", "Organizace lyžařského zájezdu pro 130 účastníků", "Vyjednání smlouvy na následující rok"]
       }
     ]
   }

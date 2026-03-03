@@ -1,58 +1,32 @@
 {
   "menuHeaderItems": {
     "default": {
-      "en": [
-        "File",
-        "Edit",
-        "View",
-        "Tools"
-      ]
+      "en": ["File", "Edit", "View", "Tools"],
+      "cs": ["Soubor", "Úpravy", "Zobrazit", "Nástroje"]
     },
     "minesweeper": {
       "en": ["Game", "Help"],
-      "fr": ["Jeu", "Aide"]
+      "cs": ["Hra", "Nápověda"]
     },
     "notepad": {
-      "en": [
-        "File",
-        "Edit",
-        "View",
-        "Help"
-      ]
+      "en": ["File", "Edit", "View", "Help"],
+      "cs": ["Soubor", "Úpravy", "Zobrazit", "Nápověda"]
     },
     "images": {
-      "en": [
-        "File",
-        "Edit",
-        "Favorites",
-        "Tools",
-        "Help"
-      ]
+      "en": ["File", "Edit", "Favorites", "Tools", "Help"],
+      "cs": ["Soubor", "Úpravy", "Oblíbené", "Nástroje", "Nápověda"]
     },
     "documents": {
-      "en": [
-        "File",
-        "Edit",
-        "View",
-        "Favorites",
-        "Tools",
-        "Help"
-      ]
+      "en": ["File", "Edit", "View", "Favorites", "Tools", "Help"],
+      "cs": ["Soubor", "Úpravy", "Zobrazit", "Oblíbené", "Nástroje", "Nápověda"]
     },
     "contact": {
-      "en": [
-        "File",
-        "Edit",
-        "View",
-        "Insert",
-        "Format",
-        "Tools",
-        "Message",
-        "Help"
-      ]
+      "en": ["File", "Edit", "View", "Insert", "Format", "Tools", "Message", "Help"],
+      "cs": ["Soubor", "Úpravy", "Zobrazit", "Vložit", "Formát", "Nástroje", "Zpráva", "Nápověda"]
     },
     "none": {
-      "en": []
+      "en": [],
+      "cs": []
     }
   }
 }
