@@ -60,19 +60,39 @@
         </div>
       </div>
 
-      <!-- View: subfolder grid (2023_usa selected but no subfolder chosen yet) -->
-      <div v-else-if="currentFolder && currentFolder.subfolders && !currentSubfolder" class="w-full h-full overflow-y-auto p-4">
-        <p class="text-xxs text-gray-500 mb-3 font-trebuchet-pixel">{{ currentFolder.label }}</p>
-        <div class="flex flex-wrap gap-4">
-          <div v-for="sub in currentFolder.subfolders" :key="sub.id" @click="selectSubfolder(sub)" class="flex flex-col items-center w-20 cursor-pointer group">
-            <img src="/img/icons/pictures/folder-images-icon-lg.webp" :alt="sub.label" class="w-12 h-12 group-hover:opacity-80" />
-            <p class="text-center text-xxs font-trebuchet-pixel mt-1 leading-tight break-words w-full">{{ sub.label }}</p>
+      <!-- View: subfolder grid with optional YouTube videos (folder with subfolders selected, no subfolder chosen) -->
+      <div v-else-if="currentFolder && currentFolder.subfolders && !currentSubfolder" class="w-full h-full overflow-y-auto">
+        <!-- YouTube videos at the top, if any -->
+        <div v-if="currentFolderYoutubeVideos.length" class="p-3 border-b border-gray-300">
+          <p class="text-xxs text-gray-500 mb-2 font-trebuchet-pixel">{{ currentFolder.label }}</p>
+          <div class="flex flex-wrap gap-4">
+            <div v-for="yt in currentFolderYoutubeVideos" :key="yt.id" @click="openYoutube(yt)" class="flex flex-col items-center w-28 cursor-pointer group">
+              <div class="relative w-24 h-14 bg-black overflow-hidden rounded-sm group-hover:opacity-80">
+                <img :src="`https://img.youtube.com/vi/${yt.id}/mqdefault.jpg`" :alt="yt.label" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center opacity-90">
+                    <div class="w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-l-6 border-l-white ml-0.5"></div>
+                  </div>
+                </div>
+              </div>
+              <p class="text-center text-xxs font-trebuchet-pixel mt-1 leading-tight break-words w-full">{{ yt.label }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Subfolders -->
+        <div class="p-4">
+          <p class="text-xxs text-gray-500 mb-3 font-trebuchet-pixel">{{ currentFolder.label }}</p>
+          <div class="flex flex-wrap gap-4">
+            <div v-for="sub in currentFolder.subfolders" :key="sub.id" @click="selectSubfolder(sub)" class="flex flex-col items-center w-20 cursor-pointer group">
+              <img src="/img/icons/pictures/folder-images-icon-lg.webp" :alt="sub.label" class="w-12 h-12 group-hover:opacity-80" />
+              <p class="text-center text-xxs font-trebuchet-pixel mt-1 leading-tight break-words w-full">{{ sub.label }}</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- View: media viewer -->
-      <template v-else-if="activeTag">
+      <template v-else-if="activeTag || (currentFolder && !currentFolder.subfolders && currentFolderYoutubeVideos.length)">
         <!-- Loading state -->
         <div v-if="loading" class="flex items-center justify-center w-full h-full">
           <p class="text-xxs font-trebuchet-pixel text-gray-500">{{ $t('common.loading') }}</p>
@@ -93,9 +113,19 @@
           <!-- Main viewer (top ~75% of height) -->
           <div class="flex flex-col justify-center items-center w-full h-9/12 gap-1">
             <div class="w-3/4 h-5/6 mt-1 border border-black overflow-hidden">
-              <!-- Video -->
+              <!-- YouTube video -->
+              <iframe
+                v-if="currentItem && currentItem.resource_type === 'youtube'"
+                :key="currentItem.youtube_id"
+                :src="`https://www.youtube.com/embed/${currentItem.youtube_id}`"
+                class="w-full h-full"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
+              <!-- Cloudinary Video -->
               <video
-                v-if="currentItem && currentItem.resource_type === 'video'"
+                v-else-if="currentItem && currentItem.resource_type === 'video'"
                 :key="currentItem.public_id"
                 :src="getFullUrl(currentItem)"
                 controls
@@ -128,7 +158,7 @@
                 </button>
               </div>
               <!-- Rotation buttons (images only) -->
-              <template v-if="!currentItem || currentItem.resource_type !== 'video'">
+              <template v-if="!currentItem || (currentItem.resource_type !== 'video' && currentItem.resource_type !== 'youtube')">
                 <hr class="w-px mx-2 h-full bg-moon-mist" />
                 <div class="flex">
                   <button
@@ -151,10 +181,30 @@
           <!-- Thumbnail strip (bottom ~25%) -->
           <div class="w-full h-3/12 bg-white">
             <div class="flex w-full h-full bg-no-repeat bg-32 bg-bottom-right-picture-menu bg-window-picture px-2 pt-1.5 pb-5 gap-4 overflow-x-auto items-start">
-              <div v-for="(item, index) in mediaItems" :key="item.public_id" class="h-full flex flex-col items-center flex-shrink-0">
+              <div
+                v-for="(item, index) in mediaItems"
+                :key="item.resource_type === 'youtube' ? item.youtube_id : item.public_id"
+                class="h-full flex flex-col items-center flex-shrink-0"
+              >
+                <!-- YouTube thumbnail -->
+                <div
+                  v-if="item.resource_type === 'youtube'"
+                  @click="setCurrentItem(item, index)"
+                  :class="[
+                    'h-full bg-black flex items-center justify-center cursor-pointer relative',
+                    currentIndex === index ? 'border-3 border-focus-blue' : 'border border-gray-300'
+                  ]"
+                >
+                  <img :src="`https://img.youtube.com/vi/${item.youtube_id}/mqdefault.jpg`" :alt="item.label" class="h-full w-auto object-contain" />
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-4 h-4 bg-red-600 rounded-full flex items-center justify-center opacity-90">
+                      <div class="w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-l-6 border-l-white ml-0.5"></div>
+                    </div>
+                  </div>
+                </div>
                 <!-- Video thumbnail -->
                 <div
-                  v-if="item.resource_type === 'video'"
+                  v-else-if="item.resource_type === 'video'"
                   @click="setCurrentItem(item, index)"
                   :class="[
                     'h-full bg-black flex items-center justify-center cursor-pointer relative',
@@ -218,6 +268,12 @@ const rotation = ref(0)
 const loading = ref(false)
 const error = ref(false)
 
+// YouTube videos for the current top-level folder (not subfolder)
+const currentFolderYoutubeVideos = computed(() => {
+  if (!currentFolder.value) return []
+  return currentFolder.value.youtubeVideos || []
+})
+
 // The tag currently being displayed
 const activeTag = computed(() => {
   if (currentSubfolder.value) return currentSubfolder.value.tag
@@ -228,8 +284,16 @@ const activeTag = computed(() => {
 // Watch activeTag and fetch media when it changes
 watch(activeTag, async (tag) => {
   if (!tag) {
-    mediaItems.value = []
-    currentItem.value = null
+    // No Cloudinary tag — but might still have YouTube videos for non-subfolder folders
+    if (currentFolder.value && !currentFolder.value.subfolders) {
+      const ytItems = buildYoutubeItems(currentFolder.value.youtubeVideos || [])
+      mediaItems.value = ytItems
+      currentItem.value = ytItems[0] || null
+      currentIndex.value = 0
+    } else {
+      mediaItems.value = []
+      currentItem.value = null
+    }
     return
   }
   await fetchMediaByTag(tag)
@@ -254,9 +318,15 @@ async function fetchMediaByTag(tag) {
     const videos = videoRes.ok ? (await videoRes.json()).resources || [] : []
 
     // Attach resource_type so we can distinguish later
-    const allItems = [...images.map((r) => ({ ...r, resource_type: 'image' })), ...videos.map((r) => ({ ...r, resource_type: 'video' }))].sort((a, b) =>
+    const cloudinaryItems = [...images.map((r) => ({ ...r, resource_type: 'image' })), ...videos.map((r) => ({ ...r, resource_type: 'video' }))].sort((a, b) =>
       a.public_id.localeCompare(b.public_id)
     )
+
+    // Determine which folder's YouTube videos to include
+    const activeFolder = currentSubfolder.value || currentFolder.value
+    const ytItems = buildYoutubeItems((activeFolder && !currentSubfolder.value ? currentFolder.value.youtubeVideos : []) || [])
+
+    const allItems = [...ytItems, ...cloudinaryItems]
 
     mediaItems.value = allItems
     if (allItems.length > 0) {
@@ -269,6 +339,24 @@ async function fetchMediaByTag(tag) {
   } finally {
     loading.value = false
   }
+}
+
+function buildYoutubeItems(ytArray) {
+  return (ytArray || []).map((yt) => ({
+    resource_type: 'youtube',
+    youtube_id: yt.id,
+    label: yt.label,
+    public_id: `youtube_${yt.id}`
+  }))
+}
+
+function openYoutube(yt) {
+  // Called when clicking a YouTube thumbnail in the subfolder+video view
+  // Switch to media viewer showing just this YouTube video
+  const ytItem = { resource_type: 'youtube', youtube_id: yt.id, label: yt.label, public_id: `youtube_${yt.id}` }
+  mediaItems.value = [ytItem]
+  currentItem.value = ytItem
+  currentIndex.value = 0
 }
 
 function selectFolder(folder) {
@@ -378,6 +466,7 @@ function getVideoThumbnailUrl(item) {
 }
 
 function getItemName(item) {
+  if (item.resource_type === 'youtube') return item.label
   // Extract just the filename without path and extension
   const parts = item.public_id.split('/')
   return parts[parts.length - 1]

@@ -17,6 +17,7 @@
       "id": "2023_usa",
       "label": "USA 2023",
       "tag": null,
+      "youtubeVideos": [{ "id": "LksW76mtTPI", "label": "USA Road Trip 2023" }],
       "subfolders": [
         { "id": "01_niagara", "label": "Niagara Falls", "tag": "01_niagara" },
         { "id": "02_chicago", "label": "Chicago", "tag": "02_chicago" },
@@ -39,7 +40,7 @@
     { "id": "2024_09_hitchhiking", "label": "Hitchhiking 2024", "tag": "2024_09_hitchhiking" },
     { "id": "2024_10_albany", "label": "Albany 2024", "tag": "2024_10_albany" },
     { "id": "2025_02_spain", "label": "Spain 2025", "tag": "2025_02_spain" },
-    { "id": "2025_06_07_iceland", "label": "Iceland 2025", "tag": "2025_06_07_iceland" },
+    { "id": "2025_06_07_iceland", "label": "Iceland 2025", "tag": "2025_06_07_iceland", "youtubeVideos": [{ "id": "tso4Fogackc", "label": "Iceland 2025" }] },
     { "id": "2025_07_italy", "label": "Italy 2025", "tag": "2025_07_italy" },
     { "id": "2025_10_ireland", "label": "Ireland 2025", "tag": "2025_10_ireland" },
     { "id": "2025_10_marocco", "label": "Morocco 2025", "tag": "2025_10_marocco" },
