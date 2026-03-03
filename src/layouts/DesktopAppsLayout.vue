@@ -138,7 +138,12 @@ const stopDrag = () => {
     snapped.col = Math.min(snapped.col, maxCol)
     snapped.row = Math.min(snapped.row, maxRow)
 
-    iconGridPos[dragEntityId.value] = snapped
+    // Prevent overlap: only move if no other icon occupies the target cell
+    const isOccupied = Object.entries(iconGridPos).some(([id, pos]) => id !== dragEntityId.value && pos.col === snapped.col && pos.row === snapped.row)
+
+    if (!isOccupied) {
+      iconGridPos[dragEntityId.value] = snapped
+    }
   }
 
   dragLivePos.value = null
