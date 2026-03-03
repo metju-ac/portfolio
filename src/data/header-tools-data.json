@@ -9,7 +9,8 @@
             "type": "button",
             "icon": "/img/icons/windows-header-tools/folder-opening-icon.webp",
             "alt": "common.folder",
-            "class": "rounded-sm border hover:border-gray-300 hover:shadow-header-tools flex items-center h-8 px-1 pr-1 md:px-0.5 mr-0.5 ml-0.5"
+            "class": "rounded-sm border hover:border-gray-300 hover:shadow-header-tools flex items-center h-8 px-1 pr-1 md:px-0.5 mr-0.5 ml-0.5",
+            "action": "goBack"
           }
         ]
       },
