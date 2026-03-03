@@ -5,7 +5,77 @@
     "spotify": ""
   },
   "tracks": {
-    "items": [],
-    "length": 0
+    "items": [
+      {
+        "id": "blegi_rikej_mi_tato_1",
+        "name": "Blegi, rikej mi tato 1",
+        "album": {
+          "name": "Lenka",
+          "images": [
+            {
+              "url": "/img/album-covers/lenka.webp"
+            }
+          ],
+          "external_urls": {
+            "spotify": "",
+            "deezer": ""
+          }
+        },
+        "artists": [
+          {
+            "name": "Matej Klima"
+          }
+        ],
+        "added_at": "2026-01-01T00:00:00Z",
+        "duration_ms": 96360
+      },
+      {
+        "id": "blegi_rikej_mi_tato_2",
+        "name": "Blegi, rikej mi tato 2",
+        "album": {
+          "name": "Lenka",
+          "images": [
+            {
+              "url": "/img/album-covers/lenka.webp"
+            }
+          ],
+          "external_urls": {
+            "spotify": "",
+            "deezer": ""
+          }
+        },
+        "artists": [
+          {
+            "name": "Matej Klima"
+          }
+        ],
+        "added_at": "2026-01-01T00:00:00Z",
+        "duration_ms": 93240
+      },
+      {
+        "id": "ja_sukam_blegiho_mamu",
+        "name": "Ja sukam Blegyho mamu",
+        "album": {
+          "name": "Lenka",
+          "images": [
+            {
+              "url": "/img/album-covers/lenka.webp"
+            }
+          ],
+          "external_urls": {
+            "spotify": "",
+            "deezer": ""
+          }
+        },
+        "artists": [
+          {
+            "name": "Matej Klima"
+          }
+        ],
+        "added_at": "2026-01-01T00:00:00Z",
+        "duration_ms": 248640
+      }
+    ],
+    "length": 3
   }
 }
