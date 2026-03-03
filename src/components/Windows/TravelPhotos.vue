@@ -97,7 +97,7 @@
               <video
                 v-if="currentItem && currentItem.resource_type === 'video'"
                 :key="currentItem.public_id"
-                :src="currentItem.secure_url"
+                :src="getFullUrl(currentItem)"
                 controls
                 class="w-full h-full object-contain bg-black"
               />
@@ -106,7 +106,7 @@
                 v-else-if="currentItem"
                 class="w-full h-full bg-contain bg-center bg-no-repeat"
                 :style="{
-                  backgroundImage: `url(${currentItem.secure_url})`,
+                  backgroundImage: `url(${getFullUrl(currentItem)})`,
                   transform: `rotate(${rotation}deg)`
                 }"
               />
@@ -358,6 +358,12 @@ function rotateLeft() {
 
 function rotateRight() {
   rotation.value += 90
+}
+
+// Build a full Cloudinary delivery URL from the resource object
+function getFullUrl(item) {
+  const type = item.resource_type === 'video' ? 'video' : 'image'
+  return `https://res.cloudinary.com/${CLOUD_NAME}/${type}/upload/${item.public_id}.${item.format}`
 }
 
 // Build a Cloudinary thumbnail URL with fixed size transformation
