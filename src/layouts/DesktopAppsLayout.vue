@@ -31,8 +31,8 @@ const GRID_OFFSET_Y = 20 // px from top edge to row-1 center
 // --- Static desktop image (non-interactive, spans 2x2 grid cells) ---
 const DESKTOP_IMAGE = {
   src: '/img/fuck-putin.webp',
-  col: 3,
-  row: 1,
+  col: 17,
+  row: 2,
   spanCols: 2,
   spanRows: 2
 }
