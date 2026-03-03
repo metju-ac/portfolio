@@ -273,6 +273,35 @@
     "iconSrc": "/img/icons/github-icon-lg.webp"
   },
   {
+    "id": "crazySaxophones",
+    "title": {
+      "en": "Crazy Saxophones",
+      "cs": "Crazy Saxophones"
+    },
+    "subtitle": {
+      "en": "Crazy Saxophones",
+      "cs": "Crazy Saxophones"
+    },
+    "imgSrc": "/img/icons/saxophone.webp",
+    "onDesktop": true,
+    "desktopGridPos": { "col": 5, "row": 5 },
+    "resizable": true,
+    "windowsHeaderLogo": false,
+    "isSearchVisible": false,
+    "headerPosition": "left",
+    "headerToolsId": "default",
+    "menuHeaderItemsId": "default",
+    "iconSrc": "/img/icons/saxophone.webp",
+    "initPositionX": 120,
+    "initPositionY": 80,
+    "initWidth": 800,
+    "initHeight": 500,
+    "minWidth": 320,
+    "minHeight": 220,
+    "component": "CrazySaxophones",
+    "leftMenuType": ""
+  },
+  {
     "id": "travelPhotos",
     "title": {
       "en": "Travel Photos",
