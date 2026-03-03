@@ -17,6 +17,7 @@
       @toggle-beerRecords="openWindow('beerRecords')"
       @toggle-rivers="openWindow('rivers')"
       @toggle-worldMap="openWindow('worldMap')"
+      @toggle-travelPhotos="openWindow('travelPhotos')"
     />
     <DesktopAppsLayout
       :entities="entities"
@@ -29,6 +30,7 @@
       @toggle-beerRecords="openWindow('beerRecords')"
       @toggle-rivers="openWindow('rivers')"
       @toggle-worldMap="openWindow('worldMap')"
+      @toggle-travelPhotos="openWindow('travelPhotos')"
     />
     <div v-for="window in windows" :key="window.id">
       <Window
@@ -81,6 +83,7 @@ import Notepad from '@/components/Windows/Notepad.vue'
 import Terminal from '@/components/Windows/Terminal.vue'
 import TextFileViewer from '@/components/Windows/TextFileViewer.vue'
 import WorldMap from '@/components/Windows/WorldMap.vue'
+import TravelPhotos from '@/components/Windows/TravelPhotos.vue'
 
 import DesktopAppsLayout from '@/layouts/DesktopAppsLayout.vue'
 import Window from '@/layouts/Window.vue'
@@ -127,7 +130,8 @@ const components = {
   Notepad: shallowRef(Notepad),
   Terminal: shallowRef(Terminal),
   TextFileViewer: shallowRef(TextFileViewer),
-  WorldMap: shallowRef(WorldMap)
+  WorldMap: shallowRef(WorldMap),
+  TravelPhotos: shallowRef(TravelPhotos)
 }
 
 // Create the entities array from the data.json

@@ -317,5 +317,32 @@
     "url": "https://github.com/metju-ac",
     "headerPosition": "left",
     "iconSrc": "/img/icons/github-icon-lg.webp"
+  },
+  {
+    "id": "travelPhotos",
+    "title": {
+      "en": "Travel Photos"
+    },
+    "subtitle": {
+      "en": "Browse photos from my travels"
+    },
+    "imgSrc": "/img/icons/pictures/folder-images-icon-lg.webp",
+    "onDesktop": true,
+    "desktopGridPos": { "col": 2, "row": 5 },
+    "resizable": true,
+    "windowsHeaderLogo": false,
+    "isSearchVisible": true,
+    "headerPosition": "right",
+    "headerToolsId": "pictures",
+    "menuHeaderItemsId": "images",
+    "iconSrc": "/img/icons/pictures/folder-images-icon-sm.webp",
+    "initPositionX": 60,
+    "initPositionY": 60,
+    "initWidth": 750,
+    "initHeight": 560,
+    "minWidth": 400,
+    "minHeight": 300,
+    "component": "TravelPhotos",
+    "leftMenuType": ""
   }
 ]

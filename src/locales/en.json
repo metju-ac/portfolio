@@ -107,6 +107,10 @@
       "rotateLeft": "Rotate left",
       "rotateRight": "Rotate right"
     },
+    "travelPhotos": {
+      "error": "Could not load media. Make sure the Cloudinary cloud name is configured and resource lists are set to public.",
+      "empty": "No photos found for this folder."
+    },
     "documents": {
       "about": {
         "title": "About",

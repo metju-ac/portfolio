@@ -1,0 +1,48 @@
+{
+  "folders": [
+    { "id": "2015_10_uk", "label": "UK 2015", "tag": "2015_10_uk" },
+    { "id": "2016_10_uk", "label": "UK 2016", "tag": "2016_10_uk" },
+    { "id": "2018_05_paris", "label": "Paris 2018", "tag": "2018_05_paris" },
+    { "id": "2019_02_israel", "label": "Israel 2019", "tag": "2019_02_israel" },
+    { "id": "2019_10_berlin", "label": "Berlin 2019", "tag": "2019_10_berlin" },
+    { "id": "2019_12_taiwan", "label": "Taiwan 2019", "tag": "2019_12_taiwan" },
+    { "id": "2020_02_lisbon", "label": "Lisbon 2020", "tag": "2020_02_lisbon" },
+    { "id": "2020_07_malta", "label": "Malta 2020", "tag": "2020_07_malta" },
+    { "id": "2022_03_lanzarote", "label": "Lanzarote 2022", "tag": "2022_03_lanzarote" },
+    { "id": "2022_07_berlin", "label": "Berlin 2022", "tag": "2022_07_berlin" },
+    { "id": "2022_10_dennmark", "label": "Denmark 2022", "tag": "2022_10_dennmark" },
+    { "id": "2023_03_madeira", "label": "Madeira 2023", "tag": "2023_03_madeira" },
+    { "id": "2023_09_amsterdam", "label": "Amsterdam 2023", "tag": "2023_09_amsterdam" },
+    {
+      "id": "2023_usa",
+      "label": "USA 2023",
+      "tag": null,
+      "subfolders": [
+        { "id": "01_niagara", "label": "Niagara Falls", "tag": "01_niagara" },
+        { "id": "02_chicago", "label": "Chicago", "tag": "02_chicago" },
+        { "id": "03_yellowstone", "label": "Yellowstone", "tag": "03_yellowstone" },
+        { "id": "04_san_francisco", "label": "San Francisco", "tag": "04_san_francisco" },
+        { "id": "05_yosemite", "label": "Yosemite", "tag": "05_yosemite" },
+        { "id": "06_sequoia", "label": "Sequoia", "tag": "06_sequoia" },
+        { "id": "07_la", "label": "Los Angeles", "tag": "07_la" },
+        { "id": "08_vegas", "label": "Las Vegas", "tag": "08_vegas" },
+        { "id": "09_bryce", "label": "Bryce Canyon", "tag": "09_bryce" },
+        { "id": "10_zion", "label": "Zion", "tag": "10_zion" },
+        { "id": "11_grandcanyon", "label": "Grand Canyon", "tag": "11_grandcanyon" },
+        { "id": "12_monument_messa", "label": "Monument Valley and Messa Verde", "tag": "12_monument_messa" },
+        { "id": "13_arches", "label": "Arches", "tag": "13_arches" }
+      ]
+    },
+    { "id": "2024_01_sicily", "label": "Sicily 2024", "tag": "2024_01_sicily" },
+    { "id": "2024_03_cyprus", "label": "Cyprus 2024", "tag": "2024_03_cyprus" },
+    { "id": "2024_07_austria", "label": "Austria 2024", "tag": "2024_07_austria" },
+    { "id": "2024_09_hitchhiking", "label": "Hitchhiking 2024", "tag": "2024_09_hitchhiking" },
+    { "id": "2024_10_albany", "label": "Albany 2024", "tag": "2024_10_albany" },
+    { "id": "2025_02_spain", "label": "Spain 2025", "tag": "2025_02_spain" },
+    { "id": "2025_06_07_iceland", "label": "Iceland 2025", "tag": "2025_06_07_iceland" },
+    { "id": "2025_07_italy", "label": "Italy 2025", "tag": "2025_07_italy" },
+    { "id": "2025_10_ireland", "label": "Ireland 2025", "tag": "2025_10_ireland" },
+    { "id": "2025_10_marocco", "label": "Morocco 2025", "tag": "2025_10_marocco" },
+    { "id": "2026_02_naples", "label": "Naples 2026", "tag": "2026_02_naples" }
+  ]
+}
