@@ -51,7 +51,6 @@
   "buttons": {
     "start": "start",
     "send": "Odeslat",
-    "downloadCV": "Stáhnout životopis",
     "linkWebSite": "Navštívit web",
     "linkRepository": "Navštívit repozitář"
   },
@@ -80,11 +79,6 @@
       "to": "Komu :",
       "from": "Od :",
       "subject": "Předmět :"
-    },
-    "cv": {
-      "altPicture": "prezentace životopisu",
-      "education": "Vzdělání",
-      "proExperience": "Profesní zkušenosti"
     },
     "music": {
       "title": "Název",

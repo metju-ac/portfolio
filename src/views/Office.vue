@@ -6,7 +6,6 @@
       :entities="entities"
       @toggle-header="toggleHeader"
       @toggle-myProjects="openWindow('myProjects')"
-      @toggle-myCV="openWindow('myCV')"
       @toggle-documents="openWindow('documents')"
       @toggle-pictures="openWindow('pictures')"
       @toggle-music="openWindow('music')"
@@ -21,7 +20,6 @@
     <DesktopAppsLayout
       :entities="entities"
       @toggle-MyProjects="openWindow('myProjects')"
-      @toggle-myCV="openWindow('myCV')"
       @toggle-music="openWindow('music')"
       @toggle-minesweeper="openWindow('minesweeper')"
       @toggle-notepad="openWindow('notepad')"
@@ -71,7 +69,6 @@ import Header from '@/components/Header/Header.vue'
 import Footer from '@/components/Footer/Footer.vue'
 
 import Minesweeper from '@/components/Windows/Minesweeper.vue'
-import MyCV from '@/components/Windows/MyCV/MyCV.vue'
 import Music from '@/components/Windows/Music/Music.vue'
 import MyProjects from '@/components/Windows/MyProjects.vue'
 import Documents from '@/components/Windows/Documents/Documents.vue'
@@ -118,7 +115,6 @@ const activeWindow = ref(null)
 // Create components from data json
 const components = {
   MyProjects: shallowRef(MyProjects),
-  MyCV: shallowRef(MyCV),
   Music: shallowRef(Music),
   Minesweeper: shallowRef(Minesweeper),
   Documents: shallowRef(Documents),

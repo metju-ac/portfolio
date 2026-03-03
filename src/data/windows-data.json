@@ -47,35 +47,6 @@
     "iconSrc": "/img/icons/contact/email-icon-sm.webp"
   },
   {
-    "id": "myCV",
-    "title": {
-      "en": "My CV",
-      "cs": "Můj životopis"
-    },
-    "subtitle": {
-      "en": "See the curriculum vitae",
-      "cs": "Zobrazit životopis"
-    },
-    "imgSrc": "/img/icons/cv/cv-icon-lg.webp",
-    "onDesktop": true,
-    "desktopGridPos": { "col": 1, "row": 3 },
-    "resizable": true,
-    "windowsHeaderLogo": true,
-    "isSearchVisible": true,
-    "headerPosition": "left",
-    "headerToolsId": "default",
-    "menuHeaderItemsId": "default",
-    "iconSrc": "/img/icons/cv/cv-icon-sm.webp",
-    "initPositionX": 240,
-    "initPositionY": 180,
-    "initWidth": 385,
-    "initHeight": 500,
-    "minWidth": 200,
-    "minHeight": 160,
-    "component": "MyCV",
-    "leftMenuType": ""
-  },
-  {
     "id": "music",
     "title": {
       "en": "My Musics",
@@ -83,7 +54,7 @@
     },
     "imgSrc": "/img/icons/music/playmusic-icon-lg.webp",
     "onDesktop": true,
-    "desktopGridPos": { "col": 1, "row": 4 },
+    "desktopGridPos": { "col": 1, "row": 3 },
     "resizable": true,
     "windowsHeaderLogo": true,
     "isSearchVisible": true,
@@ -156,7 +127,7 @@
     },
     "imgSrc": "/img/icons/minesweeper/minesweeper-icon-lg.webp",
     "onDesktop": true,
-    "desktopGridPos": { "col": 1, "row": 5 },
+    "desktopGridPos": { "col": 1, "row": 4 },
     "resizable": false,
     "windowsHeaderLogo": false,
     "isSearchVisible": true,
@@ -181,7 +152,7 @@
     },
     "imgSrc": "/img/icons/notepad/notepad-icon-lg.webp",
     "onDesktop": true,
-    "desktopGridPos": { "col": 1, "row": 6 },
+    "desktopGridPos": { "col": 1, "row": 5 },
     "resizable": true,
     "windowsHeaderLogo": false,
     "isSearchVisible": true,

@@ -1,7 +1,7 @@
 # Project Map: PortfolioXP
 
 > This document is a comprehensive reference for AI agents working on this codebase.
-> Last updated: 2026-03-03 (added TravelPhotos window with Cloudinary integration)
+> Last updated: 2026-03-03 (removed MyCV window; fixed YouTube player in USA travel folder; fixed image aspect ratio in TravelPhotos)
 
 ## 1. Project Overview
 
@@ -11,7 +11,7 @@
 **License:** MIT (dual copyright: Paul Jaguin 2024 original, Matej Klima 2026 fork)
 
 The application presents a faithful recreation of the Windows XP desktop environment, complete with
-draggable/resizable windows, a taskbar, start menu, and multiple "applications" (projects, CV,
+draggable/resizable windows, a taskbar, start menu, and multiple "applications" (projects,
 contact form, music player, Minesweeper, terminal, etc.).
 
 ## 2. Technology Stack
@@ -87,12 +87,11 @@ portfolio/
 │   │   └── connectionStore.js # Login state: restart -> loggedIn -> disconnected
 │   │
 │   ├── data/               # Static JSON data (drives the entire UI)
-│   │   ├── windows-data.json       # 13 windows + 1 external link (see Section 6)
+│   │   ├── windows-data.json       # 12 windows + 2 external links (see Section 6)
 │   │   ├── visited-countries-data.json  # Country IDs for World Map (ISO 2-letter codes)
 │   │   ├── text-files-data.json    # Content for TextFileViewer windows (beer_records, rivers)
 │   │   ├── projects-data.json      # 7 portfolio projects (2 categories)
 │   │   ├── playlist-data.json      # Music tracks metadata (currently empty)
-│   │   ├── cv-data.json            # Education (4) + work experience (6)
 │   │   ├── terminal-data.json      # Fake terminal command outputs
 │   │   ├── pictures-data.json      # 8 photo carousel entries
 │   │   ├── travel-photos-data.json # Folder/trip structure for TravelPhotos window
@@ -153,12 +152,6 @@ portfolio/
 │       │   │   ├── Music.vue        # Spotify-like music player
 │       │   │   └── Player.vue       # Audio player controls
 │       │   │
-│       │   ├── MyCV/
-│       │   │   ├── MyCV.vue         # Resume/CV display
-│       │   │   ├── ProfileHeader.vue    # CV profile header
-│       │   │   ├── EducationItem.vue    # Education entry
-│       │   │   └── WorkExperienceItem.vue # Work experience entry
-│       │   │
 │       │   └── MyProjects/          # Project detail sub-views
 │       │       ├── AidellaContent.vue
 │       │       ├── ClenchContent.vue
@@ -203,7 +196,6 @@ portfolio/
 │   │   │   ├── world-map-icon-sm.webp  # World Map window icon (16px globe)
 │   │   │   ├── side-menu/           # Left sidebar icons (github, linkedin, etc.)
 │   │   │   ├── contact/
-│   │   │   ├── cv/
 │   │   │   ├── documents/
 │   │   │   ├── langs/
 │   │   │   ├── minesweeper/
@@ -240,24 +232,23 @@ Vue Router uses **history mode** (requires SPA fallback on the server).
 the `windowsStore`. Each window gets the `Window.vue` layout wrapper (drag, resize, title bar)
 and renders the appropriate content component.
 
-### 12 Windows + 1 External Link
+### 12 Windows + 1 External Link + 1 External mailto Link
 
-| ID           | Component      | Type     | Description                                    |
-| ------------ | -------------- | -------- | ---------------------------------------------- |
-| myProjects   | MyProjects     | window   | Portfolio with 7 project detail sub-views      |
-| contact      | ContactMe      | window   | Email form via EmailJS                         |
-| myCV         | MyCV           | window   | Resume with education/experience, PDF download |
-| music        | Music          | window   | Spotify-like player (currently empty playlist) |
-| documents    | Documents      | window   | File browser (About, Legal pages)              |
-| pictures     | Pictures       | window   | Photo carousel (8 travel photos)               |
-| minesweeper  | Minesweeper    | window   | Full Minesweeper game                          |
-| notepad      | Notepad        | window   | Simple text editor                             |
-| terminal     | Terminal       | window   | Fake terminal with hardcoded responses         |
-| beerRecords  | TextFileViewer | window   | Read-only text file (beer_records.txt)         |
-| rivers       | TextFileViewer | window   | Read-only text file (rivers.txt)               |
-| worldMap     | WorldMap       | window   | Interactive SVG world map of visited countries |
-| travelPhotos | TravelPhotos   | window   | Cloudinary-backed travel photo/video browser   |
-| github       | --             | external | Opens https://github.com/metju-ac in new tab   |
+| ID           | Component      | Type          | Description                                    |
+| ------------ | -------------- | ------------- | ---------------------------------------------- |
+| myProjects   | MyProjects     | window        | Portfolio with 7 project detail sub-views      |
+| contact      | --             | external link | Opens mailto:matej.klima5@gmail.com            |
+| music        | Music          | window        | Spotify-like player (currently empty playlist) |
+| documents    | Documents      | window        | File browser (About, Legal pages)              |
+| pictures     | Pictures       | window        | Photo carousel (8 travel photos)               |
+| minesweeper  | Minesweeper    | window        | Full Minesweeper game                          |
+| notepad      | Notepad        | window        | Simple text editor                             |
+| terminal     | Terminal       | window        | Fake terminal with hardcoded responses         |
+| beerRecords  | TextFileViewer | window        | Read-only text file (beer_records.txt)         |
+| rivers       | TextFileViewer | window        | Read-only text file (rivers.txt)               |
+| worldMap     | WorldMap       | window        | Interactive SVG world map of visited countries |
+| travelPhotos | TravelPhotos   | window        | Cloudinary-backed travel photo/video browser   |
+| github       | --             | external link | Opens https://github.com/metju-ac in new tab   |
 
 ### External Links Pattern
 
@@ -374,7 +365,6 @@ Netlify, Vercel, etc.). SPA fallback for `/office` route is needed (e.g., copy i
 | Change styling/theme     | `tailwind.config.js`, `sass/`, component styles                                    |
 | Modify routes            | `src/router/index.js`                                                              |
 | Update translations      | `src/locales/en.json`                                                              |
-| Modify CV data           | `src/data/cv-data.json`                                                            |
 | Update music playlist    | `src/data/playlist-data.json`, add MP3/cover to public/ (see docs/ADDING_MUSIC.md) |
 | Modify terminal commands | `src/data/terminal-data.json`                                                      |
 | Change environment vars  | `.env.example`                                                                     |

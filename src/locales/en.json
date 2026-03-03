@@ -51,7 +51,6 @@
   "buttons": {
     "start": "start",
     "send": "Send",
-    "downloadCV": "Download the CV",
     "linkWebSite": "Visit the website",
     "linkRepository": "Visit the repository"
   },
@@ -80,11 +79,6 @@
       "to": "To :",
       "from": "From :",
       "subject": "Subject :"
-    },
-    "cv": {
-      "altPicture": "presentation CV",
-      "education": "Education",
-      "proExperience": "Professional experiences"
     },
     "music": {
       "title": "Title",
