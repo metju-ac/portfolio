@@ -6,8 +6,13 @@ export const useGoBackStore = defineStore('goBack', {
     let currentActiveProject = null
     return {
       currentActiveDocument: currentActiveDocument,
-      currentActiveProject: currentActiveProject
+      currentActiveProject: currentActiveProject,
+      travelPhotosGoBack: 0
     }
   },
-  actions: {}
+  actions: {
+    triggerTravelPhotosGoBack() {
+      this.travelPhotosGoBack++
+    }
+  }
 })

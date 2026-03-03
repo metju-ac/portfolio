@@ -15,6 +15,8 @@ const goBack = () => {
     goBackStore.currentActiveProject = null
   } else if (props.id === 'documents') {
     goBackStore.currentActiveDocument = null
+  } else if (props.id === 'travelPhotos') {
+    goBackStore.triggerTravelPhotosGoBack()
   }
 }
 
@@ -23,6 +25,8 @@ const isGoBackAvailable = computed(() => {
     return !!goBackStore.currentActiveProject
   } else if (props.id === 'documents') {
     return !!goBackStore.currentActiveDocument
+  } else if (props.id === 'travelPhotos') {
+    return true
   }
   return false
 })
@@ -58,7 +62,13 @@ const headerTools = computed(() => {
         </div>
 
         <!-- Display group items -->
-        <div v-for="(item, itemIndex) in tools.items" :key="itemIndex" :class="item.class">
+        <div
+          v-for="(item, itemIndex) in tools.items"
+          :key="itemIndex"
+          :class="item.class"
+          @click="item.action === 'goBack' ? goBack() : undefined"
+          :style="item.action === 'goBack' ? { cursor: 'pointer' } : {}"
+        >
           <img :src="item.icon" :alt="$t('common.icon') + ' ' + $t(item.alt)" :class="[item.iconClass ? item.iconClass : 'w-6 h-6 flex-shrink-0']" />
           <p v-if="item.text" class="hidden md:block small-p ml-1 mr-0.5">{{ $t(item.text) }}</p>
           <div v-if="item.hasArrow" class="block border-solid down-arrow ml-1"></div>

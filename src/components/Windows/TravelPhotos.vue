@@ -200,8 +200,10 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import travelPhotosData from '@/data/travel-photos-data.json'
+import { useGoBackStore } from '@/stores/goBackStore'
 
 const CLOUD_NAME = import.meta.env.VITE_APP_CLOUDINARY_CLOUD_NAME
+const goBackStore = useGoBackStore()
 
 const folders = travelPhotosData.folders
 
@@ -309,6 +311,14 @@ function goBack() {
     currentItem.value = null
   }
 }
+
+// Watch toolbar back/parent-folder button via goBackStore
+watch(
+  () => goBackStore.travelPhotosGoBack,
+  () => {
+    goBack()
+  }
+)
 
 function isActive(folder) {
   if (currentSubfolder.value) return currentSubfolder.value.id === folder.id
