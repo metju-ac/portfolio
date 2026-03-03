@@ -195,7 +195,6 @@ portfolio/
 │   ├── .htaccess
 │   ├── fonts/              # Windows XP-era TTF fonts (tahoma, trebuchet, verdana, etc.)
 │   ├── sounds/             # startup/shutdown MP3s
-│   ├── videos/             # Project video (montage-serveur.mp4)
 │   ├── pdf/                # Downloadable CV (English)
 │   ├── img/
 │   │   ├── icons/          # 100+ WebP/SVG icons organized by window type
