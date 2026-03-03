@@ -2,104 +2,32 @@
   "categories": [
     {
       "name": {
-        "en": "Websites"
+        "en": "Applications"
       },
       "projects": [
         {
-          "name": "Logma Production",
-          "icon": "projects/folder-logma-icon.webp",
+          "name": "Train me maybe",
+          "icon": "projects/folder-trainmemaybe-icon.webp",
           "title": {
-            "en": "Logma Production - Showcase website"
+            "en": "Train me maybe - RegioJet Watchdog"
           },
           "date": {
-            "en": "2023 - 2 months"
+            "en": "2024 - Current"
           },
-          "componentName": "LogmaContent",
+          "componentName": "TrainMeMaybeContent",
           "isFocus": false,
           "isActive": false
         },
         {
-          "name": "Pangaia",
-          "icon": "projects/folder-pangaia-icon.webp",
+          "name": "Remembeer",
+          "icon": "projects/folder-remembeer-icon.webp",
           "title": {
-            "en": "Pangaia - Web Application"
+            "en": "Remembeer - Drink Tracking App"
           },
           "date": {
-            "en": "2023 - Current"
+            "en": "2025 - Work in progress"
           },
-          "componentName": "PangaiaContent",
-          "isFocus": false,
-          "isActive": false
-        },
-        {
-          "name": "Clench",
-          "icon": "projects/folder-clench-icon.webp",
-          "title": {
-            "en": "Clench - Web Application"
-          },
-          "date": {
-            "en": "2024 - 1 weeks"
-          },
-          "componentName": "ClenchContent",
-          "isFocus": false,
-          "isActive": false
-        },
-        {
-          "name": "EMC2 (ScreenUp)",
-          "icon": "projects/folder-emc2-icon.webp",
-          "title": {
-            "en": "L'EMC2 - Wordpress website (ScreenUp)"
-          },
-          "date": {
-            "en": "2024 - 1 month"
-          },
-          "componentName": "Emc2Content",
-          "isFocus": false,
-          "isActive": false
-        },
-        {
-          "name": "Aidella",
-          "icon": "projects/folder-aidella-icon.webp",
-          "title": {
-            "en": "Les Terres d'Aidella - Blog website"
-          },
-          "date": {
-            "en": "2025 - 3 weeks"
-          },
-          "componentName": "AidellaContent",
-          "isFocus": false,
-          "isActive": false
-        },
-        {
-          "name": "Portfolio Fanny",
-          "icon": "projects/folder-fanny-icon.webp",
-          "title": {
-            "en": "Fanny Séraudie - Portfolio website"
-          },
-          "date": {
-            "en": "2025 - 2 weeks"
-          },
-          "componentName": "FannyContent",
-          "isFocus": false,
-          "isActive": false
-        }
-      ]
-    },
-    {
-      "name": {
-        "en": "Servers"
-      },
-      "projects": [
-        {
-          "name": "Homeserver",
-          "icon": "projects/homeserver-icon.webp",
-          "title": {
-            "en": "Application server & NAS"
-          },
-          "date": {
-            "en": "2023 - Current"
-          },
-          "componentName": "HomeserverContent",
+          "componentName": "RemembeerContent",
           "isFocus": false,
           "isActive": false
         }
