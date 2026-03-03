@@ -150,18 +150,18 @@
 
           <!-- Thumbnail strip (bottom ~25%) -->
           <div class="w-full h-3/12 bg-white">
-            <div class="flex w-full h-full bg-no-repeat bg-32 bg-bottom-right-picture-menu bg-window-picture px-2 pt-1.5 pb-5 gap-4 overflow-x-auto">
-              <div v-for="(item, index) in mediaItems" :key="item.public_id" class="w-full h-full flex flex-col items-center">
+            <div class="flex w-full h-full bg-no-repeat bg-32 bg-bottom-right-picture-menu bg-window-picture px-2 pt-1.5 pb-5 gap-4 overflow-x-auto items-start">
+              <div v-for="(item, index) in mediaItems" :key="item.public_id" class="h-full flex flex-col items-center flex-shrink-0">
                 <!-- Video thumbnail -->
                 <div
                   v-if="item.resource_type === 'video'"
                   @click="setCurrentItem(item, index)"
                   :class="[
-                    'w-full h-full min-w-20 bg-black flex items-center justify-center cursor-pointer relative',
+                    'h-full bg-black flex items-center justify-center cursor-pointer relative',
                     currentIndex === index ? 'border-3 border-focus-blue' : 'border border-gray-300'
                   ]"
                 >
-                  <img :src="getVideoThumbnailUrl(item)" :alt="item.public_id" class="w-full h-full object-cover" />
+                  <img :src="getVideoThumbnailUrl(item)" :alt="item.public_id" class="h-full w-auto object-contain" />
                   <div class="absolute inset-0 flex items-center justify-center">
                     <div class="w-4 h-4 bg-white bg-opacity-75 rounded-full flex items-center justify-center">
                       <div class="w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent border-l-6 border-l-gray-700 ml-0.5"></div>
@@ -173,12 +173,10 @@
                   v-else
                   ref="thumbnailElements"
                   @click="setCurrentItem(item, index)"
-                  :class="[
-                    'w-full h-full min-w-20 bg-no-repeat bg-contain bg-center cursor-pointer',
-                    currentIndex === index ? 'border-3 border-focus-blue' : 'border border-gray-300'
-                  ]"
-                  :style="{ backgroundImage: `url(${getThumbnailUrl(item)})` }"
-                />
+                  :class="['h-full cursor-pointer flex items-center justify-center', currentIndex === index ? 'border-3 border-focus-blue' : 'border border-gray-300']"
+                >
+                  <img :src="getThumbnailUrl(item)" :alt="item.public_id" class="h-full w-auto object-contain" />
+                </div>
                 <p
                   @click="setCurrentItem(item, index)"
                   :class="[
@@ -366,14 +364,13 @@ function getFullUrl(item) {
   return `https://res.cloudinary.com/${CLOUD_NAME}/${type}/upload/${item.public_id}.${item.format}`
 }
 
-// Build a Cloudinary thumbnail URL with fixed size transformation
+// Build a Cloudinary thumbnail URL with height-limited transformation (preserves aspect ratio)
 function getThumbnailUrl(item) {
-  // Insert w_80,h_80,c_fill transformation into the delivery URL
-  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/w_80,h_80,c_fill/${item.public_id}`
+  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/h_120,c_limit/${item.public_id}.${item.format}`
 }
 
 function getVideoThumbnailUrl(item) {
-  return `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/w_80,h_80,c_fill,so_2/${item.public_id}.jpg`
+  return `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/h_120,c_limit,so_2/${item.public_id}.jpg`
 }
 
 function getItemName(item) {
