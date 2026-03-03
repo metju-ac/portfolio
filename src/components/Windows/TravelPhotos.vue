@@ -358,19 +358,23 @@ function rotateRight() {
   rotation.value += 90
 }
 
-// Build a full Cloudinary delivery URL from the resource object
+// Build a full Cloudinary delivery URL with automatic quality and format optimization
 function getFullUrl(item) {
   const type = item.resource_type === 'video' ? 'video' : 'image'
-  return `https://res.cloudinary.com/${CLOUD_NAME}/${type}/upload/${item.public_id}.${item.format}`
+  // q_auto: automatic quality (visually lossless, ~40-60% bandwidth savings)
+  // f_auto: automatic format (WebP/AVIF for images, best codec for videos)
+  // w_1600,c_limit: cap image width at 1600px to avoid serving massive originals
+  const transforms = type === 'image' ? 'q_auto,f_auto,w_1600,c_limit' : 'q_auto'
+  return `https://res.cloudinary.com/${CLOUD_NAME}/${type}/upload/${transforms}/${item.public_id}.${item.format}`
 }
 
 // Build a Cloudinary thumbnail URL with height-limited transformation (preserves aspect ratio)
 function getThumbnailUrl(item) {
-  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/h_120,c_limit/${item.public_id}.${item.format}`
+  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/h_120,c_limit,q_auto,f_auto/${item.public_id}.${item.format}`
 }
 
 function getVideoThumbnailUrl(item) {
-  return `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/h_120,c_limit,so_2/${item.public_id}.jpg`
+  return `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/h_120,c_limit,q_auto,f_auto,so_2/${item.public_id}.jpg`
 }
 
 function getItemName(item) {
