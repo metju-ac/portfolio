@@ -1,6 +1,15 @@
 <template>
   <div class="text-xs md:text-header-window">
-    <h3 class="mt-2 mb-2">{{ $t('common.context') }}</h3>
+    <div class="flex w-full text-xxs md:text-xs items-center justify-center md:justify-start ml-px flex-wrap gap-4 md:min-w-80 md:ml-1">
+      <div class="flex flex-col items-center flex-wrap">
+        <img src="/img/icons/projects/tools/dart.svg" :alt="$t('common.icon') + ' Dart'" class="w-9 h-9" />
+      </div>
+      <div class="flex flex-col items-center flex-wrap">
+        <img src="/img/icons/projects/tools/flutter.svg" :alt="$t('common.icon') + ' Flutter'" class="w-9 h-9" />
+      </div>
+    </div>
+
+    <h3 class="mt-5 mb-2">{{ $t('common.context') }}</h3>
     <p>{{ $t('project.remembeer.contextFirstParagraph') }}</p>
     <br />
     <p>{{ $t('project.remembeer.contextSecondParagraph') }}</p>
