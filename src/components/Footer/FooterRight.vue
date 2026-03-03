@@ -12,7 +12,7 @@ const { locale } = useI18n()
 
 const localeNames = {
   en: 'EN',
-  fr: 'FR'
+  cs: 'CS'
 }
 
 // Initialize refs
