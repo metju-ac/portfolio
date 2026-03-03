@@ -61,7 +61,7 @@
       </div>
 
       <!-- View: subfolder grid with optional YouTube videos (folder with subfolders selected, no subfolder chosen) -->
-      <div v-else-if="currentFolder && currentFolder.subfolders && !currentSubfolder" class="w-full h-full overflow-y-auto">
+      <div v-else-if="currentFolder && currentFolder.subfolders && !currentSubfolder && !youtubeOnlyMode" class="w-full h-full overflow-y-auto">
         <!-- YouTube videos at the top, if any -->
         <div v-if="currentFolderYoutubeVideos.length" class="p-3 border-b border-gray-300">
           <p class="text-xxs text-gray-500 mb-2 font-trebuchet-pixel">{{ currentFolder.label }}</p>
@@ -112,10 +112,9 @@
         <template v-else>
           <!-- Main viewer (top ~75% of height) -->
           <div class="flex flex-col justify-center items-center w-full h-9/12 gap-1">
-            <div class="w-3/4 h-5/6 mt-1 border border-black overflow-hidden">
-              <!-- YouTube video -->
+            <!-- YouTube video: fixed 16:9 container -->
+            <div v-if="currentItem && currentItem.resource_type === 'youtube'" class="w-3/4 h-5/6 mt-1 border border-black overflow-hidden">
               <iframe
-                v-if="currentItem && currentItem.resource_type === 'youtube'"
                 :key="currentItem.youtube_id"
                 :src="`https://www.youtube.com/embed/${currentItem.youtube_id}`"
                 class="w-full h-full"
@@ -123,23 +122,14 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               />
-              <!-- Cloudinary Video -->
-              <video
-                v-else-if="currentItem && currentItem.resource_type === 'video'"
-                :key="currentItem.public_id"
-                :src="getFullUrl(currentItem)"
-                controls
-                class="w-full h-full object-contain bg-black"
-              />
-              <!-- Image -->
-              <div
-                v-else-if="currentItem"
-                class="w-full h-full bg-contain bg-center bg-no-repeat"
-                :style="{
-                  backgroundImage: `url(${getFullUrl(currentItem)})`,
-                  transform: `rotate(${rotation}deg)`
-                }"
-              />
+            </div>
+            <!-- Cloudinary Video: fixed container -->
+            <div v-else-if="currentItem && currentItem.resource_type === 'video'" class="w-3/4 h-5/6 mt-1 border border-black overflow-hidden">
+              <video :key="currentItem.public_id" :src="getFullUrl(currentItem)" controls class="w-full h-full object-contain bg-black" />
+            </div>
+            <!-- Image: border adapts to natural image proportions -->
+            <div v-else-if="currentItem" class="mt-1 border border-black overflow-hidden" style="max-width: 75%; max-height: 83.333%">
+              <img :src="getFullUrl(currentItem)" :alt="getItemName(currentItem)" class="block max-w-full max-h-full" :style="{ transform: `rotate(${rotation}deg)` }" />
             </div>
             <!-- Controls -->
             <div class="flex py-2">
