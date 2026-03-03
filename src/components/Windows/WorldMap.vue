@@ -4,10 +4,24 @@
       <h3>Countries I've Visited</h3>
       <span class="country-count">{{ visitedCountries.length }} countries</span>
     </div>
-    <div class="world-map-wrapper">
-      <SvgMap :map="World" :location-attributes="getLocationAttributes" @mouseover="handleMouseOver" @mouseout="handleMouseOut" />
+    <div class="world-map-wrapper" @wheel.prevent="onWheel" @mousedown="onMouseDown" @mousemove="onMouseMove" @mouseup="onMouseUp" @mouseleave="onMouseUp">
+      <div
+        class="world-map-inner"
+        :style="{
+          transform: `translate(${panX}px, ${panY}px) scale(${zoom})`,
+          cursor: isDragging ? 'grabbing' : 'grab'
+        }"
+      >
+        <SvgMap :map="World" :location-attributes="getLocationAttributes" @mouseover="handleMouseOver" @mouseout="handleMouseOut" />
+      </div>
       <div v-if="tooltipText" class="map-tooltip" :style="{ left: tooltipX + 'px', top: tooltipY + 'px' }">
         {{ tooltipText }}
+      </div>
+      <!-- Zoom controls -->
+      <div class="zoom-controls">
+        <button @click="zoomIn" class="zoom-btn" title="Zoom in">+</button>
+        <button @click="resetView" class="zoom-btn zoom-reset" title="Reset view">⌂</button>
+        <button @click="zoomOut" class="zoom-btn" title="Zoom out">−</button>
       </div>
     </div>
     <div class="map-legend">
@@ -30,6 +44,18 @@ const tooltipText = ref('')
 const tooltipX = ref(0)
 const tooltipY = ref(0)
 
+// Zoom & pan state
+const zoom = ref(1)
+const panX = ref(0)
+const panY = ref(0)
+const isDragging = ref(false)
+const dragStart = ref({ x: 0, y: 0 })
+const panStart = ref({ x: 0, y: 0 })
+
+const MIN_ZOOM = 1
+const MAX_ZOOM = 8
+const ZOOM_FACTOR = 1.2
+
 const getLocationAttributes = (location) => {
   const isVisited = visitedSet.has(location.id)
   return {
@@ -50,6 +76,71 @@ const handleMouseOver = (event) => {
 
 const handleMouseOut = () => {
   tooltipText.value = ''
+}
+
+const clampPan = (x, y, z) => {
+  // Allow panning proportional to how zoomed in we are
+  const maxPan = (z - 1) * 400
+  return {
+    x: Math.max(-maxPan, Math.min(maxPan, x)),
+    y: Math.max(-maxPan, Math.min(maxPan, y))
+  }
+}
+
+const onWheel = (e) => {
+  const delta = e.deltaY < 0 ? ZOOM_FACTOR : 1 / ZOOM_FACTOR
+  const newZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, zoom.value * delta))
+  zoom.value = newZoom
+  if (newZoom === MIN_ZOOM) {
+    panX.value = 0
+    panY.value = 0
+  } else {
+    const clamped = clampPan(panX.value, panY.value, newZoom)
+    panX.value = clamped.x
+    panY.value = clamped.y
+  }
+}
+
+const onMouseDown = (e) => {
+  isDragging.value = true
+  dragStart.value = { x: e.clientX, y: e.clientY }
+  panStart.value = { x: panX.value, y: panY.value }
+}
+
+const onMouseMove = (e) => {
+  if (!isDragging.value) return
+  const dx = e.clientX - dragStart.value.x
+  const dy = e.clientY - dragStart.value.y
+  const clamped = clampPan(panStart.value.x + dx, panStart.value.y + dy, zoom.value)
+  panX.value = clamped.x
+  panY.value = clamped.y
+}
+
+const onMouseUp = () => {
+  isDragging.value = false
+}
+
+const zoomIn = () => {
+  zoom.value = Math.min(MAX_ZOOM, zoom.value * ZOOM_FACTOR)
+}
+
+const zoomOut = () => {
+  const newZoom = Math.max(MIN_ZOOM, zoom.value / ZOOM_FACTOR)
+  zoom.value = newZoom
+  if (newZoom === MIN_ZOOM) {
+    panX.value = 0
+    panY.value = 0
+  } else {
+    const clamped = clampPan(panX.value, panY.value, newZoom)
+    panX.value = clamped.x
+    panY.value = clamped.y
+  }
+}
+
+const resetView = () => {
+  zoom.value = 1
+  panX.value = 0
+  panY.value = 0
 }
 </script>
 
@@ -94,6 +185,16 @@ const handleMouseOut = () => {
   justify-content: center;
 }
 
+.world-map-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  will-change: transform;
+}
+
 .world-map-wrapper :deep(.svg-map) {
   width: 100%;
   height: auto;
@@ -121,6 +222,41 @@ const handleMouseOut = () => {
   pointer-events: none;
   white-space: nowrap;
   z-index: 10;
+}
+
+.zoom-controls {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 10;
+}
+
+.zoom-btn {
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.zoom-btn:hover {
+  background: #e8f0fe;
+  border-color: #3a7bd5;
+}
+
+.zoom-reset {
+  font-size: 11px;
 }
 
 .map-legend {
