@@ -28,6 +28,30 @@ const CELL_SIZE = 100 // px per grid cell (width and height)
 const GRID_OFFSET_X = 20 // px from left edge to col-1 center
 const GRID_OFFSET_Y = 20 // px from top edge to row-1 center
 
+// --- Static desktop image (non-interactive, spans 2x2 grid cells) ---
+const DESKTOP_IMAGE = {
+  src: '/img/fuck-putin.webp',
+  col: 3,
+  row: 1,
+  spanCols: 2,
+  spanRows: 2
+}
+
+const desktopImageStyle = (() => {
+  const px = {
+    left: GRID_OFFSET_X + (DESKTOP_IMAGE.col - 1) * CELL_SIZE,
+    top: GRID_OFFSET_Y + (DESKTOP_IMAGE.row - 1) * CELL_SIZE
+  }
+  return {
+    position: 'absolute',
+    left: px.left + 'px',
+    top: px.top + 'px',
+    width: DESKTOP_IMAGE.spanCols * CELL_SIZE + 'px',
+    height: DESKTOP_IMAGE.spanRows * CELL_SIZE + 'px',
+    pointerEvents: 'none'
+  }
+})()
+
 const gridToPixel = (col, row) => ({
   left: GRID_OFFSET_X + (col - 1) * CELL_SIZE,
   top: GRID_OFFSET_Y + (row - 1) * CELL_SIZE
@@ -141,7 +165,14 @@ const stopDrag = () => {
     // Prevent overlap: only move if no other icon occupies the target cell
     const isOccupied = Object.entries(iconGridPos).some(([id, pos]) => id !== dragEntityId.value && pos.col === snapped.col && pos.row === snapped.row)
 
-    if (!isOccupied) {
+    // Also check if target cell overlaps with the static desktop image
+    const isOnImage =
+      snapped.col >= DESKTOP_IMAGE.col &&
+      snapped.col < DESKTOP_IMAGE.col + DESKTOP_IMAGE.spanCols &&
+      snapped.row >= DESKTOP_IMAGE.row &&
+      snapped.row < DESKTOP_IMAGE.row + DESKTOP_IMAGE.spanRows
+
+    if (!isOccupied && !isOnImage) {
       iconGridPos[dragEntityId.value] = snapped
     }
   }
@@ -208,6 +239,7 @@ onBeforeUnmount(() => {
 
 <template>
   <section class="absolute top-0 left-0 w-full h-full">
+    <img :src="DESKTOP_IMAGE.src" alt="" :style="desktopImageStyle" draggable="false" class="object-contain" />
     <button
       v-for="entity in desktopEntities"
       :key="entity.id"
