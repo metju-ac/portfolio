@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio - Playlist",
+  "name": "My great music",
   "images": [],
   "external_urls": {
     "spotify": ""
@@ -8,7 +8,7 @@
     "items": [
       {
         "id": "blegi_rikej_mi_tato_1",
-        "name": "Blegi, rikej mi tato 1",
+        "name": "Blegi, říkej mi táto 1",
         "album": {
           "name": "Lenka",
           "images": [
@@ -26,12 +26,12 @@
             "name": "Matej Klima"
           }
         ],
-        "added_at": "2026-01-01T00:00:00Z",
+        "added_at": "2026-02-21T00:00:00Z",
         "duration_ms": 96360
       },
       {
         "id": "blegi_rikej_mi_tato_2",
-        "name": "Blegi, rikej mi tato 2",
+        "name": "Blegi, říkej mi táto 2",
         "album": {
           "name": "Lenka",
           "images": [
@@ -49,12 +49,12 @@
             "name": "Matej Klima"
           }
         ],
-        "added_at": "2026-01-01T00:00:00Z",
+        "added_at": "2026-02-21T00:00:00Z",
         "duration_ms": 93240
       },
       {
         "id": "ja_sukam_blegiho_mamu",
-        "name": "Ja sukam Blegyho mamu",
+        "name": "Já šukám Blegiho mámu",
         "album": {
           "name": "Lenka",
           "images": [
@@ -72,7 +72,7 @@
             "name": "Matej Klima"
           }
         ],
-        "added_at": "2026-01-01T00:00:00Z",
+        "added_at": "2026-02-20T00:00:00Z",
         "duration_ms": 248640
       }
     ],
