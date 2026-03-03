@@ -92,7 +92,7 @@
       </div>
 
       <!-- View: media viewer -->
-      <template v-else-if="activeTag || (currentFolder && !currentFolder.subfolders && currentFolderYoutubeVideos.length)">
+      <template v-else-if="youtubeOnlyMode || activeTag || (currentFolder && !currentFolder.subfolders && currentFolderYoutubeVideos.length)">
         <!-- Loading state -->
         <div v-if="loading" class="flex items-center justify-center w-full h-full">
           <p class="text-xxs font-trebuchet-pixel text-gray-500">{{ $t('common.loading') }}</p>
@@ -259,6 +259,7 @@ const folders = travelPhotosData.folders
 const currentFolder = ref(null) // the top-level folder object (or null = root)
 const currentSubfolder = ref(null) // subfolder object for 2023_usa (or null)
 const expandedFolder = ref(null) // id of expanded folder in the left tree
+const youtubeOnlyMode = ref(false) // true when viewing a YouTube video from a subfolder-parent folder
 
 // Media state
 const mediaItems = ref([])
@@ -357,6 +358,7 @@ function openYoutube(yt) {
   mediaItems.value = [ytItem]
   currentItem.value = ytItem
   currentIndex.value = 0
+  youtubeOnlyMode.value = true
 }
 
 function selectFolder(folder) {
@@ -376,16 +378,22 @@ function selectFolder(folder) {
     currentSubfolder.value = null
     expandedFolder.value = null
   }
+  youtubeOnlyMode.value = false
   rotation.value = 0
 }
 
 function selectSubfolder(sub) {
   currentSubfolder.value = sub
+  youtubeOnlyMode.value = false
   rotation.value = 0
 }
 
 function goBack() {
-  if (currentSubfolder.value) {
+  if (youtubeOnlyMode.value) {
+    youtubeOnlyMode.value = false
+    mediaItems.value = []
+    currentItem.value = null
+  } else if (currentSubfolder.value) {
     currentSubfolder.value = null
     mediaItems.value = []
     currentItem.value = null
