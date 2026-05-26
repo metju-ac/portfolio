@@ -21,6 +21,21 @@ const props = defineProps({
 
 const fileContent = computed(() => {
   const file = textFilesData[props.textFileId]
-  return file ? file.content : 'File not found.'
+
+  if (!file) {
+    return 'File not found.'
+  }
+
+  if (Array.isArray(file.orderedList)) {
+    const digitCount = String(file.orderedList.length).length
+    const heading = file.heading ? `=== ${file.heading} ===\n\n` : ''
+    const list = file.orderedList
+      .map((item, index) => `${String(index + 1).padStart(digitCount, ' ')}. ${item}`)
+      .join('\n')
+
+    return `${heading}${list}\n`
+  }
+
+  return file.content
 })
 </script>

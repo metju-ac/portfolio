@@ -39,7 +39,7 @@ Check existing external link entries in `windows-data.json` for the pattern.
 
 Text files use a shared `TextFileViewer.vue` component. To add a new `.txt` file to the desktop:
 
-1. **`src/data/text-files-data.json`** — add a new key with `title` and `content` fields
+1. **`src/data/text-files-data.json`** — add a new key with `title` and either `content` or `heading` + `orderedList` fields
 2. **`src/data/windows-data.json`** — add a window entry with `"component": "TextFileViewer"` and `"textFileId": "<key>"` matching the key from step 1
 3. **`src/views/Office.vue`** — add `@toggle-{id}="openWindow('{id}')"` on both `<Header>` and `<DesktopAppsLayout>`
 

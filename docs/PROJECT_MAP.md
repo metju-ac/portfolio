@@ -267,7 +267,7 @@ that references a key in `src/data/text-files-data.json`.
 
 To add a new text file:
 
-1. Add an entry to `text-files-data.json` with a key, title, and content
+1. Add an entry to `text-files-data.json` with a key, title, and either `content` or `heading` + `orderedList`
 2. Add a window entry to `windows-data.json` with `"component": "TextFileViewer"` and `"textFileId": "<key>"`
 3. Add toggle event bindings in `Office.vue` on `<Header>` and `<DesktopAppsLayout>`
 
