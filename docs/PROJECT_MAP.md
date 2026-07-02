@@ -54,6 +54,7 @@ portfolio/
 ├── vite.config.js          # Vite config (Vue, JSX, DevTools, i18n plugins)
 ├── tailwind.config.js      # Tailwind theme (XP colors, fonts, cursors, gradients)
 ├── postcss.config.js       # PostCSS (tailwindcss + autoprefixer)
+├── .github/workflows/      # GitHub Actions automation, including Pages deployment
 ├── .eslintrc.cjs           # ESLint config
 ├── .prettierrc.json        # Prettier config
 ├── .env.example            # Environment variable template
@@ -351,6 +352,10 @@ All use Vite's `import.meta.env` (build-time injection via `VITE_*` prefix):
 Docker/Jenkins/Nginx deployment has been removed. The project is now a pure static SPA build.
 Run `npm run build` to produce `dist/` which can be deployed to any static hosting (GitHub Pages,
 Netlify, Vercel, etc.). SPA fallback for `/office` route is needed (e.g., copy index.html to 404.html).
+
+GitHub Pages deployment is automated by `.github/workflows/deploy.yml`. On every push to `master`,
+GitHub Actions installs dependencies with `npm ci` and runs `npm run deploy`, which builds the app
+via the `predeploy` script and publishes `dist/` to the `gh-pages` branch.
 
 ## 12. Key Files for Common Changes
 
