@@ -1,0 +1,63 @@
+.github/workflows/deploy.yml
+  s_2eddf495521a58::t_7c6ed3f8112066 22-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "bdee0bc6a62f6bd06a44a71d6abdd2b4bb4d7b04",
+  "prompts": {},
+  "sessions": {
+    "s_2eddf495521a58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dc3a4ca6-629c-4c9d-8e8c-6153e4476c60",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Matej Klima <matej.klima5@gmail.com>"
+    }
+  }
+}
+
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "20f4bf1a14b7b71debed547dfa157128262c08dc",
+  "prompts": {}
+}
+
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "d67b54360004531878874283d6d5b1d2fb95a266",
+  "prompts": {}
+}
+
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "d4de52b9ea2d60e39c73ad15f1bda2e8fb7aa12a",
+  "prompts": {}
+}
+
+.github/workflows/deploy.yml
+  s_2eddf495521a58::t_ad333874e80fc2 33-35,37-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "24bd9c613c57761b985cb1ad4e2957f750476f06",
+  "prompts": {},
+  "sessions": {
+    "s_2eddf495521a58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dc3a4ca6-629c-4c9d-8e8c-6153e4476c60",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Matej Klima <matej.klima5@gmail.com>"
+    }
+  }
+}

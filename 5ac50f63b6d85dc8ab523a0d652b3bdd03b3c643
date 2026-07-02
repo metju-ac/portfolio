@@ -1,0 +1,19 @@
+.github/workflows/deploy.yml
+  s_2eddf495521a58::t_ad333874e80fc2 33-35,37-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "5ac50f63b6d85dc8ab523a0d652b3bdd03b3c643",
+  "prompts": {},
+  "sessions": {
+    "s_2eddf495521a58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dc3a4ca6-629c-4c9d-8e8c-6153e4476c60",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Matej Klima <matej.klima5@gmail.com>"
+    }
+  }
+}
