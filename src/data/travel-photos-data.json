@@ -44,6 +44,7 @@
     { "id": "2025_07_italy", "label": "Italy 2025", "tag": "2025_07_italy" },
     { "id": "2025_10_ireland", "label": "Ireland 2025", "tag": "2025_10_ireland" },
     { "id": "2025_10_marocco", "label": "Morocco 2025", "tag": "2025_10_marocco" },
-    { "id": "2026_02_naples", "label": "Naples 2026", "tag": "2026_02_naples" }
+    { "id": "2026_02_naples", "label": "Naples 2026", "tag": "2026_02_naples" },
+    { "id": "2026_06_norway", "label": "Norway 2026", "tag": "2026_06_norway" }
   ]
 }
